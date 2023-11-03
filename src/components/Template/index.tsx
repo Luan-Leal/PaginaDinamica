@@ -1,10 +1,12 @@
 import * as React from 'react';
-import "../../global/index.css"
+import PageGenerator from '../PageGenerator'
 
 const Template = () => {
-    return (
-        <div>Template</div>
-    )
+   return (
+      <div>
+         <PageGenerator />
+      </div>
+   )
 }
 
 export default Template
