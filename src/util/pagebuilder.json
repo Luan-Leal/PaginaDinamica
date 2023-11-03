@@ -1,0 +1,34 @@
+{
+   "id": "1",
+   "context": "home-page",
+   "page": [
+      {
+         "pageTitle": "Home Page",
+         "pageFields": [
+            {
+               "typeField": "banner",
+               "title": "Título do Banner",
+               "text": "Texto descritivo ou chamada para ação"
+            },
+            {
+               "typeField": "title",
+               "text": "teste",
+               "color": "red",
+               "fontSize": "1.5rem"
+            },
+            {
+               "typeField": "text",
+               "text": "isso é um texto",
+               "color": "blue",
+               "fontSize": "1rem"
+            },
+            {
+               "typeField": "text",
+               "text": "texto 2",
+               "color": "green",
+               "fontSize": "0.75rem"
+            }
+         ]
+      }
+   ]
+}
