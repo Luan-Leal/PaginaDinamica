@@ -1,40 +1,45 @@
-// CustomText.tsx
 import * as React from 'react'
 import * as S from './style'
+import type { TextTag } from './tags'
 
 interface TextProps {
-   index: number
    text: string
-   as: 'p' | 'h1'
+   as?: TextTag
    color?: string
    fontSize?: string
+   fontFamily?: string
+   fontWeight?: React.CSSProperties['fontWeight']
+   lineHeight?: string
+   marginBottom?: React.CSSProperties['marginBottom']
 }
 
-const CustomText: React.FC<TextProps> = (
-   { index, text, as, color, fontSize },
-) => {
-   const style: React.CSSProperties = {}
-
-   if (fontSize) {
-      style.fontSize = fontSize
+const CustomText: React.FC<TextProps> = ({
+   text,
+   as = 'p',
+   color,
+   fontSize,
+   fontFamily,
+   fontWeight,
+   lineHeight,
+   marginBottom,
+}) => {
+   // Valores vindos do JSON entram por style inline: o React aplica cada
+   // propriedade separadamente, então um valor malformado não consegue
+   // injetar outras declarações CSS. Propriedades undefined são ignoradas.
+   const style: React.CSSProperties = {
+      color,
+      fontSize,
+      fontFamily,
+      fontWeight,
+      lineHeight,
+      marginBottom,
    }
 
-   switch (as) {
-      case 'p':
-         return (
-            <S.TextComponent key={index} color={color} style={style}>
-               {text}
-            </S.TextComponent>
-         )
-      case 'h1':
-         return (
-            <S.TitleComponent key={index} color={color} style={style}>
-               {text}
-            </S.TitleComponent>
-         )
-      default:
-         return null
-   }
+   return (
+      <S.Text as={as} style={style}>
+         {text}
+      </S.Text>
+   )
 }
 
 export default CustomText

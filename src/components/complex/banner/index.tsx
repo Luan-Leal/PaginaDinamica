@@ -1,14 +1,24 @@
-import * as React from 'react'
 import * as S from './style'
 import { BannerProps } from './types'
 
-const Banner = ({ index, title, text }: BannerProps) => {
+const Banner = ({ title, text, id, textComponent, buttons }: BannerProps) => {
    return (
-      <S.BannerContainer>
-         <S.Text key={index}>
-            <h1>{title ? title : 'Título do Banner'}</h1>
-            <p>{text ? text : 'Texto descritivo ou chamada para ação'}</p>
-         </S.Text>
+      <S.BannerContainer className="template" id={id}>
+         <div className="page-spacing">
+            <S.BannerContent>
+               <S.TextContent>
+                  {textComponent ?? (
+                     <>
+                        {title && <h1>{title}</h1>}
+                        {text && <p>{text}</p>}
+                     </>
+                  )}
+               </S.TextContent>
+               <S.ButtonContainer>
+                  {buttons && <S.Buttons>{buttons}</S.Buttons>}
+               </S.ButtonContainer>
+            </S.BannerContent>
+         </div>
       </S.BannerContainer>
    )
 }
