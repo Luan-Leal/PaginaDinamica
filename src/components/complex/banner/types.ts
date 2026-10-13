@@ -1,5 +1,9 @@
+import type { ReactNode } from 'react'
+
 export type BannerProps = {
-   index?: any
-   title: string
-   text: string
+   id?: string
+   title?: string
+   text?: string
+   textComponent?: ReactNode
+   buttons?: ReactNode
 }

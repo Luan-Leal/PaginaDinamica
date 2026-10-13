@@ -1,74 +1,223 @@
 import * as React from 'react'
 import axios from 'axios'
+import MockJson from '../../util/pagebuilder.json'
+import Button from '../micros/Button'
 import CustomText from '../micros/Text'
+import {
+   HEADING_TAGS,
+   BODY_TAGS,
+   resolveTag,
+   type HeadingTag,
+   type BodyTag,
+} from '../micros/Text/tags'
 import Banner from '../complex/banner'
+import Header, { HeaderProps } from '../complex/header'
 
-interface PageField {
-   typeField: string
-   title: string
+/* ------------------------------------------------------------------ */
+/* Tipos                                                               */
+/* ------------------------------------------------------------------ */
+
+// `tag` é opcional: sem ela, title usa h1 e text usa p.
+interface TitleField {
+   typeField: 'title'
+   tag?: HeadingTag
    text: string
    color?: string
    fontSize?: string
+   fontFamily?: string
+   fontWeight?: React.CSSProperties['fontWeight']
+   lineHeight?: string
+   marginBottom?: string
 }
 
-const PageGenerator: React.FC = () => {
-   const json = 'https://api.npoint.io/b7675d776e615c22c94f'
-   const [renderedFields, setRenderedFields] = React.useState<
-      React.ReactNode[]
-   >([])
+interface TextField {
+   typeField: 'text'
+   tag?: BodyTag
+   text: string
+   color?: string
+   fontSize?: string
+   fontFamily?: string
+   fontWeight?: React.CSSProperties['fontWeight']
+   lineHeight?: string
+   marginBottom?: string
+}
+
+interface BannerField {
+   typeField: 'banner'
+   id?: string
+   title?: string
+   text?: string
+   TextComponent?: (TitleField | TextField)[]
+   Button?: ButtonField[]
+}
+
+interface ButtonField {
+   typeField: 'button'
+   label: string
+   link: string
+   target?: boolean
+   as?: 'button' | 'a'
+   variant?: 'primary' | 'outline'
+}
+
+type PageField = TitleField | TextField | BannerField | ButtonField
+
+// Elementos fixos do site (aparecem em todas as páginas).
+// Para criar um footer: adicionar `footer?: FooterProps` aqui.
+interface GlobalData {
+   header?: HeaderProps
+}
+
+interface PageData {
+   id: string
+   context: string
+   global?: GlobalData[]
+   page: {
+      pageTitle: string
+      pageFields: PageField[]
+   }[]
+}
+
+/* ------------------------------------------------------------------ */
+/* Registro de componentes do conteúdo da página (pageFields)          */
+/* Serve para itens que se repetem e têm ordem definida pelo JSON.     */
+/* ------------------------------------------------------------------ */
+
+type FieldRenderers = {
+   [K in PageField['typeField']]: (
+      field: Extract<PageField, { typeField: K }>,
+      index: number,
+   ) => React.ReactNode
+}
+
+const fieldRegistry: FieldRenderers = {
+   title: (field, index) => (
+      <CustomText
+         key={index}
+         as={resolveTag(field.tag, HEADING_TAGS, 'h1')}
+         text={field.text}
+         color={field.color}
+         fontSize={field.fontSize}
+         fontFamily={field.fontFamily}
+         fontWeight={field.fontWeight}
+         lineHeight={field.lineHeight}
+         marginBottom={field.marginBottom}
+      />
+   ),
+   text: (field, index) => (
+      <CustomText
+         key={index}
+         as={resolveTag(field.tag, BODY_TAGS, 'p')}
+         text={field.text}
+         color={field.color}
+         fontSize={field.fontSize}
+         fontFamily={field.fontFamily}
+         fontWeight={field.fontWeight}
+         lineHeight={field.lineHeight}
+         marginBottom={field.marginBottom}
+      />
+   ),
+   button: (field, index) => {
+      const commonProps = {
+         key: index,
+         label: field.label,
+         variant: field.variant,
+      }
+
+      return field.as === 'button' ? (
+         <Button {...commonProps} as="button" />
+      ) : (
+         <Button
+            {...commonProps}
+            as="a"
+            link={field.link}
+            target={field.target}
+         />
+      )
+   },
+   banner: (field, index) => {
+      const textComponent = field.TextComponent?.length
+         ? field.TextComponent.map(renderField)
+         : undefined
+      const buttons = field.Button?.length
+         ? field.Button.map(renderField)
+         : undefined
+
+      return (
+         <Banner
+            key={index}
+            id={field.id}
+            title={field.title}
+            text={field.text}
+            textComponent={textComponent}
+            buttons={buttons}
+         />
+      )
+   },
+}
+
+function renderField(field: PageField, index: number): React.ReactNode {
+   const render = fieldRegistry[field.typeField] as
+      | ((field: PageField, index: number) => React.ReactNode)
+      | undefined
+
+   return render ? render(field, index) : null
+}
+
+/* ------------------------------------------------------------------ */
+/* Componente                                                          */
+/* ------------------------------------------------------------------ */
+
+interface PageGeneratorProps {
+   url?: string
+}
+
+const PageGenerator: React.FC<PageGeneratorProps> = ({ url }) => {
+   const [pageData, setPageData] = React.useState<PageData | null>(
+      url ? null : (MockJson as PageData),
+   )
+   const [loading, setLoading] = React.useState(Boolean(url))
 
    React.useEffect(() => {
+      if (!url) {
+         setPageData(MockJson as PageData)
+         setLoading(false)
+         return
+      }
+
+      let cancelled = false
+      setLoading(true)
+
       axios
-         .get(json)
-         .then((response) => {
-            const data = response.data
-            const pageFields: PageField[] = data.page[0].pageFields
-
-            const rendered = pageFields.map((field, index) => {
-               switch (field.typeField) {
-                  case 'title':
-                     return (
-                        <CustomText
-                           key={index}
-                           index={index}
-                           as="h1"
-                           text={field.text}
-                           color={field.color}
-                           fontSize={field.fontSize}
-                        />
-                     )
-                  case 'text':
-                     return (
-                        <CustomText
-                           key={index}
-                           index={index}
-                           as="p"
-                           text={field.text}
-                           color={field.color}
-                           fontSize={field.fontSize}
-                        />
-                     )
-                  case 'banner':
-                     return (
-                        <Banner
-                           key={index}
-                           title={field.title}
-                           text={field.text}
-                        />
-                     )
-                  default:
-                     return null
-               }
-            })
-
-            setRenderedFields(rendered)
+         .get<PageData>(url)
+         .then(({ data }) => {
+            if (!cancelled) setPageData(data)
          })
          .catch((error) => {
-            console.error('Ocorreu um erro na solicitação: ' + error)
+            console.error('Erro ao buscar o JSON da página:', error)
+            // Fallback: usa o JSON local (mantenha-o igual ao formato novo)
+            if (!cancelled) setPageData(MockJson as PageData)
          })
-   }, [])
+         .finally(() => {
+            if (!cancelled) setLoading(false)
+         })
 
-   return <div>{renderedFields}</div>
+      return () => {
+         cancelled = true
+      }
+   }, [url])
+
+   if (loading || !pageData) return <p>Carregando página...</p>
+
+   const header = pageData.global?.[0]?.header
+   const fields = pageData.page[0].pageFields
+
+   return (
+      <>
+         {header && <Header {...header} />}
+         <main>{fields.map(renderField)}</main>
+      </>
+   )
 }
 
 export default PageGenerator

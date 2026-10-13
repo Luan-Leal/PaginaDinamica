@@ -1,20 +1,107 @@
 {
    "id": "1",
    "context": "home-page",
+   "global": [
+      {
+         "header": {
+            "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "menu": [
+               {
+                  "label": "Início",
+                  "link": "#"
+               },
+               {
+                  "label": "Sobre",
+                  "link": "#sobre"
+               },
+               {
+                  "label": "Pratos",
+                  "link": "#pratos"
+               },
+               {
+                  "label": "Espaço",
+                  "link": "#espaço"
+               },
+               {
+                  "label": "Eventos",
+                  "link": "#eventos"
+               },
+               {
+                  "label": "Contato",
+                  "link": "#contato"
+               }
+            ],
+            "button": {
+               "hasButton": true,
+               "label": "Faça sua Reserva",
+               "link": "https://www.instagram.com",
+               "target": true
+            }
+         }
+      }
+   ],
    "page": [
       {
          "pageTitle": "Home Page",
          "pageFields": [
             {
                "typeField": "banner",
-               "title": "Título do Banner",
-               "text": "Texto descritivo ou chamada para ação"
+               "id": "section1",
+               "TextComponent": [
+                  {
+                     "typeField": "title",
+                     "tag": "h2",
+                     "color": "#B9A681",
+                     "text": "Comida que abraça",
+                     "fontSize": "32px",
+                     "fontFamily": "'Caveat', cursive",
+                     "marginBottom": "4px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h1",
+                     "color": "#F5F0E5",
+                     "text": "Natureza que acalma.",
+                     "fontSize": "58px",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "lineHeight": "3rem",
+                     "marginBottom": "24px"
+                  },
+                  {
+                     "typeField": "text",
+                     "tag": "p",
+                     "color": "#F5F0E5",
+                     "text": "Comida caseira feita com carinho, em um lugar onde o tempo passa devagar e os bons momentos ficam para sempre.",
+                     "fontSize": "1rem",
+                     "fontFamily": "'Inter', Arial, sans-serif",
+                     "lineHeight": "1.5rem"
+                  }
+               ],
+               "Button": [
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "primary",
+                     "label": "Faça sua Reserva",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  },
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "outline",
+                     "label": "Conhecer espaço",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  }
+               ]
             },
             {
                "typeField": "title",
                "text": "teste",
                "color": "red",
-               "fontSize": "1.5rem"
+               "fontSize": "1.5rem",
+               "fontFamily": "Lora"
             },
             {
                "typeField": "text",
@@ -23,10 +110,39 @@
                "fontSize": "1rem"
             },
             {
+               "typeField": "title",
+               "tag": "h2",
+               "color": "orange",
+               "text": "Nossos pratos"
+            },
+            {
+               "typeField": "title",
+               "tag": "h2",
+               "color": "#000",
+               "text": "Comida que abraça",
+               "fontSize": "1.5rem",
+               "fontFamily": "'Caveat', cursive"
+            },
+            {
                "typeField": "text",
-               "text": "texto 2",
-               "color": "green",
-               "fontSize": "0.75rem"
+               "tag": "small",
+               "text": "Aberto de terça a domingo"
+            },
+            {
+               "typeField": "button",
+               "as": "a",
+               "variant": "outline",
+               "label": "Faça sua Reserva",
+               "link": "https://www.instagram.com",
+               "target": true
+            },
+            {
+               "typeField": "button",
+               "as": "button",
+               "variant": "primary",
+               "label": "Conhecer espaço",
+               "link": "https://www.instagram.com",
+               "target": true
             }
          ]
       }
