@@ -11,6 +11,9 @@ import {
    type BodyTag,
 } from '../micros/Text/tags'
 import Banner from '../complex/banner'
+import CardMenu from '../complex/cardMenu'
+import Carousel from '../complex/carousel'
+import type { CarouselItem } from '../complex/carousel/types'
 import Header, { HeaderProps } from '../complex/header'
 
 /* ------------------------------------------------------------------ */
@@ -60,7 +63,30 @@ interface ButtonField {
    variant?: 'primary' | 'outline'
 }
 
-type PageField = TitleField | TextField | BannerField | ButtonField
+interface CardMenuField {
+   typeField: 'cardMenu'
+   title: string
+   text: string
+   image: string
+}
+
+interface CarouselField {
+   typeField: 'carousel'
+   id?: string
+   dots?: boolean
+   infinite?: boolean
+   TextComponent?: (TitleField | TextField)[]
+   Button?: ButtonField[]
+   CarouselItems: CarouselItem[]
+}
+
+type PageField =
+   | TitleField
+   | TextField
+   | BannerField
+   | ButtonField
+   | CardMenuField
+   | CarouselField
 
 // Elementos fixos do site (aparecem em todas as páginas).
 // Para criar um footer: adicionar `footer?: FooterProps` aqui.
@@ -151,6 +177,36 @@ const fieldRegistry: FieldRenderers = {
             text={field.text}
             textComponent={textComponent}
             buttons={buttons}
+         />
+      )
+   },
+   cardMenu: (field, index) => {
+      return (
+         <CardMenu
+            key={index}
+            title={field.title}
+            text={field.text}
+            image={field.image}
+         />
+      )
+   },
+   carousel: (field, index) => {
+      const textComponent = field.TextComponent?.length
+         ? field.TextComponent.map(renderField)
+         : undefined
+      const buttons = field.Button?.length
+         ? field.Button.map(renderField)
+         : undefined
+
+      return (
+         <Carousel
+            key={index}
+            id={field.id}
+            dots={field.dots}
+            infinite={field.infinite}
+            textComponent={textComponent}
+            buttons={buttons}
+            items={field.CarouselItems}
          />
       )
    },
