@@ -16,14 +16,15 @@ interface HeaderButton {
 
 export interface HeaderProps {
    logo: string
+   fixed?: boolean
    menu: MenuItem[]
    button?: HeaderButton
 }
 
-const Header: React.FC<HeaderProps> = ({ logo, menu, button }) => {
+const Header: React.FC<HeaderProps> = ({ logo, fixed = false, menu, button }) => {
    console.log('Header props:', { logo, menu, button })
    return (
-      <S.Header className="template">
+      <S.Header className="template" $fixed={fixed}>
          <S.Content className="page-spacing">
             <div className="logo">
                <img src={logo} alt="Logo" draggable="false" />

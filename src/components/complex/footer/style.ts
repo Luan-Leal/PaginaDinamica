@@ -37,12 +37,13 @@ export const Column = styled.div`
 export const ColumnTitle = styled.h2<{
    $color?: string
    $fontFamily?: string
+   $fontSize?: string
 }>`
    margin-bottom: 24px;
    color: ${({ $color }) => $color ?? 'var(--color-cream-light)'};
    font-family: ${({ $fontFamily }) =>
       $fontFamily ?? 'var(--font-heading)'};
-   font-size: 1.125rem;
+   font-size: ${({ $fontSize }) => $fontSize ?? '1.125rem'};
 `
 
 export const Logo = styled.img`

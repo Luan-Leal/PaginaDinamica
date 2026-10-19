@@ -96,6 +96,7 @@ const FooterColumnContent: React.FC<{ column: FooterColumn }> = ({
             <S.ColumnTitle
                $color={column.fontColor}
                $fontFamily={fontFamily}
+               $fontSize={column.fontSize}
             >
                {column.title}
             </S.ColumnTitle>
@@ -157,6 +158,11 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
    const footerColumns = columns?.length ? columns : [{}]
    const columnCount = footerColumns.length
+   const currentYear = new Date().getFullYear()
+   const copyrightText = copyright?.replace(
+      /\{\{year\}\}/g,
+      String(currentYear),
+   )
 
    return (
       <S.FooterSection $backgroundColor={backgroundColor}>
@@ -169,7 +175,7 @@ const Footer: React.FC<FooterProps> = ({
                   />
                ))}
             </S.Columns>
-            {copyright && <S.Copyright>{copyright}</S.Copyright>}
+            {copyrightText && <S.Copyright>{copyrightText}</S.Copyright>}
          </S.FooterContainer>
       </S.FooterSection>
    )

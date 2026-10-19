@@ -35,6 +35,7 @@ export interface FooterColumn {
    fontColor?: string
    fontFamily?: string
    fontFamly?: string
+   fontSize?: string
 }
 
 export interface FooterProps {

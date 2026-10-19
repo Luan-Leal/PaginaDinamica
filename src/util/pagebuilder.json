@@ -5,6 +5,7 @@
       {
          "header": {
             "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "fixed": false,
             "menu": [
                {
                   "label": "Início",
@@ -40,8 +41,7 @@
          },
          "footer": {
             "backgroundColor": "#34452D",
-            "copyright": "© 2026 Restaurante Luancas. Todos os direitos reservados.",
-            "copyrightAutoDate": true,
+            "copyright": "© {{year}} Restaurante Luancas. Todos os direitos reservados.",
             "columns": [
                {
                   "title": false,
@@ -62,6 +62,7 @@
                   "title": "Links Rápidos",
                   "fontColor": "#F5F0E5",
                   "fontFamly": "Lora",
+                  "fontSize": "24px",
                   "options": [
                      {
                         "label": "Início",
@@ -93,6 +94,7 @@
                   "title": "Informações",
                   "fontColor": "#F5F0E5",
                   "fontFamly": "Lora",
+                  "fontSize": "24px",
                   "options": [
                      {
                         "TextComponent": [
@@ -119,7 +121,7 @@
                               "color": "#F5F0E5",
                               "text": "10h às 18h",
                               "fontSize": "1rem",
-                              "fontFamily": "'Inter', Arial, sans-serif",
+                              "fontFamily": "'Lora', Georgia, serif",
                               "marginBottom": "16px"
                            }
                         ]
@@ -148,7 +150,7 @@
                               "color": "#F5F0E5",
                               "text": "na divisa de Três Rios e Chiador",
                               "fontSize": "1rem",
-                              "fontFamily": "'Inter', Arial, sans-serif",
+                              "fontFamily": "'Lora', Georgia, serif",
                               "marginBottom": "16px"
                            }
                         ]
@@ -239,7 +241,7 @@
                "typeField": "carousel",
                "id": "pratos",
                "backgroundColor": "#FBF8F1",
-               "dots": true,
+               "dots": false,
                "infinite": true,
                "marquee": true,
                "marqueeSpeed": 40,
@@ -387,66 +389,6 @@
                      "description": "Descrição do Espaço 4"
                   }
                ]
-            },
-            {
-               "typeField": "title",
-               "text": "teste",
-               "color": "red",
-               "fontSize": "1.5rem",
-               "fontFamily": "Lora"
-            },
-            {
-               "typeField": "text",
-               "text": "isso é um texto",
-               "color": "blue",
-               "fontSize": "1rem"
-            },
-            {
-               "typeField": "title",
-               "tag": "h2",
-               "color": "orange",
-               "text": "Nossos pratos"
-            },
-            {
-               "typeField": "title",
-               "tag": "h2",
-               "color": "#000",
-               "text": "Comida que abraça",
-               "fontSize": "1.5rem",
-               "fontFamily": "'Caveat', cursive"
-            },
-            {
-               "typeField": "text",
-               "tag": "small",
-               "text": "Aberto de terça a domingo"
-            },
-            {
-               "typeField": "cardMenu",
-               "title": "Card Menu",
-               "text": "Card Menu Example",
-               "image": "https://i.postimg.cc/Vv5zd7xN/prato-1.webp"
-            },
-            {
-               "typeField": "cardMenu",
-               "title": "Card Menu",
-               "text": "Card Menu Example",
-               "image": "https://i.postimg.cc/KcsZd2T7/prato-10.webp"
-            },
-            {
-               "typeField": "button",
-               "as": "a",
-               "variant": "outline",
-               "label": "Faça sua Reserva",
-               "link": "https://www.instagram.com",
-               "target": true
-            },
-            {
-               "typeField": "button",
-               "as": "button",
-               "variant": "primary",
-               "label": "Conhecer espaço",
-               "link": "https://www.instagram.com",
-               "target": true
             }
          ]
       }
