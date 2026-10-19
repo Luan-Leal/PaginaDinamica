@@ -3,6 +3,8 @@ import axios from 'axios'
 import MockJson from '../../util/pagebuilder.json'
 import Button from '../micros/Button'
 import CustomText from '../micros/Text'
+import ImageComponent from '../micros/ImageComponent'
+import CardAboutUs from '../micros/CardAboutUs'
 import {
    HEADING_TAGS,
    BODY_TAGS,
@@ -14,6 +16,11 @@ import Banner from '../complex/banner'
 import CardMenu from '../complex/cardMenu'
 import Carousel from '../complex/carousel'
 import type { CarouselItem } from '../complex/carousel/types'
+import CustomGrid from '../complex/CustomGrid'
+import type {
+   GridCell,
+   GridDirection,
+} from '../complex/CustomGrid/types'
 import Footer from '../complex/footer'
 import type { FooterProps } from '../complex/footer/types'
 import Header, { HeaderProps } from '../complex/header'
@@ -50,6 +57,7 @@ interface TextField {
 interface BannerField {
    typeField: 'banner'
    id?: string
+   bannerImage?: string
    title?: string
    text?: string
    TextComponent?: (TitleField | TextField)[]
@@ -72,6 +80,25 @@ interface CardMenuField {
    image: string
 }
 
+interface ImageField {
+   typeField: 'ImageComponente'
+   src: string
+   alt: string
+   width?: React.CSSProperties['width']
+   height?: React.CSSProperties['height']
+   objectFit?: React.CSSProperties['objectFit']
+   objectPosition?: React.CSSProperties['objectPosition']
+   borderRadius?: React.CSSProperties['borderRadius']
+   loading?: 'eager' | 'lazy'
+   decoding?: 'async' | 'auto' | 'sync'
+}
+
+interface CardAboutUsField {
+   typeField: 'CardAboutUs'
+   icon: string
+   TextComponent: (TitleField | TextField)[]
+}
+
 interface CarouselField {
    typeField: 'carousel'
    id?: string
@@ -85,13 +112,30 @@ interface CarouselField {
    CarouselItems: CarouselItem[]
 }
 
+interface GridField {
+   typeField: 'grid'
+   id?: string
+   columns?: GridCell[]
+   direction?: GridDirection
+   position?: React.CSSProperties['alignItems']
+   gap?: React.CSSProperties['gap']
+   rowGap?: React.CSSProperties['rowGap']
+   columnGap?: React.CSSProperties['columnGap']
+   backgroundColor?: string
+   backgroundImage?: string
+   padding?: React.CSSProperties['padding']
+}
+
 type PageField =
    | TitleField
    | TextField
    | BannerField
    | ButtonField
    | CardMenuField
+   | ImageField
+   | CardAboutUsField
    | CarouselField
+   | GridField
 
 // Elementos fixos do site (aparecem em todas as páginas).
 // Para criar um footer: adicionar `footer?: FooterProps` aqui.
@@ -179,6 +223,7 @@ const fieldRegistry: FieldRenderers = {
          <Banner
             key={index}
             id={field.id}
+            bannerImage={field.bannerImage}
             title={field.title}
             text={field.text}
             textComponent={textComponent}
@@ -196,6 +241,43 @@ const fieldRegistry: FieldRenderers = {
          />
       )
    },
+   ImageComponente: (field, index) => (
+      <ImageComponent
+         key={index}
+         src={field.src}
+         alt={field.alt}
+         width={field.width}
+         height={field.height}
+         objectFit={field.objectFit}
+         objectPosition={field.objectPosition}
+         borderRadius={field.borderRadius}
+         loading={field.loading}
+         decoding={field.decoding}
+      />
+   ),
+   CardAboutUs: (field, index) => (
+      <CardAboutUs
+         key={index}
+         icon={field.icon}
+         textComponent={field.TextComponent.map(renderField)}
+      />
+   ),
+   grid: (field, index) => (
+      <CustomGrid
+         key={index}
+         id={field.id}
+         columns={field.columns}
+         direction={field.direction}
+         position={field.position}
+         gap={field.gap}
+         rowGap={field.rowGap}
+         columnGap={field.columnGap}
+         backgroundColor={field.backgroundColor}
+         backgroundImage={field.backgroundImage}
+         padding={field.padding}
+         renderCell={renderGridCell}
+      />
+   ),
    carousel: (field, index) => {
       const textComponent = field.TextComponent?.length
          ? field.TextComponent.map(renderField)
@@ -227,6 +309,37 @@ function renderField(field: PageField, index: number): React.ReactNode {
       | undefined
 
    return render ? render(field, index) : null
+}
+
+function renderGridCell(cell: GridCell, index: number): React.ReactNode {
+   if (cell.typeField) {
+      return renderField(cell as PageField, index)
+   }
+
+   return (
+      <>
+         {cell.TextComponent?.map((textField, textIndex) =>
+            renderField(textField as PageField, textIndex),
+         )}
+         {cell.components?.map((component, componentIndex) =>
+            renderGridCell(component, componentIndex),
+         )}
+         {cell.columns && (
+            <CustomGrid
+               columns={cell.columns}
+               direction={cell.direction}
+               position={cell.position}
+               gap={cell.gap}
+               rowGap={cell.rowGap}
+               columnGap={cell.columnGap}
+               backgroundColor={cell.backgroundColor}
+               backgroundImage={cell.backgroundImage}
+               padding={cell.padding}
+               renderCell={renderGridCell}
+            />
+         )}
+      </>
+   )
 }
 
 /* ------------------------------------------------------------------ */

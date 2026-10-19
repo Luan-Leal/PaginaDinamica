@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-export const BannerContainer = styled.section`
+export const BannerContainer = styled.section<{ $bannerImage?: string }>`
    justify-content: flex-end !important;
    min-height: 800px;
-   background-image: url(https://placehold.co/1920x1080/000000/4B3524);
+   background-image: ${({ $bannerImage }) =>
+      $bannerImage ? `url("${$bannerImage}")` : 'none'};
    background-size: cover;
    background-position: center center;
    position: relative;

@@ -188,6 +188,7 @@
             {
                "typeField": "banner",
                "id": "sobre",
+               "bannerImage": "https://placehold.co/1920x1080/000000/4B3524",
                "TextComponent": [
                   {
                      "typeField": "title",
@@ -387,6 +388,204 @@
                      "image": "https://i.postimg.cc/cJBKYLHS/espaco-4.webp",
                      "title": "Espaço 4",
                      "description": "Descrição do Espaço 4"
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "backgroundColor": "#FBF8F1",
+               "columns": [
+                  {
+                     "typeField": "ImageComponente",
+                     "src": "https://placehold.co/720x720/000000/4B3524",
+                     "alt": "Descrição da imagem",
+                     "objectFit": "cover",
+                     "objectPosition": "center",
+                     "borderRadius": "16px"
+                  },
+                  {
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "color": "#B9A681",
+                           "text": "Sobre nós",
+                           "fontSize": "24px",
+                           "fontFamily": "'Caveat', cursive",
+                           "marginBottom": "8px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "color": "#28251F",
+                           "text": "Tradição, família e natureza",
+                           "fontSize": "48px",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#263321",
+                           "text": "Somos uma família que acredita que o melhor da vida está nas coias simples: uma boa comida feita em casa, o contato com a natureza e o tempo de qualidade ao lado de quem amamos",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#263321",
+                           "text": "Aqui, cada detalhe é pensado para que você se sinta em casa",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "grid",
+                     "direction": "column",
+                     "columns": [
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Comida Caseira",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Ingrediantes frescos e receitas tradicionais feitas com carinho.",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        },
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Contato com a Natureza",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Muito verde, ar puro e uma vista linda para o rio.",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        },
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Ambiente Familiar",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Espaço acolhedor para reunir quem você ama e criar boas memórias",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        },
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Lazer e Descanso",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Piscina, áreas de descanso e muito sossego pra relaxar",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "eventos",
+               "backgroundImage": "https://placehold.co/1080x80/000000/4B3524",
+               "columns": [
+                  {
+                     "position": "flex-start",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "color": "#B9A681",
+                           "text": "Planeje seu dia especial",
+                           "fontSize": "24px",
+                           "fontFamily": "'Caveat', cursive",
+                           "marginBottom": "8px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "color": "#F5F0E5",
+                           "text": "Eventos, celebrações e momentos inesquecíveis",
+                           "fontSize": "48px",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#F5F0E5",
+                           "text": "Aniversários, encontros de família, confraternizações e muito mais.",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif"
+                        }
+                     ]
+                  },
+                  {
+                     "position": "center",
+                     "typeField": "button",
+                     "as": "button",
+                     "variant": "primary",
+                     "label": "Fale conosco",
+                     "link": "https://wa.me/5524981805377",
+                     "target": true
                   }
                ]
             }

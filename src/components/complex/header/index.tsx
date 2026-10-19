@@ -1,6 +1,5 @@
 import React from 'react'
 import * as S from './style'
-import Button from '../../micros/Button'
 
 interface MenuItem {
    label: string
@@ -15,14 +14,18 @@ interface HeaderButton {
 }
 
 export interface HeaderProps {
-   logo: string
+   logo?: string
    fixed?: boolean
    menu: MenuItem[]
    button?: HeaderButton
 }
 
-const Header: React.FC<HeaderProps> = ({ logo, fixed = false, menu, button }) => {
-   console.log('Header props:', { logo, menu, button })
+const Header: React.FC<HeaderProps> = ({
+   logo,
+   fixed = false,
+   menu,
+   button,
+}) => {
    return (
       <S.Header className="template" $fixed={fixed}>
          <S.Content className="page-spacing">
@@ -39,13 +42,17 @@ const Header: React.FC<HeaderProps> = ({ logo, fixed = false, menu, button }) =>
                   ))}
                </ul>
 
-            {button?.hasButton && (
-               <a className="button" href={button.link} target={button.target ? '_blank' : '_self'} rel="noopener noreferrer">
-                  {button.label}
-               </a>
-            )}
+               {button?.hasButton && (
+                  <a
+                     className="button"
+                     href={button.link}
+                     target={button.target ? '_blank' : '_self'}
+                     rel="noopener noreferrer"
+                  >
+                     {button.label}
+                  </a>
+               )}
             </S.Nav>
-
          </S.Content>
       </S.Header>
    )
