@@ -8,8 +8,11 @@ export interface CarouselItem {
 
 export interface CarouselProps {
    id?: string
+   backgroundColor?: string
    dots?: boolean
    infinite?: boolean
+   marquee?: boolean
+   marqueeSpeed?: number
    textComponent?: ReactNode
    buttons?: ReactNode
    items: CarouselItem[]

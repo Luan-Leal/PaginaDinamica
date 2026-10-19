@@ -73,8 +73,11 @@ interface CardMenuField {
 interface CarouselField {
    typeField: 'carousel'
    id?: string
+   backgroundColor?: string
    dots?: boolean
    infinite?: boolean
+   marquee?: boolean
+   marqueeSpeed?: number
    TextComponent?: (TitleField | TextField)[]
    Button?: ButtonField[]
    CarouselItems: CarouselItem[]
@@ -202,8 +205,11 @@ const fieldRegistry: FieldRenderers = {
          <Carousel
             key={index}
             id={field.id}
+            backgroundColor={field.backgroundColor}
             dots={field.dots}
             infinite={field.infinite}
+            marquee={field.marquee}
+            marqueeSpeed={field.marqueeSpeed}
             textComponent={textComponent}
             buttons={buttons}
             items={field.CarouselItems}

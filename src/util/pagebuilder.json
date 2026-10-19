@@ -37,6 +37,132 @@
                "link": "https://www.instagram.com",
                "target": true
             }
+         },
+         "footer": {
+            "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "columns": [
+               {
+                  "title": "Links Rápidos",
+                  "options": [
+                     {
+                        "label": "Início",
+                        "link": "#"
+                     },
+                     {
+                        "label": "Sobre",
+                        "link": "#sobre"
+                     },
+                     {
+                        "label": "Pratos",
+                        "link": "#pratos"
+                     },
+                     {
+                        "label": "Espaço",
+                        "link": "#espaço"
+                     },
+                     {
+                        "label": "Eventos",
+                        "link": "#eventos"
+                     },
+                     {
+                        "label": "Contato",
+                        "link": "#contato"
+                     }
+                  ]
+               },
+               {
+                  "title": "Informações",
+                  "options": [
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h2",
+                              "color": "#B9A681",
+                              "text": "Funcionamento",
+                              "fontSize": "32px",
+                              "fontFamily": "'Caveat', cursive",
+                              "marginBottom": "4px"
+                           },
+                           {
+                              "typeField": "title",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "Sábado e Domingo",
+                              "fontSize": "58px",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "lineHeight": "3rem",
+                              "marginBottom": "24px"
+                           },
+                           {
+                              "typeField": "text",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "10h às 18h",
+                              "fontSize": "1rem",
+                              "fontFamily": "'Inter', Arial, sans-serif",
+                              "lineHeight": "1.5rem"
+                           }
+                        ]
+                     },
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h2",
+                              "color": "#B9A681",
+                              "text": "Endereço",
+                              "fontSize": "32px",
+                              "fontFamily": "'Caveat', cursive",
+                              "marginBottom": "4px"
+                           },
+                           {
+                              "typeField": "title",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "Estrada Santa Fé",
+                              "fontSize": "58px",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "lineHeight": "3rem",
+                              "marginBottom": "24px"
+                           },
+                           {
+                              "typeField": "text",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "na divisa de Três Rios e Chiador",
+                              "fontSize": "1rem",
+                              "fontFamily": "'Inter', Arial, sans-serif",
+                              "lineHeight": "1.5rem"
+                           }
+                        ]
+                     },
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h2",
+                              "color": "#B9A681",
+                              "text": "Telefone / WhatsApp",
+                              "fontSize": "32px",
+                              "fontFamily": "'Caveat', cursive",
+                              "marginBottom": "4px"
+                           },
+                           {
+                              "typeField": "title",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "(24) 98180-5377",
+                              "fontSize": "58px",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "lineHeight": "3rem",
+                              "marginBottom": "24px"
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
          }
       }
    ],
@@ -46,7 +172,7 @@
          "pageFields": [
             {
                "typeField": "banner",
-               "id": "section1",
+               "id": "sobre",
                "TextComponent": [
                   {
                      "typeField": "title",
@@ -98,9 +224,12 @@
             },
             {
                "typeField": "carousel",
-               "id": "section2",
+               "id": "pratos",
+               "backgroundColor": "#FBF8F1",
                "dots": true,
                "infinite": true,
+               "marquee": true,
+               "marqueeSpeed": 40,
                "TextComponent": [
                   {
                      "typeField": "title",
@@ -182,6 +311,67 @@
                      "image": "https://i.postimg.cc/KcsZd2T7/prato-10.webp",
                      "title": "Prato 10",
                      "description": "Descrição do prato 10"
+                  }
+               ]
+            },
+            {
+               "typeField": "carousel",
+               "id": "espaço",
+               "backgroundColor": "#E2E4D2",
+               "dots": false,
+               "infinite": true,
+               "marquee": false,
+               "TextComponent": [
+                  {
+                     "typeField": "title",
+                     "tag": "h3",
+                     "color": "#B9A681",
+                     "text": "Um lugar pra viver bons momentos",
+                     "fontSize": "32px",
+                     "fontFamily": "'Caveat', cursive",
+                     "marginBottom": "4px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h2",
+                     "color": "#28251F",
+                     "text": "Nosso espaço",
+                     "fontSize": "58px",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "lineHeight": "3rem",
+                     "marginBottom": "24px"
+                  }
+               ],
+               "Button": [
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "primary",
+                     "label": "Ver cardápio completo",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  }
+               ],
+               "CarouselItems": [
+                  {
+                     "image": "https://i.postimg.cc/CKsZDx1V/espaco-1.webp",
+                     "title": "Espaço 1",
+                     "description": "Descrição do Espaço 1"
+                  },
+                  {
+                     "image": "https://i.postimg.cc/KYDKL8zb/espaco-2.webp",
+                     "title": "Espaço 2",
+                     "description": "Descrição do Espaço 2"
+                  },
+                  {
+                     "image": "https://i.postimg.cc/bv9GbwJc/espaco-3.webp",
+                     "title": "Espaço 3",
+                     "description": "Descrição do Espaço 3"
+                  },
+                  {
+                     "image": "https://i.postimg.cc/cJBKYLHS/espaco-4.webp",
+                     "title": "Espaço 4",
+                     "description": "Descrição do Espaço 4"
                   }
                ]
             },

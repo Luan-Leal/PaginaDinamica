@@ -3,4 +3,5 @@ export type CardMenuProps = {
    text?: string
    image: string
    className?: string
+   'aria-hidden'?: boolean
 }

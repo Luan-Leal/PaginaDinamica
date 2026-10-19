@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-export const CarouselSection = styled.section`
+export const CarouselSection = styled.section<{ $backgroundColor?: string }>`
    width: 100%;
    padding: 64px;
-   background-color: var(--color-cream-light);
+   background-color: ${({ $backgroundColor }) =>
+      $backgroundColor ?? 'var(--color-cream-light)'};
    color: var(--color-text);
 
    @media (max-width: 768px) {
@@ -53,12 +54,13 @@ export const Viewport = styled.div`
    overflow: hidden;
 `
 
-export const Track = styled.div`
+export const Track = styled.div<{ $marquee: boolean }>`
    display: flex;
    gap: 16px;
    overflow-x: auto;
-   scroll-behavior: smooth;
-   scroll-snap-type: x mandatory;
+   scroll-behavior: ${({ $marquee }) => ($marquee ? 'auto' : 'smooth')};
+   scroll-snap-type: ${({ $marquee }) =>
+      $marquee ? 'none' : 'x mandatory'};
    scrollbar-width: none;
 
    &::-webkit-scrollbar {
@@ -68,7 +70,8 @@ export const Track = styled.div`
    > div {
       flex: 0 0 calc((100% - 48px) / 4);
       width: calc((100% - 48px) / 4);
-      scroll-snap-align: start;
+      scroll-snap-align: ${({ $marquee }) =>
+         $marquee ? 'none' : 'start'};
    }
 
    @media (max-width: 1024px) {
