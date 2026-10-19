@@ -39,10 +39,29 @@
             }
          },
          "footer": {
-            "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "backgroundColor": "#34452D",
+            "copyright": "© 2026 Restaurante Luancas. Todos os direitos reservados.",
+            "copyrightAutoDate": true,
             "columns": [
                {
+                  "title": false,
+                  "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+                  "description": "Comida que abraça, natureza que acalma e momentos que ficam para sempre.",
+                  "socialMedia": [
+                     {
+                        "icon": "Instagram",
+                        "link": "https://www.instagram.com/restaurante_luancas/"
+                     },
+                     {
+                        "icon": "Whatsapp",
+                        "link": "https://wa.me/5524981805377"
+                     }
+                  ]
+               },
+               {
                   "title": "Links Rápidos",
+                  "fontColor": "#F5F0E5",
+                  "fontFamly": "Lora",
                   "options": [
                      {
                         "label": "Início",
@@ -72,6 +91,8 @@
                },
                {
                   "title": "Informações",
+                  "fontColor": "#F5F0E5",
+                  "fontFamly": "Lora",
                   "options": [
                      {
                         "TextComponent": [
@@ -80,19 +101,17 @@
                               "tag": "h2",
                               "color": "#B9A681",
                               "text": "Funcionamento",
-                              "fontSize": "32px",
+                              "fontSize": "24px",
                               "fontFamily": "'Caveat', cursive",
-                              "marginBottom": "4px"
+                              "marginBottom": "8px"
                            },
                            {
                               "typeField": "title",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "Sábado e Domingo",
-                              "fontSize": "58px",
-                              "fontFamily": "'Lora', Georgia, serif",
-                              "lineHeight": "3rem",
-                              "marginBottom": "24px"
+                              "fontSize": "16px",
+                              "fontFamily": "'Lora', Georgia, serif"
                            },
                            {
                               "typeField": "text",
@@ -101,7 +120,7 @@
                               "text": "10h às 18h",
                               "fontSize": "1rem",
                               "fontFamily": "'Inter', Arial, sans-serif",
-                              "lineHeight": "1.5rem"
+                              "marginBottom": "16px"
                            }
                         ]
                      },
@@ -112,19 +131,16 @@
                               "tag": "h2",
                               "color": "#B9A681",
                               "text": "Endereço",
-                              "fontSize": "32px",
-                              "fontFamily": "'Caveat', cursive",
-                              "marginBottom": "4px"
+                              "fontSize": "24px",
+                              "fontFamily": "'Caveat', cursive"
                            },
                            {
                               "typeField": "title",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "Estrada Santa Fé",
-                              "fontSize": "58px",
-                              "fontFamily": "'Lora', Georgia, serif",
-                              "lineHeight": "3rem",
-                              "marginBottom": "24px"
+                              "fontSize": "16px",
+                              "fontFamily": "'Lora', Georgia, serif"
                            },
                            {
                               "typeField": "text",
@@ -133,7 +149,7 @@
                               "text": "na divisa de Três Rios e Chiador",
                               "fontSize": "1rem",
                               "fontFamily": "'Inter', Arial, sans-serif",
-                              "lineHeight": "1.5rem"
+                              "marginBottom": "16px"
                            }
                         ]
                      },
@@ -144,19 +160,16 @@
                               "tag": "h2",
                               "color": "#B9A681",
                               "text": "Telefone / WhatsApp",
-                              "fontSize": "32px",
-                              "fontFamily": "'Caveat', cursive",
-                              "marginBottom": "4px"
+                              "fontSize": "24px",
+                              "fontFamily": "'Caveat', cursive"
                            },
                            {
                               "typeField": "title",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "(24) 98180-5377",
-                              "fontSize": "58px",
-                              "fontFamily": "'Lora', Georgia, serif",
-                              "lineHeight": "3rem",
-                              "marginBottom": "24px"
+                              "fontSize": "1rem",
+                              "fontFamily": "'Lora', Georgia, serif"
                            }
                         ]
                      }

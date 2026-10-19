@@ -14,6 +14,8 @@ import Banner from '../complex/banner'
 import CardMenu from '../complex/cardMenu'
 import Carousel from '../complex/carousel'
 import type { CarouselItem } from '../complex/carousel/types'
+import Footer from '../complex/footer'
+import type { FooterProps } from '../complex/footer/types'
 import Header, { HeaderProps } from '../complex/header'
 
 /* ------------------------------------------------------------------ */
@@ -95,6 +97,7 @@ type PageField =
 // Para criar um footer: adicionar `footer?: FooterProps` aqui.
 interface GlobalData {
    header?: HeaderProps
+   footer?: FooterProps
 }
 
 interface PageData {
@@ -272,12 +275,14 @@ const PageGenerator: React.FC<PageGeneratorProps> = ({ url }) => {
    if (loading || !pageData) return <p>Carregando página...</p>
 
    const header = pageData.global?.[0]?.header
+   const footer = pageData.global?.[0]?.footer
    const fields = pageData.page[0].pageFields
 
    return (
       <>
          {header && <Header {...header} />}
          <main>{fields.map(renderField)}</main>
+         {footer && <Footer {...footer} />}
       </>
    )
 }
