@@ -1,9 +1,20 @@
 import * as S from './style'
 import { BannerProps } from './types'
 
-const Banner = ({ title, text, id, textComponent, buttons }: BannerProps) => {
+const Banner = ({
+   title,
+   text,
+   id,
+   bannerImage,
+   textComponent,
+   buttons,
+}: BannerProps) => {
    return (
-      <S.BannerContainer className="template" id={id}>
+      <S.BannerContainer
+         className="template"
+         id={id}
+         $bannerImage={bannerImage}
+      >
          <div className="page-spacing">
             <S.BannerContent>
                <S.TextContent>

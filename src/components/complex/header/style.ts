@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import headerButtonIcon from './icons/header-button.svg'
 
-export const Header = styled.header`
-   position: fixed;
+export const Header = styled.header<{ $fixed: boolean }>`
+   position: ${({ $fixed }) => ($fixed ? 'fixed' : 'absolute')};
    top: 0;
    width: 100%;
    background-color: transparent;
