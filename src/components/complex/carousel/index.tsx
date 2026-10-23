@@ -9,6 +9,7 @@ const Carousel = ({
    dots = false,
    infinite = false,
    marquee = false,
+   removeMarqueeOnMobile = false,
    marqueeSpeed = 40,
    textComponent,
    buttons,
@@ -17,10 +18,25 @@ const Carousel = ({
    const trackRef = React.useRef<HTMLDivElement>(null)
    const [paused, setPaused] = React.useState(false)
    const [reducedMotion, setReducedMotion] = React.useState(false)
+   const [isMobile, setIsMobile] = React.useState(
+      () => window.matchMedia('(max-width: 767px)').matches,
+   )
    const [activeIndex, setActiveIndex] = React.useState(0)
    const [visibleItems, setVisibleItems] = React.useState(1)
+   const isMarqueeActive = marquee && !(removeMarqueeOnMobile && isMobile)
+   const showDots = dots || (removeMarqueeOnMobile && isMobile)
    const maxIndex = Math.max(0, items.length - visibleItems)
-   const renderedItems = marquee ? [...items, ...items] : items
+   const renderedItems = isMarqueeActive ? [...items, ...items] : items
+   const showArrows = !isMarqueeActive && maxIndex > 0
+
+   React.useEffect(() => {
+      const mobileQuery = window.matchMedia('(max-width: 767px)')
+      const updateViewport = () => setIsMobile(mobileQuery.matches)
+
+      updateViewport()
+      mobileQuery.addEventListener('change', updateViewport)
+      return () => mobileQuery.removeEventListener('change', updateViewport)
+   }, [])
 
    React.useEffect(() => {
       const track = trackRef.current
@@ -61,7 +77,7 @@ const Carousel = ({
 
    React.useEffect(() => {
       if (
-         !marquee ||
+         !isMarqueeActive ||
          items.length <= visibleItems ||
          !Number.isFinite(marqueeSpeed) ||
          marqueeSpeed <= 0
@@ -74,8 +90,10 @@ const Carousel = ({
 
       const firstItem = track.children.item(0)
       const firstRepeatedItem = track.children.item(items.length)
-      if (!(firstItem instanceof HTMLElement) ||
-         !(firstRepeatedItem instanceof HTMLElement)) {
+      if (
+         !(firstItem instanceof HTMLElement) ||
+         !(firstRepeatedItem instanceof HTMLElement)
+      ) {
          return
       }
 
@@ -114,14 +132,25 @@ const Carousel = ({
       }
    }, [
       items.length,
-      marquee,
+      isMarqueeActive,
       marqueeSpeed,
       paused,
       reducedMotion,
       visibleItems,
    ])
 
-   const scrollToIndex = (index: number, behavior: ScrollBehavior = 'smooth') => {
+   React.useEffect(() => {
+      const track = trackRef.current
+      if (track) {
+         track.scrollLeft = 0
+      }
+      setActiveIndex(0)
+   }, [isMarqueeActive])
+
+   const scrollToIndex = (
+      index: number,
+      behavior: ScrollBehavior = 'smooth',
+   ) => {
       const track = trackRef.current
       const item = track?.children.item(index) as HTMLElement | null
       if (!track || !item) return
@@ -155,7 +184,7 @@ const Carousel = ({
       const gap = parseFloat(getComputedStyle(track).columnGap) || 0
       const step = firstItem.getBoundingClientRect().width + gap
       if (step) {
-         const repeatedItem = marquee
+         const repeatedItem = isMarqueeActive
             ? (track.children.item(items.length) as HTMLElement | null)
             : null
          const cycleWidth = repeatedItem
@@ -163,14 +192,11 @@ const Carousel = ({
               firstItem.getBoundingClientRect().left
             : 0
          const scrollPosition =
-            marquee && cycleWidth
+            isMarqueeActive && cycleWidth
                ? track.scrollLeft % cycleWidth
                : track.scrollLeft
 
-         const nextIndex = Math.min(
-            maxIndex,
-            Math.round(scrollPosition / step),
-         )
+         const nextIndex = Math.min(maxIndex, Math.round(scrollPosition / step))
          setActiveIndex((currentIndex) =>
             currentIndex === nextIndex ? currentIndex : nextIndex,
          )
@@ -178,7 +204,11 @@ const Carousel = ({
    }
 
    return (
-      <S.CarouselSection id={id} $backgroundColor={backgroundColor}>
+      <S.CarouselSection
+         id={id}
+         className="template"
+         $backgroundColor={backgroundColor}
+      >
          <S.CarouselContainer>
             <S.CarouselHeader>
                <S.TextContent>{textComponent}</S.TextContent>
@@ -187,8 +217,8 @@ const Carousel = ({
 
             {items.length > 0 && (
                <>
-                  <S.SliderArea>
-                     {!marquee && maxIndex > 0 && (
+                  <S.SliderArea $showArrows={showArrows}>
+                     {showArrows && (
                         <>
                            <S.PreviousButton
                               type="button"
@@ -212,13 +242,17 @@ const Carousel = ({
                      <S.Viewport>
                         <S.Track
                            ref={trackRef}
-                           $marquee={marquee}
+                           $marquee={isMarqueeActive}
                            onScroll={updateActiveIndex}
                            onMouseEnter={() => setPaused(true)}
                            onMouseLeave={() => setPaused(false)}
                            onFocus={() => setPaused(true)}
                            onBlur={(event) => {
-                              if (!event.currentTarget.contains(event.relatedTarget)) {
+                              if (
+                                 !event.currentTarget.contains(
+                                    event.relatedTarget,
+                                 )
+                              ) {
                                  setPaused(false)
                               }
                            }}
@@ -228,12 +262,16 @@ const Carousel = ({
                         >
                            {renderedItems.map((item, index) => (
                               <CardMenu
-                                 key={`${item.title}-${index % items.length}-${index >= items.length ? 'duplicate' : 'original'}`}
+                                 key={`${item.title}-${index % items.length}-${
+                                    index >= items.length
+                                       ? 'duplicate'
+                                       : 'original'
+                                 }`}
                                  title={item.title}
                                  text={item.description}
                                  image={item.image}
                                  aria-hidden={
-                                    marquee && index >= items.length
+                                    isMarqueeActive && index >= items.length
                                        ? true
                                        : undefined
                                  }
@@ -243,7 +281,7 @@ const Carousel = ({
                      </S.Viewport>
                   </S.SliderArea>
 
-                  {dots && maxIndex > 0 && (
+                  {showDots && maxIndex > 0 && (
                      <S.Dots aria-label="Navegação do carrossel">
                         {Array.from({ length: maxIndex + 1 }, (_, index) => (
                            <S.Dot

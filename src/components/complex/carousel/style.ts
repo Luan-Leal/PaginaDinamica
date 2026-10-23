@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const CarouselSection = styled.section<{ $backgroundColor?: string }>`
    width: 100%;
-   padding: 64px;
+   //padding: 64px;
    background-color: ${({ $backgroundColor }) =>
       $backgroundColor ?? 'var(--color-cream-light)'};
    color: var(--color-text);
 
    @media (max-width: 768px) {
-      padding: 40px 24px;
+      //padding: 40px 24px;
    }
 `
 
@@ -25,7 +25,7 @@ export const CarouselHeader = styled.div`
    gap: 24px;
    margin-bottom: 28px;
 
-   @media (max-width: 600px) {
+   @media (max-width: 768px) {
       align-items: flex-start;
       flex-direction: column;
    }
@@ -41,13 +41,9 @@ export const ButtonContent = styled.div`
    flex-shrink: 0;
 `
 
-export const SliderArea = styled.div`
+export const SliderArea = styled.div<{ $showArrows: boolean }>`
    position: relative;
-   padding-inline: 40px;
-
-   @media (max-width: 600px) {
-      padding-inline: 32px;
-   }
+   padding-inline: ${({ $showArrows }) => ($showArrows ? '40px' : '0')};
 `
 
 export const Viewport = styled.div`
@@ -59,8 +55,7 @@ export const Track = styled.div<{ $marquee: boolean }>`
    gap: 16px;
    overflow-x: auto;
    scroll-behavior: ${({ $marquee }) => ($marquee ? 'auto' : 'smooth')};
-   scroll-snap-type: ${({ $marquee }) =>
-      $marquee ? 'none' : 'x mandatory'};
+   scroll-snap-type: ${({ $marquee }) => ($marquee ? 'none' : 'x mandatory')};
    scrollbar-width: none;
 
    &::-webkit-scrollbar {
@@ -70,8 +65,7 @@ export const Track = styled.div<{ $marquee: boolean }>`
    > div {
       flex: 0 0 calc((100% - 48px) / 4);
       width: calc((100% - 48px) / 4);
-      scroll-snap-align: ${({ $marquee }) =>
-         $marquee ? 'none' : 'start'};
+      scroll-snap-align: ${({ $marquee }) => ($marquee ? 'none' : 'start')};
    }
 
    @media (max-width: 1024px) {
@@ -81,7 +75,7 @@ export const Track = styled.div<{ $marquee: boolean }>`
       }
    }
 
-   @media (max-width: 600px) {
+   @media (max-width: 768px) {
       > div {
          flex-basis: 100%;
          width: 100%;
@@ -144,5 +138,13 @@ export const Dot = styled.button<{ $active: boolean }>`
    border-radius: 50%;
    background: ${({ $active }) =>
       $active ? 'var(--color-forest)' : 'var(--color-sand-light)'};
+   transform: scale(${({ $active }) => ($active ? 1.15 : 1)});
+   transition:
+      background-color 280ms ease,
+      transform 280ms ease;
    cursor: pointer;
+
+   @media (prefers-reduced-motion: reduce) {
+      transition: none;
+   }
 `
