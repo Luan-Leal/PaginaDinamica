@@ -4,11 +4,13 @@ import * as S from './style'
 import type { CustomGridProps, GridCell } from './types'
 
 interface CustomGridComponentProps extends CustomGridProps {
+   isNested?: boolean
    renderCell: (cell: GridCell, index: number) => React.ReactNode
 }
 
 const CustomGrid: React.FC<CustomGridComponentProps> = ({
    id,
+   isNested = false,
    columns,
    gap,
    rowGap,
@@ -25,7 +27,7 @@ const CustomGrid: React.FC<CustomGridComponentProps> = ({
 
    return (
       <S.Section
-         className="template"
+         className={isNested ? undefined : 'template'}
          id={id}
          $backgroundColor={backgroundColor}
          $backgroundImage={backgroundImage}

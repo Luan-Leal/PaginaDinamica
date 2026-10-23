@@ -38,20 +38,22 @@ export const Grid = styled.div<GridStyleProps>`
    gap: ${({ $gap }) => $gap ?? '32px'};
    row-gap: ${({ $rowGap, $gap }) => $rowGap ?? $gap ?? '32px'};
    column-gap: ${({ $columnGap, $gap }) => $columnGap ?? $gap ?? '32px'};
-   padding: ${({ $padding }) => $padding ?? '64px 0'};
+   padding: ${({ $padding }) => $padding ?? ''};
 
    > * {
       ${({ $columnCount, $direction, $gap, $columnGap }) =>
          $direction === 'row' || $direction === 'row-reverse'
             ? `
                flex: 0 0 calc(
-                  (100% - (${Math.max(1, $columnCount) - 1} * ${$columnGap ?? $gap ?? '32px'}))
+                  (100% - (${Math.max(1, $columnCount) - 1} * ${
+                     $columnGap ?? $gap ?? '32px'
+                  }))
                   / ${Math.max(1, $columnCount)}
                );
             `
             : $direction
-              ? 'width: 100%;'
-              : ''}
+            ? 'width: 100%;'
+            : ''}
    }
 
    @media (max-width: 768px) {
