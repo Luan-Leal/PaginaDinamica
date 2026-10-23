@@ -1,6 +1,32 @@
 import React from 'react'
-import type { ButtonProps } from './types'
+import type {
+   ButtonIcon,
+   ButtonIconPosition,
+   ButtonProps,
+} from './types'
 import * as S from './style'
+
+const ButtonContent: React.FC<{
+   label: string
+   icon?: ButtonIcon
+   iconPosition: ButtonIconPosition
+}> = ({ label, icon, iconPosition }) => {
+   const iconElement = icon ? (
+      <S.Icon
+         $icon={icon}
+         $position={iconPosition}
+         aria-hidden="true"
+      />
+   ) : null
+
+   return (
+      <>
+         {iconPosition === 'left' && iconElement}
+         <S.Label>{label}</S.Label>
+         {iconPosition === 'right' && iconElement}
+      </>
+   )
+}
 
 const Button: React.FC<ButtonProps> = (props) => {
    if (props.as === 'button') {
@@ -9,12 +35,22 @@ const Button: React.FC<ButtonProps> = (props) => {
          label,
          type = 'button',
          variant,
+         icon,
+         iconPosition = 'right',
          ...buttonProps
       } = props
 
       return (
-         <S.Button $variant={variant ?? 'primary'} type={type} {...buttonProps}>
-            {label}
+         <S.Button
+            $variant={variant ?? 'primary'}
+            type={type}
+            {...buttonProps}
+         >
+            <ButtonContent
+               label={label}
+               icon={icon}
+               iconPosition={iconPosition}
+            />
          </S.Button>
       )
    }
@@ -24,8 +60,10 @@ const Button: React.FC<ButtonProps> = (props) => {
       label,
       link,
       target,
-     rel,
+      rel,
       variant,
+      icon,
+      iconPosition = 'right',
       ...anchorProps
    } = props
 
@@ -37,7 +75,11 @@ const Button: React.FC<ButtonProps> = (props) => {
          rel={target ? 'noopener noreferrer' : rel}
          {...anchorProps}
       >
-         {label}
+         <ButtonContent
+            label={label}
+            icon={icon}
+            iconPosition={iconPosition}
+         />
       </S.Anchor>
    )
 }

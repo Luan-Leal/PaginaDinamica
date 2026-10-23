@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import type { GridDirection } from './types'
+import { parseResponsiveValue } from '../../../util/responsiveValue'
 
 interface GridStyleProps {
    $columnCount: number
@@ -7,7 +8,6 @@ interface GridStyleProps {
    $gap?: React.CSSProperties['gap']
    $rowGap?: React.CSSProperties['rowGap']
    $columnGap?: React.CSSProperties['columnGap']
-   $position?: React.CSSProperties['alignItems']
    $padding?: React.CSSProperties['padding']
 }
 
@@ -38,20 +38,22 @@ export const Grid = styled.div<GridStyleProps>`
    gap: ${({ $gap }) => $gap ?? '32px'};
    row-gap: ${({ $rowGap, $gap }) => $rowGap ?? $gap ?? '32px'};
    column-gap: ${({ $columnGap, $gap }) => $columnGap ?? $gap ?? '32px'};
-   padding: ${({ $padding }) => $padding ?? '64px 0'};
+   padding: ${({ $padding }) => $padding ?? ''};
 
    > * {
       ${({ $columnCount, $direction, $gap, $columnGap }) =>
          $direction === 'row' || $direction === 'row-reverse'
             ? `
                flex: 0 0 calc(
-                  (100% - (${Math.max(1, $columnCount) - 1} * ${$columnGap ?? $gap ?? '32px'}))
+                  (100% - (${Math.max(1, $columnCount) - 1} * ${
+                     $columnGap ?? $gap ?? '32px'
+                  }))
                   / ${Math.max(1, $columnCount)}
                );
             `
             : $direction
-              ? 'width: 100%;'
-              : ''}
+            ? 'width: 100%;'
+            : ''}
    }
 
    @media (max-width: 768px) {
@@ -70,20 +72,54 @@ export const Grid = styled.div<GridStyleProps>`
 `
 
 export const Cell = styled.div<{
-   $position?: React.CSSProperties['alignItems']
+   $alignItems?: string
+   $justifyContent?: string
    $textAlign?: React.CSSProperties['textAlign']
 }>`
    display: flex;
    flex-direction: column;
    min-width: 0;
-   align-items: ${({ $position }) => $position ?? 'stretch'};
-   justify-content: ${({ $position }) =>
-      $position === 'center'
-         ? 'center'
-         : $position === 'flex-end' || $position === 'end'
-           ? 'flex-end'
-           : 'flex-start'};
+   align-items: ${({ $alignItems }) =>
+      parseResponsiveValue($alignItems).desktop ?? 'stretch'};
+   justify-content: ${({ $justifyContent, $alignItems }) => {
+      const responsiveJustifyContent = parseResponsiveValue($justifyContent)
+      const alignItems = parseResponsiveValue($alignItems)
+      const desktopAlignItems = alignItems.desktop
+      const defaultDesktop =
+         desktopAlignItems === 'center'
+            ? 'center'
+            : desktopAlignItems === 'flex-end' || desktopAlignItems === 'end'
+              ? 'flex-end'
+              : 'flex-start'
+
+      return responsiveJustifyContent.desktop ?? defaultDesktop
+   }};
    text-align: ${({ $textAlign }) => $textAlign ?? 'left'};
+
+   @media (max-width: 767px) {
+      align-items: ${({ $alignItems }) => {
+         const { desktop, mobile } = parseResponsiveValue($alignItems)
+         return mobile ?? desktop ?? 'stretch'
+      }};
+      justify-content: ${({ $justifyContent, $alignItems }) => {
+         const responsiveJustifyContent = parseResponsiveValue($justifyContent)
+         const responsiveAlignItems = parseResponsiveValue($alignItems)
+         const mobileAlignItems =
+            responsiveAlignItems.mobile ?? responsiveAlignItems.desktop
+         const defaultMobile =
+            mobileAlignItems === 'center'
+               ? 'center'
+               : mobileAlignItems === 'flex-end' || mobileAlignItems === 'end'
+                 ? 'flex-end'
+                 : 'flex-start'
+
+         return (
+            responsiveJustifyContent.mobile ??
+            responsiveJustifyContent.desktop ??
+            defaultMobile
+         )
+      }};
+   }
 `
 
 export const CellTitle = styled.h2`

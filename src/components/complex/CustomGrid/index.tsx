@@ -4,17 +4,20 @@ import * as S from './style'
 import type { CustomGridProps, GridCell } from './types'
 
 interface CustomGridComponentProps extends CustomGridProps {
+   isNested?: boolean
    renderCell: (cell: GridCell, index: number) => React.ReactNode
 }
 
 const CustomGrid: React.FC<CustomGridComponentProps> = ({
    id,
+   isNested = false,
    columns,
    gap,
    rowGap,
    columnGap,
    direction,
-   position,
+   alignItems,
+   justifyContent,
    backgroundColor,
    backgroundImage,
    padding,
@@ -25,7 +28,7 @@ const CustomGrid: React.FC<CustomGridComponentProps> = ({
 
    return (
       <S.Section
-         className="template"
+         className={isNested ? undefined : 'template'}
          id={id}
          $backgroundColor={backgroundColor}
          $backgroundImage={backgroundImage}
@@ -42,7 +45,8 @@ const CustomGrid: React.FC<CustomGridComponentProps> = ({
                {cells.map((cell, index) => (
                   <S.Cell
                      key={`grid-cell-${index}`}
-                     $position={cell.position ?? position}
+                     $alignItems={cell.alignItems ?? alignItems}
+                     $justifyContent={cell.justifyContent ?? justifyContent}
                      $textAlign={cell.textAlign}
                   >
                      {cell.title && <S.CellTitle>{cell.title}</S.CellTitle>}

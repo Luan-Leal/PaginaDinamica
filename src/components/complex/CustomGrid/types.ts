@@ -6,6 +6,10 @@ export type GridDirection =
    | 'column'
    | 'column-reverse'
 
+type ResponsiveCssValue<T extends string> =
+   | T
+   | `${T}|${T}`
+
 export interface GridTextField {
    typeField: 'title' | 'text'
    tag?: string
@@ -30,7 +34,10 @@ export interface GridCell {
    rowGap?: CSSProperties['rowGap']
    columnGap?: CSSProperties['columnGap']
    direction?: GridDirection
-   position?: CSSProperties['alignItems']
+   alignItems?: ResponsiveCssValue<NonNullable<CSSProperties['alignItems']>>
+   justifyContent?: ResponsiveCssValue<
+      NonNullable<CSSProperties['justifyContent']>
+   >
    textAlign?: CSSProperties['textAlign']
    backgroundColor?: string
    backgroundImage?: string
@@ -44,7 +51,10 @@ export interface CustomGridProps {
    rowGap?: CSSProperties['rowGap']
    columnGap?: CSSProperties['columnGap']
    direction?: GridDirection
-   position?: CSSProperties['alignItems']
+   alignItems?: ResponsiveCssValue<NonNullable<CSSProperties['alignItems']>>
+   justifyContent?: ResponsiveCssValue<
+      NonNullable<CSSProperties['justifyContent']>
+   >
    textAlign?: CSSProperties['textAlign']
    backgroundColor?: string
    backgroundImage?: string
