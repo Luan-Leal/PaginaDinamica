@@ -43,10 +43,10 @@
     --font-body: 'Inter', Arial, sans-serif;
     --font-accent: 'Caveat', cursive;
 
-    --spacing-xs: 0 24px;
-    --spacing-sm: 0 32px;
-    --spacing-md: 0 48px;
-    --spacing-lg: 0 64px;
+    --spacing-xs: 32px 24px;
+    --spacing-sm: 32px 32px;
+    --spacing-md: 64px 48px;
+    --spacing-lg: 64px 64px;
 }
 
 .title {
