@@ -9,12 +9,24 @@ const Button: React.FC<ButtonProps> = (props) => {
          label,
          type = 'button',
          variant,
+         iconPosition = 'right',
          ...buttonProps
       } = props
 
       return (
-         <S.Button $variant={variant ?? 'primary'} type={type} {...buttonProps}>
-            {label}
+         <S.Button
+            $variant={variant ?? 'primary'}
+            $iconPosition={iconPosition}
+            type={type}
+            {...buttonProps}
+         >
+            {variant === 'text' && iconPosition === 'left' && (
+               <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
+            )}
+            <S.Label $position={iconPosition}>{label}</S.Label>
+            {variant === 'text' && iconPosition === 'right' && (
+               <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
+            )}
          </S.Button>
       )
    }
@@ -24,20 +36,28 @@ const Button: React.FC<ButtonProps> = (props) => {
       label,
       link,
       target,
-     rel,
+      rel,
       variant,
+      iconPosition = 'right',
       ...anchorProps
    } = props
 
    return (
       <S.Anchor
          $variant={variant ?? 'primary'}
+         $iconPosition={iconPosition}
          href={link}
          target={target ? '_blank' : '_self'}
          rel={target ? 'noopener noreferrer' : rel}
          {...anchorProps}
       >
-         {label}
+         {variant === 'text' && iconPosition === 'left' && (
+            <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
+         )}
+         <S.Label $position={iconPosition}>{label}</S.Label>
+         {variant === 'text' && iconPosition === 'right' && (
+            <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
+         )}
       </S.Anchor>
    )
 }
