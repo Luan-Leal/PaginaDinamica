@@ -32,7 +32,10 @@
                "hasButton": true,
                "label": "Faça sua Reserva",
                "link": "https://www.instagram.com",
-               "target": true
+               "target": true,
+               "variant": "primary",
+               "icon": "schedule",
+               "iconPosition": "right"
             }
          },
          "footer": {
@@ -220,6 +223,8 @@
                      "typeField": "button",
                      "as": "a",
                      "variant": "primary",
+                     "icon": "schedule",
+                     "iconPosition": "left",
                      "label": "Faça sua Reserva",
                      "link": "https://www.instagram.com",
                      "target": true
@@ -269,6 +274,7 @@
                      "typeField": "button",
                      "as": "a",
                      "variant": "text",
+                     "icon": "arrow",
                      "iconPosition": "right",
                      "label": "Ver cardápio completo",
                      "link": "https://www.instagram.com",
@@ -277,54 +283,84 @@
                ],
                "CarouselItems": [
                   {
-                     "image": "https://i.postimg.cc/Vv5zd7xN/prato-1.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-1.webp?raw=true",
                      "title": "Prato 1",
                      "description": "Descrição do prato 1"
                   },
                   {
-                     "image": "https://i.postimg.cc/QCVjH62Q/prato-2.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-2.webp?raw=true",
                      "title": "Prato 2",
                      "description": "Descrição do prato 2"
                   },
                   {
-                     "image": "https://i.postimg.cc/90zcrx6B/prato-3.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-3.webp?raw=true",
                      "title": "Prato 3",
                      "description": "Descrição do prato 3"
                   },
                   {
-                     "image": "https://i.postimg.cc/4yMst6Gt/prato-4.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-4.webp?raw=true",
                      "title": "Prato 4",
                      "description": "Descrição do prato 4"
                   },
                   {
-                     "image": "https://i.postimg.cc/WzKTrGVG/prato-5.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-5.webp?raw=true",
                      "title": "Prato 5",
                      "description": "Descrição do prato 5"
                   },
                   {
-                     "image": "https://i.postimg.cc/3N6YpXhP/prato-6.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-6.webp?raw=true",
                      "title": "Prato 6",
                      "description": "Descrição do prato 6"
                   },
                   {
-                     "image": "https://i.postimg.cc/gcBYfWhc/prato-7.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-7.webp?raw=true",
                      "title": "Prato 7",
                      "description": "Descrição do prato 7"
                   },
                   {
-                     "image": "https://i.postimg.cc/CM6FWg8B/prato-8.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-8.webp?raw=true",
                      "title": "Prato 8",
                      "description": "Descrição do prato 8"
                   },
                   {
-                     "image": "https://i.postimg.cc/c15sVS3Y/prato-9.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-9.webp?raw=true",
                      "title": "Prato 9",
                      "description": "Descrição do prato 9"
                   },
                   {
-                     "image": "https://i.postimg.cc/KcsZd2T7/prato-10.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-10.webp?raw=true",
                      "title": "Prato 10",
                      "description": "Descrição do prato 10"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-11.webp?raw=true",
+                     "title": "Prato 11",
+                     "description": "Descrição do prato 11"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-12.webp?raw=true",
+                     "title": "Prato 12",
+                     "description": "Descrição do prato 12"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-13.webp?raw=true",
+                     "title": "Prato 13",
+                     "description": "Descrição do prato 13"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-14.webp?raw=true",
+                     "title": "Prato 14",
+                     "description": "Descrição do prato 14"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-15.webp?raw=true",
+                     "title": "Prato 15",
+                     "description": "Descrição do prato 15"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/prato-16.webp?raw=true",
+                     "title": "Prato 16",
+                     "description": "Descrição do prato 16"
                   }
                ]
             },
@@ -360,7 +396,9 @@
                   {
                      "typeField": "button",
                      "as": "a",
-                     "variant": "primary",
+                     "variant": "text",
+                     "icon": "arrow",
+                     "iconPosition": "right",
                      "label": "Ver cardápio completo",
                      "link": "https://www.instagram.com",
                      "target": true
@@ -368,22 +406,22 @@
                ],
                "CarouselItems": [
                   {
-                     "image": "https://i.postimg.cc/CKsZDx1V/espaco-1.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/espaco-1.webp?raw=true",
                      "title": "Espaço 1",
                      "description": "Descrição do Espaço 1"
                   },
                   {
-                     "image": "https://i.postimg.cc/KYDKL8zb/espaco-2.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/espaco-2.webp?raw=true",
                      "title": "Espaço 2",
                      "description": "Descrição do Espaço 2"
                   },
                   {
-                     "image": "https://i.postimg.cc/bv9GbwJc/espaco-3.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/espaco-3.webp?raw=true",
                      "title": "Espaço 3",
                      "description": "Descrição do Espaço 3"
                   },
                   {
-                     "image": "https://i.postimg.cc/cJBKYLHS/espaco-4.webp",
+                     "image": "https://github.com/Luan-Leal/dynamic-page-icons/blob/main/images/espaco-4.webp?raw=true",
                      "title": "Espaço 4",
                      "description": "Descrição do Espaço 4"
                   }
@@ -447,7 +485,7 @@
                      "columns": [
                         {
                            "typeField": "CardAboutUs",
-                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-1.svg",
                            "TextComponent": [
                               {
                                  "typeField": "title",
@@ -470,7 +508,7 @@
                         },
                         {
                            "typeField": "CardAboutUs",
-                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-2.svg",
                            "TextComponent": [
                               {
                                  "typeField": "title",
@@ -493,7 +531,7 @@
                         },
                         {
                            "typeField": "CardAboutUs",
-                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-3.svg",
                            "TextComponent": [
                               {
                                  "typeField": "title",
@@ -516,7 +554,7 @@
                         },
                         {
                            "typeField": "CardAboutUs",
-                           "icon": "https://placehold.co/720x720/000000/4B3524",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-4.svg",
                            "TextComponent": [
                               {
                                  "typeField": "title",
@@ -547,7 +585,7 @@
                "backgroundImage": "https://placehold.co/1080x80/000000/4B3524",
                "columns": [
                   {
-                     "position": "flex-start",
+                     "alignItems": "flex-start",
                      "TextComponent": [
                         {
                            "typeField": "title",
@@ -579,7 +617,8 @@
                      ]
                   },
                   {
-                     "position": "center",
+                     "alignItems": "end|start",
+                     "justifyContent": "center",
                      "typeField": "button",
                      "as": "button",
                      "variant": "primary",

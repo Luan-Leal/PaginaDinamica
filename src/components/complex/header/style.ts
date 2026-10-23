@@ -26,7 +26,6 @@ export const Nav = styled.nav<{ $open: boolean }>`
    display: flex;
    align-items: center;
    gap: 32px;
-   padding: 56px 24px 0;
    ul {
       list-style: none;
       display: flex;

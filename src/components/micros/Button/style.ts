@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import headerButtonIcon from './icons/header-button.svg'
 import arrowIcon from './icons/arrow.svg'
+import type { ButtonIcon, ButtonIconPosition } from './types'
 
 type ButtonVariant = 'primary' | 'outline' | 'text'
-type IconPosition = 'left' | 'right'
 
 const buttonStyles = `
    display: inline-flex;
@@ -57,24 +57,11 @@ const variantStyles = (variant: ButtonVariant) =>
          }
         `
 
-type StyledButtonProps = {
-   $variant: ButtonVariant
-   $iconPosition: IconPosition
-}
+type StyledButtonProps = { $variant: ButtonVariant }
 
 export const Anchor = styled.a<StyledButtonProps>`
    ${buttonStyles}
    ${({ $variant }) => variantStyles($variant)}
-
-   &::before {
-      display: ${({ $variant }) => ($variant === 'text' ? 'none' : 'block')};
-      content: '';
-      width: 18px;
-      height: 18px;
-      flex: none;
-      background-color: currentColor;
-      mask: url(${headerButtonIcon}) center / contain no-repeat;
-   }
 `
 
 export const Button = styled.button<StyledButtonProps>`
@@ -82,18 +69,23 @@ export const Button = styled.button<StyledButtonProps>`
    ${({ $variant }) => variantStyles($variant)}
 `
 
-export const ArrowIcon = styled.span<{ $position: IconPosition }>`
+const iconMasks: Record<ButtonIcon, string> = {
+   schedule: headerButtonIcon,
+   arrow: arrowIcon,
+}
+
+export const Icon = styled.span<{
+   $icon: ButtonIcon
+   $position: ButtonIconPosition
+}>`
    display: inline-block;
    width: 18px;
    height: 18px;
    flex: none;
    background-color: currentColor;
-   mask: url(${arrowIcon}) center / contain no-repeat;
-   transform: ${({ $position }) =>
-      $position === 'left' ? 'rotate(180deg)' : 'none'};
-   transition: transform 0.2s ease;
+   mask: ${({ $icon }) => `url(${iconMasks[$icon]}) center / contain no-repeat`};
+   transform: ${({ $icon, $position }) =>
+      $icon === 'arrow' && $position === 'left' ? 'rotate(180deg)' : 'none'};
 `
 
-export const Label = styled.span<{ $position: IconPosition }>`
-   order: ${({ $position }) => ($position === 'left' ? 1 : 0)};
-`
+export const Label = styled.span``

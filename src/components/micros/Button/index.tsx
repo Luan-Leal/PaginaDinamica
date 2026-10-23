@@ -1,6 +1,32 @@
 import React from 'react'
-import type { ButtonProps } from './types'
+import type {
+   ButtonIcon,
+   ButtonIconPosition,
+   ButtonProps,
+} from './types'
 import * as S from './style'
+
+const ButtonContent: React.FC<{
+   label: string
+   icon?: ButtonIcon
+   iconPosition: ButtonIconPosition
+}> = ({ label, icon, iconPosition }) => {
+   const iconElement = icon ? (
+      <S.Icon
+         $icon={icon}
+         $position={iconPosition}
+         aria-hidden="true"
+      />
+   ) : null
+
+   return (
+      <>
+         {iconPosition === 'left' && iconElement}
+         <S.Label>{label}</S.Label>
+         {iconPosition === 'right' && iconElement}
+      </>
+   )
+}
 
 const Button: React.FC<ButtonProps> = (props) => {
    if (props.as === 'button') {
@@ -9,6 +35,7 @@ const Button: React.FC<ButtonProps> = (props) => {
          label,
          type = 'button',
          variant,
+         icon,
          iconPosition = 'right',
          ...buttonProps
       } = props
@@ -16,17 +43,14 @@ const Button: React.FC<ButtonProps> = (props) => {
       return (
          <S.Button
             $variant={variant ?? 'primary'}
-            $iconPosition={iconPosition}
             type={type}
             {...buttonProps}
          >
-            {variant === 'text' && iconPosition === 'left' && (
-               <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
-            )}
-            <S.Label $position={iconPosition}>{label}</S.Label>
-            {variant === 'text' && iconPosition === 'right' && (
-               <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
-            )}
+            <ButtonContent
+               label={label}
+               icon={icon}
+               iconPosition={iconPosition}
+            />
          </S.Button>
       )
    }
@@ -38,6 +62,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       target,
       rel,
       variant,
+      icon,
       iconPosition = 'right',
       ...anchorProps
    } = props
@@ -45,19 +70,16 @@ const Button: React.FC<ButtonProps> = (props) => {
    return (
       <S.Anchor
          $variant={variant ?? 'primary'}
-         $iconPosition={iconPosition}
          href={link}
          target={target ? '_blank' : '_self'}
          rel={target ? 'noopener noreferrer' : rel}
          {...anchorProps}
       >
-         {variant === 'text' && iconPosition === 'left' && (
-            <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
-         )}
-         <S.Label $position={iconPosition}>{label}</S.Label>
-         {variant === 'text' && iconPosition === 'right' && (
-            <S.ArrowIcon $position={iconPosition} aria-hidden="true" />
-         )}
+         <ButtonContent
+            label={label}
+            icon={icon}
+            iconPosition={iconPosition}
+         />
       </S.Anchor>
    )
 }

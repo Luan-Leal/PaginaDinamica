@@ -71,6 +71,7 @@ interface ButtonField {
    target?: boolean
    as?: 'button' | 'a'
    variant?: 'primary' | 'outline' | 'text'
+   icon?: 'schedule' | 'arrow'
    iconPosition?: 'left' | 'right'
 }
 
@@ -119,7 +120,8 @@ interface GridField {
    id?: string
    columns?: GridCell[]
    direction?: GridDirection
-   position?: React.CSSProperties['alignItems']
+   alignItems?: GridCell['alignItems']
+   justifyContent?: GridCell['justifyContent']
    gap?: React.CSSProperties['gap']
    rowGap?: React.CSSProperties['rowGap']
    columnGap?: React.CSSProperties['columnGap']
@@ -179,7 +181,8 @@ function renderGrid(
          id={field.id}
          columns={field.columns}
          direction={field.direction}
-         position={field.position}
+         alignItems={field.alignItems}
+         justifyContent={field.justifyContent}
          gap={field.gap}
          rowGap={field.rowGap}
          columnGap={field.columnGap}
@@ -224,6 +227,7 @@ const fieldRegistry: FieldRenderers = {
          key: index,
          label: field.label,
          variant: field.variant,
+         icon: field.icon,
          iconPosition: field.iconPosition,
       }
 
@@ -345,7 +349,8 @@ function renderGridCell(cell: GridCell, index: number): React.ReactNode {
             <CustomGrid
                columns={cell.columns}
                direction={cell.direction}
-               position={cell.position}
+               alignItems={cell.alignItems}
+               justifyContent={cell.justifyContent}
                gap={cell.gap}
                rowGap={cell.rowGap}
                columnGap={cell.columnGap}

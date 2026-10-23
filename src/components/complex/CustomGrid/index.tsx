@@ -16,7 +16,8 @@ const CustomGrid: React.FC<CustomGridComponentProps> = ({
    rowGap,
    columnGap,
    direction,
-   position,
+   alignItems,
+   justifyContent,
    backgroundColor,
    backgroundImage,
    padding,
@@ -44,7 +45,8 @@ const CustomGrid: React.FC<CustomGridComponentProps> = ({
                {cells.map((cell, index) => (
                   <S.Cell
                      key={`grid-cell-${index}`}
-                     $position={cell.position ?? position}
+                     $alignItems={cell.alignItems ?? alignItems}
+                     $justifyContent={cell.justifyContent ?? justifyContent}
                      $textAlign={cell.textAlign}
                   >
                      {cell.title && <S.CellTitle>{cell.title}</S.CellTitle>}
