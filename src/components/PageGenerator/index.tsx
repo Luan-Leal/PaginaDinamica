@@ -70,7 +70,8 @@ interface ButtonField {
    link: string
    target?: boolean
    as?: 'button' | 'a'
-   variant?: 'primary' | 'outline'
+   variant?: 'primary' | 'outline' | 'text'
+   iconPosition?: 'left' | 'right'
 }
 
 interface CardMenuField {
@@ -106,6 +107,7 @@ interface CarouselField {
    dots?: boolean
    infinite?: boolean
    marquee?: boolean
+   removeMarqueeOnMobile?: boolean
    marqueeSpeed?: number
    TextComponent?: (TitleField | TextField)[]
    Button?: ButtonField[]
@@ -166,6 +168,30 @@ type FieldRenderers = {
    ) => React.ReactNode
 }
 
+function renderGrid(
+   field: GridCell & { id?: string },
+   index: number,
+   isNested = false,
+): React.ReactNode {
+   return (
+      <CustomGrid
+         key={index}
+         id={field.id}
+         columns={field.columns}
+         direction={field.direction}
+         position={field.position}
+         gap={field.gap}
+         rowGap={field.rowGap}
+         columnGap={field.columnGap}
+         backgroundColor={field.backgroundColor}
+         backgroundImage={field.backgroundImage}
+         padding={field.padding}
+         isNested={isNested}
+         renderCell={renderGridCell}
+      />
+   )
+}
+
 const fieldRegistry: FieldRenderers = {
    title: (field, index) => (
       <CustomText
@@ -198,6 +224,7 @@ const fieldRegistry: FieldRenderers = {
          key: index,
          label: field.label,
          variant: field.variant,
+         iconPosition: field.iconPosition,
       }
 
       return field.as === 'button' ? (
@@ -262,22 +289,7 @@ const fieldRegistry: FieldRenderers = {
          textComponent={field.TextComponent.map(renderField)}
       />
    ),
-   grid: (field, index) => (
-      <CustomGrid
-         key={index}
-         id={field.id}
-         columns={field.columns}
-         direction={field.direction}
-         position={field.position}
-         gap={field.gap}
-         rowGap={field.rowGap}
-         columnGap={field.columnGap}
-         backgroundColor={field.backgroundColor}
-         backgroundImage={field.backgroundImage}
-         padding={field.padding}
-         renderCell={renderGridCell}
-      />
-   ),
+   grid: (field, index) => renderGrid(field, index),
    carousel: (field, index) => {
       const textComponent = field.TextComponent?.length
          ? field.TextComponent.map(renderField)
@@ -294,6 +306,7 @@ const fieldRegistry: FieldRenderers = {
             dots={field.dots}
             infinite={field.infinite}
             marquee={field.marquee}
+            removeMarqueeOnMobile={field.removeMarqueeOnMobile}
             marqueeSpeed={field.marqueeSpeed}
             textComponent={textComponent}
             buttons={buttons}
@@ -313,6 +326,10 @@ function renderField(field: PageField, index: number): React.ReactNode {
 
 function renderGridCell(cell: GridCell, index: number): React.ReactNode {
    if (cell.typeField) {
+      if (cell.typeField === 'grid') {
+         return renderGrid(cell, index, true)
+      }
+
       return renderField(cell as PageField, index)
    }
 
@@ -335,6 +352,7 @@ function renderGridCell(cell: GridCell, index: number): React.ReactNode {
                backgroundColor={cell.backgroundColor}
                backgroundImage={cell.backgroundImage}
                padding={cell.padding}
+               isNested
                renderCell={renderGridCell}
             />
          )}
