@@ -18,8 +18,8 @@ export const Icon = styled.div`
    border: 1px solid var(--color-sand);
 
    img {
-      width: 100%;
-      height: 100%;
+      width: 80%;
+      height: 80%;
       object-fit: contain;
    }
 `

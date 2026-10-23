@@ -1,5 +1,5 @@
 import * as React from 'react'
-import CardMenu from '../cardMenu'
+import CardMenu from '../../micros/CardMenu'
 import * as S from './style'
 import type { CarouselProps } from './types'
 
@@ -7,6 +7,7 @@ const Carousel = ({
    id,
    backgroundColor,
    dots = false,
+   dotsOnMobile = false,
    infinite = false,
    marquee = false,
    removeMarqueeOnMobile = false,
@@ -24,7 +25,8 @@ const Carousel = ({
    const [activeIndex, setActiveIndex] = React.useState(0)
    const [visibleItems, setVisibleItems] = React.useState(1)
    const isMarqueeActive = marquee && !(removeMarqueeOnMobile && isMobile)
-   const showDots = dots || (removeMarqueeOnMobile && isMobile)
+   const showDots =
+      dots || ((dotsOnMobile || removeMarqueeOnMobile) && isMobile)
    const maxIndex = Math.max(0, items.length - visibleItems)
    const renderedItems = isMarqueeActive ? [...items, ...items] : items
    const showArrows = !isMarqueeActive && maxIndex > 0
@@ -270,6 +272,7 @@ const Carousel = ({
                                  title={item.title}
                                  text={item.description}
                                  image={item.image}
+                                 hover={item.hover}
                                  aria-hidden={
                                     isMarqueeActive && index >= items.length
                                        ? true

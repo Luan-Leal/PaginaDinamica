@@ -5,6 +5,7 @@ import Button from '../micros/Button'
 import CustomText from '../micros/Text'
 import ImageComponent from '../micros/ImageComponent'
 import CardAboutUs from '../micros/CardAboutUs'
+import CardMenu from '../micros/CardMenu'
 import {
    HEADING_TAGS,
    BODY_TAGS,
@@ -13,7 +14,6 @@ import {
    type BodyTag,
 } from '../micros/Text/tags'
 import Banner from '../complex/banner'
-import CardMenu from '../complex/cardMenu'
 import Carousel from '../complex/carousel'
 import type { CarouselItem } from '../complex/carousel/types'
 import CustomGrid from '../complex/CustomGrid'
@@ -80,6 +80,7 @@ interface CardMenuField {
    title: string
    text: string
    image: string
+   hover?: boolean
 }
 
 interface ImageField {
@@ -106,6 +107,7 @@ interface CarouselField {
    id?: string
    backgroundColor?: string
    dots?: boolean
+   dotsOnMobile?: boolean
    infinite?: boolean
    marquee?: boolean
    removeMarqueeOnMobile?: boolean
@@ -269,6 +271,7 @@ const fieldRegistry: FieldRenderers = {
             title={field.title}
             text={field.text}
             image={field.image}
+            hover={field.hover}
          />
       )
    },
@@ -308,6 +311,7 @@ const fieldRegistry: FieldRenderers = {
             id={field.id}
             backgroundColor={field.backgroundColor}
             dots={field.dots}
+            dotsOnMobile={field.dotsOnMobile}
             infinite={field.infinite}
             marquee={field.marquee}
             removeMarqueeOnMobile={field.removeMarqueeOnMobile}
