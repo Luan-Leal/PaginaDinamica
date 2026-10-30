@@ -252,6 +252,7 @@
                "marquee": true,
                "marqueeSpeed": 40,
                "removeMarqueeOnMobile": true,
+               "removeArrowsOnMobile": true,
                "TextComponent": [
                   {
                      "typeField": "title",
@@ -392,6 +393,7 @@
                "dotsOnMobile": true,
                "infinite": true,
                "marquee": false,
+               "removeArrowsOnMobile": true,
                "TextComponent": [
                   {
                      "typeField": "title",

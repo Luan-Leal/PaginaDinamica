@@ -111,6 +111,7 @@ interface CarouselField {
    infinite?: boolean
    marquee?: boolean
    removeMarqueeOnMobile?: boolean
+   removeArrowsOnMobile?: boolean
    marqueeSpeed?: number
    TextComponent?: (TitleField | TextField)[]
    Button?: ButtonField[]
@@ -328,6 +329,7 @@ const fieldRegistry: FieldRenderers = {
             infinite={field.infinite}
             marquee={field.marquee}
             removeMarqueeOnMobile={field.removeMarqueeOnMobile}
+            removeArrowsOnMobile={field.removeArrowsOnMobile}
             marqueeSpeed={field.marqueeSpeed}
             textComponent={textComponent}
             buttons={buttons}
