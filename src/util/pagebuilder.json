@@ -1,0 +1,719 @@
+{
+   "id": "1",
+   "context": "home-page",
+   "global": [
+      {
+         "header": {
+            "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "fixed": false,
+            "menu": [
+               {
+                  "label": "Início",
+                  "link": "#"
+               },
+               {
+                  "label": "Sobre",
+                  "link": "#sobre"
+               },
+               {
+                  "label": "Pratos",
+                  "link": "#pratos"
+               },
+               {
+                  "label": "Espaço",
+                  "link": "#espaço"
+               },
+               {
+                  "label": "FAQ",
+                  "link": "#perguntas-frequentes"
+               },
+               {
+                  "label": "Eventos",
+                  "link": "#eventos"
+               }
+            ],
+            "button": {
+               "hasButton": true,
+               "label": "Faça sua Reserva",
+               "link": "https://www.instagram.com",
+               "target": true,
+               "variant": "primary",
+               "icon": "schedule",
+               "iconPosition": "right"
+            }
+         },
+         "footer": {
+            "backgroundColor": "#34452D",
+            "copyright": "© {{year}} Restaurante Luancas. Todos os direitos reservados.",
+            "columns": [
+               {
+                  "title": false,
+                  "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+                  "description": "Comida que abraça, natureza que acalma e momentos que ficam para sempre.",
+                  "socialMedia": [
+                     {
+                        "icon": "Instagram",
+                        "link": "https://www.instagram.com/restaurante_luancas/"
+                     },
+                     {
+                        "icon": "Whatsapp",
+                        "link": "https://wa.me/5524981805377"
+                     }
+                  ]
+               },
+               {
+                  "title": "Links Rápidos",
+                  "fontColor": "#F5F0E5",
+                  "fontFamly": "Lora",
+                  "fontSize": "24px",
+                  "options": [
+                     {
+                        "label": "Início",
+                        "link": "#"
+                     },
+                     {
+                        "label": "Sobre",
+                        "link": "#sobre"
+                     },
+                     {
+                        "label": "Pratos",
+                        "link": "#pratos"
+                     },
+                     {
+                        "label": "Espaço",
+                        "link": "#espaço"
+                     },
+                     {
+                        "label": "Eventos",
+                        "link": "#eventos"
+                     },
+                     {
+                        "label": "Contato",
+                        "link": "#contato"
+                     }
+                  ]
+               },
+               {
+                  "title": "Informações",
+                  "fontColor": "#F5F0E5",
+                  "fontFamly": "Lora",
+                  "fontSize": "24px",
+                  "options": [
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h2",
+                              "color": "#B9A681",
+                              "text": "Funcionamento",
+                              "fontSize": "24px",
+                              "fontFamily": "'Caveat', cursive",
+                              "marginBottom": "8px"
+                           },
+                           {
+                              "typeField": "title",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "Sábado e Domingo",
+                              "fontSize": "16px",
+                              "fontFamily": "'Lora', Georgia, serif"
+                           },
+                           {
+                              "typeField": "text",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "10h às 18h",
+                              "fontSize": "1rem",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "marginBottom": "16px"
+                           }
+                        ]
+                     },
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h2",
+                              "color": "#B9A681",
+                              "text": "Endereço",
+                              "fontSize": "24px",
+                              "fontFamily": "'Caveat', cursive"
+                           },
+                           {
+                              "typeField": "title",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "Estrada Santa Fé",
+                              "fontSize": "16px",
+                              "fontFamily": "'Lora', Georgia, serif"
+                           },
+                           {
+                              "typeField": "text",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "na divisa de Três Rios e Chiador",
+                              "fontSize": "1rem",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "marginBottom": "16px"
+                           }
+                        ]
+                     },
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h2",
+                              "color": "#B9A681",
+                              "text": "Telefone / WhatsApp",
+                              "fontSize": "24px",
+                              "fontFamily": "'Caveat', cursive"
+                           },
+                           {
+                              "typeField": "title",
+                              "tag": "p",
+                              "color": "#F5F0E5",
+                              "text": "(24) 98180-5377",
+                              "fontSize": "1rem",
+                              "fontFamily": "'Lora', Georgia, serif"
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   ],
+   "page": [
+      {
+         "pageTitle": "Home Page",
+         "pageFields": [
+            {
+               "typeField": "banner",
+               "id": "sobre",
+               "bannerImage": "https://placehold.co/1920x1080/000000/4B3524",
+               "TextComponent": [
+                  {
+                     "typeField": "title",
+                     "tag": "h2",
+                     "color": "#B9A681",
+                     "text": "Comida que abraça",
+                     "fontSize": "24px",
+                     "fontFamily": "'Caveat', cursive",
+                     "marginBottom": "4px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h1",
+                     "color": "#F5F0E5",
+                     "text": "Natureza que acalma.",
+                     "fontSize": "58px|48px",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "lineHeight": "3rem",
+                     "marginBottom": "24px|12px"
+                  },
+                  {
+                     "typeField": "text",
+                     "tag": "p",
+                     "color": "#F5F0E5",
+                     "text": "Comida caseira feita com carinho, em um lugar onde o tempo passa devagar e os bons momentos ficam para sempre.",
+                     "fontSize": "1rem",
+                     "fontFamily": "'Inter', Arial, sans-serif",
+                     "lineHeight": "1.5rem"
+                  }
+               ],
+               "Button": [
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "primary",
+                     "icon": "schedule",
+                     "iconPosition": "left",
+                     "label": "Faça sua Reserva",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  },
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "outline",
+                     "label": "Conhecer espaço",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  }
+               ]
+            },
+            {
+               "typeField": "carousel",
+               "id": "pratos",
+               "backgroundColor": "#FBF8F1",
+               "dots": false,
+               "infinite": true,
+               "marquee": true,
+               "marqueeSpeed": 40,
+               "removeMarqueeOnMobile": true,
+               "removeArrowsOnMobile": true,
+               "TextComponent": [
+                  {
+                     "typeField": "title",
+                     "tag": "h3",
+                     "color": "#B9A681",
+                     "text": "Sabor da casa",
+                     "fontSize": "24px",
+                     "fontFamily": "'Caveat', cursive",
+                     "marginBottom": "4px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h2",
+                     "color": "#28251F",
+                     "text": "Pratos em destaque",
+                     "fontSize": "56px|48px",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "lineHeight": "3.5rem",
+                     "marginBottom": "24px"
+                  }
+               ],
+               "Button": [
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "text",
+                     "icon": "arrow",
+                     "iconPosition": "right",
+                     "label": "Ver cardápio completo",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  }
+               ],
+               "CarouselItems": [
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-1.webp?raw=true",
+                     "title": "Prato 1",
+                     "description": "Descrição do prato 1",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-2.webp?raw=true",
+                     "title": "Prato 2",
+                     "description": "Descrição do prato 2",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-3.webp?raw=true",
+                     "title": "Prato 3",
+                     "description": "Descrição do prato 3",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-4.webp?raw=true",
+                     "title": "Prato 4",
+                     "description": "Descrição do prato 4",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-5.webp?raw=true",
+                     "title": "Prato 5",
+                     "description": "Descrição do prato 5",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-6.webp?raw=true",
+                     "title": "Prato 6",
+                     "description": "Descrição do prato 6",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-7.webp?raw=true",
+                     "title": "Prato 7",
+                     "description": "Descrição do prato 7",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-8.webp?raw=true",
+                     "title": "Prato 8",
+                     "description": "Descrição do prato 8",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-9.webp?raw=true",
+                     "title": "Prato 9",
+                     "description": "Descrição do prato 9",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-10.webp?raw=true",
+                     "title": "Prato 10",
+                     "description": "Descrição do prato 10",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-11.webp?raw=true",
+                     "title": "Prato 11",
+                     "description": "Descrição do prato 11",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-12.webp?raw=true",
+                     "title": "Prato 12",
+                     "description": "Descrição do prato 12",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-13.webp?raw=true",
+                     "title": "Prato 13",
+                     "description": "Descrição do prato 13",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-14.webp?raw=true",
+                     "title": "Prato 14",
+                     "description": "Descrição do prato 14",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-15.webp?raw=true",
+                     "title": "Prato 15",
+                     "description": "Descrição do prato 15",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-16.webp?raw=true",
+                     "title": "Prato 16",
+                     "description": "Descrição do prato 16",
+                     "hover": true
+                  }
+               ]
+            },
+            {
+               "typeField": "carousel",
+               "id": "espaço",
+               "backgroundColor": "#E2E4D2",
+               "dots": false,
+               "dotsOnMobile": true,
+               "infinite": true,
+               "marquee": false,
+               "removeArrowsOnMobile": true,
+               "TextComponent": [
+                  {
+                     "typeField": "title",
+                     "tag": "h3",
+                     "color": "#B9A681",
+                     "text": "Um lugar pra viver bons momentos",
+                     "fontSize": "24px",
+                     "fontFamily": "'Caveat', cursive",
+                     "marginBottom": "4px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h2",
+                     "color": "#28251F",
+                     "text": "Nosso espaço",
+                     "fontSize": "56px|48px",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "lineHeight": "3rem",
+                     "marginBottom": "24px"
+                  }
+               ],
+               "Button": [
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "text",
+                     "icon": "arrow",
+                     "iconPosition": "right",
+                     "label": "Ver mais do espaço",
+                     "link": "https://www.instagram.com",
+                     "target": true
+                  }
+               ],
+               "CarouselItems": [
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/espaco-1.webp?raw=true"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/espaco-2.webp?raw=true"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/espaco-3.webp?raw=true"
+                  },
+                  {
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/espaco-4.webp?raw=true"
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "backgroundColor": "#FBF8F1",
+               "columns": [
+                  {
+                     "typeField": "ImageComponente",
+                     "src": "https://placehold.co/720x720/000000/4B3524",
+                     "alt": "Descrição da imagem",
+                     "objectFit": "cover",
+                     "objectPosition": "center",
+                     "borderRadius": "16px"
+                  },
+                  {
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "color": "#B9A681",
+                           "text": "Sobre nós",
+                           "fontSize": "24px",
+                           "fontFamily": "'Caveat', cursive",
+                           "marginBottom": "8px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "color": "#28251F",
+                           "text": "Tradição, família e natureza",
+                           "fontSize": "48px|40px",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "marginBottom": "16px",
+                           "lineHeight": "3.5rem"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#263321",
+                           "text": "Somos uma família que acredita que o melhor da vida está nas coias simples: uma boa comida feita em casa, o contato com a natureza e o tempo de qualidade ao lado de quem amamos",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#263321",
+                           "text": "Aqui, cada detalhe é pensado para que você se sinta em casa",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "grid",
+                     "direction": "column",
+                     "columns": [
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-assets/refs/heads/main/icons/card-1.svg",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Comida Caseira",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Ingrediantes frescos e receitas tradicionais feitas com carinho.",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        },
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-assets/refs/heads/main/icons/card-2.svg",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Contato com a Natureza",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Muito verde, ar puro e uma vista linda para o rio.",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        },
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-assets/refs/heads/main/icons/card-3.svg",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Ambiente Familiar",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Espaço acolhedor para reunir quem você ama e criar boas memórias",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        },
+                        {
+                           "typeField": "CardAboutUs",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-4.svg",
+                           "TextComponent": [
+                              {
+                                 "typeField": "title",
+                                 "tag": "h3",
+                                 "color": "#28251F",
+                                 "text": "Lazer e Descanso",
+                                 "fontSize": "24px",
+                                 "fontFamily": "'Lora', Georgia, serif",
+                                 "marginBottom": "8px"
+                              },
+                              {
+                                 "typeField": "text",
+                                 "tag": "p",
+                                 "color": "#28251F",
+                                 "text": "Piscina, áreas de descanso e muito sossego pra relaxar",
+                                 "fontSize": "16px",
+                                 "fontFamily": "'Lora', Georgia, serif"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "perguntas-frequentes",
+               "backgroundColor": "#E2E4D2",
+               "columns": [
+                  {
+                     "alignItems": "flex-start",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "color": "#B9A681",
+                           "text": "Estamos aqui para ajudar",
+                           "fontSize": "24px",
+                           "fontFamily": "'Caveat', cursive",
+                           "marginBottom": "8px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "color": "#28251F",
+                           "text": "Perguntas frequentes",
+                           "fontSize": "48px|40px",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "lineHeight": "1.2",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#6D675B",
+                           "text": "Confira as principais informações para planejar sua visita ao Restaurante Luancas.",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "grid",
+                     "direction": "column",
+                     "gap": "16px",
+                     "columns": [
+                        {
+                           "typeField": "accordion",
+                           "quest": "Quais são os dias e horários de funcionamento?",
+                           "anwser": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
+                           "accordeonColor": "#FFFFFF"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "É cobrada entrada?",
+                           "anwser": "Não cobramos entrada para acessar o nosso espaço.",
+                           "accordeonColor": "#FFFFFF"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Posso pescar e usar a piscina?",
+                           "anwser": "Sim! A pescaria é gratuita. O uso da piscina também é cortesia para consumação a partir de R$ 100,00.",
+                           "accordeonColor": "#FFFFFF"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Vocês servem almoço?",
+                           "anwser": "Sim. Temos pratos executivos, refeições e uma variedade de porções para aproveitar com a família e os amigos.",
+                           "accordeonColor": "#FFFFFF"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "eventos",
+               "backgroundImage": "https://placehold.co/1080x80/000000/4B3524",
+               "columns": [
+                  {
+                     "alignItems": "flex-start",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "color": "#B9A681",
+                           "text": "Planeje seu dia especial",
+                           "fontSize": "24px",
+                           "fontFamily": "'Caveat', cursive",
+                           "marginBottom": "8px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "color": "#F5F0E5",
+                           "text": "Eventos, celebrações e momentos inesquecíveis",
+                           "fontSize": "48px|40px",
+                           "lineHeight": "3.5rem",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#F5F0E5",
+                           "text": "Aniversários, encontros de família, confraternizações e muito mais.",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif"
+                        }
+                     ]
+                  },
+                  {
+                     "alignItems": "end|start",
+                     "justifyContent": "center",
+                     "typeField": "button",
+                     "as": "button",
+                     "variant": "primary",
+                     "label": "Fale conosco",
+                     "link": "https://wa.me/5524981805377",
+                     "target": true
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
