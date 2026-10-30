@@ -1,6 +1,4 @@
 import * as React from 'react'
-import axios from 'axios'
-import MockJson from '../../util/pagebuilder.json'
 import Button from '../micros/Button'
 import CustomText from '../micros/Text'
 import ImageComponent from '../micros/ImageComponent'
@@ -157,9 +155,9 @@ interface GlobalData {
    footer?: FooterProps
 }
 
-interface PageData {
+export interface PageData {
    id: string
-   context: string
+   context?: string
    global?: GlobalData[]
    page: {
       pageTitle: string
@@ -389,46 +387,10 @@ function renderGridCell(cell: GridCell, index: number): React.ReactNode {
 /* ------------------------------------------------------------------ */
 
 interface PageGeneratorProps {
-   url?: string
+   data: PageData
 }
 
-const PageGenerator: React.FC<PageGeneratorProps> = ({ url }) => {
-   const [pageData, setPageData] = React.useState<PageData | null>(
-      url ? null : (MockJson as PageData),
-   )
-   const [loading, setLoading] = React.useState(Boolean(url))
-
-   React.useEffect(() => {
-      if (!url) {
-         setPageData(MockJson as PageData)
-         setLoading(false)
-         return
-      }
-
-      let cancelled = false
-      setLoading(true)
-
-      axios
-         .get<PageData>(url)
-         .then(({ data }) => {
-            if (!cancelled) setPageData(data)
-         })
-         .catch((error) => {
-            console.error('Erro ao buscar o JSON da página:', error)
-            // Fallback: usa o JSON local (mantenha-o igual ao formato novo)
-            if (!cancelled) setPageData(MockJson as PageData)
-         })
-         .finally(() => {
-            if (!cancelled) setLoading(false)
-         })
-
-      return () => {
-         cancelled = true
-      }
-   }, [url])
-
-   if (loading || !pageData) return <p>Carregando página...</p>
-
+const PageGenerator: React.FC<PageGeneratorProps> = ({ data: pageData }) => {
    const header = pageData.global?.[0]?.header
    const footer = pageData.global?.[0]?.footer
    const fields = pageData.page[0].pageFields
