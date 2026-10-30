@@ -24,6 +24,10 @@
                   "link": "#espaço"
                },
                {
+                  "label": "FAQ",
+                  "link": "#perguntas-frequentes"
+               },
+               {
                   "label": "Eventos",
                   "link": "#eventos"
                }
@@ -583,6 +587,76 @@
                                  "fontFamily": "'Lora', Georgia, serif"
                               }
                            ]
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "perguntas-frequentes",
+               "backgroundColor": "#E2E4D2",
+               "columns": [
+                  {
+                     "alignItems": "flex-start",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "color": "#B9A681",
+                           "text": "Estamos aqui para ajudar",
+                           "fontSize": "24px",
+                           "fontFamily": "'Caveat', cursive",
+                           "marginBottom": "8px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "color": "#28251F",
+                           "text": "Perguntas frequentes",
+                           "fontSize": "48px|40px",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "lineHeight": "1.2",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "tag": "p",
+                           "color": "#6D675B",
+                           "text": "Confira as principais informações para planejar sua visita ao Restaurante Luancas.",
+                           "fontSize": "1rem",
+                           "fontFamily": "'Lora', Georgia, serif"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "grid",
+                     "direction": "column",
+                     "gap": "16px",
+                     "columns": [
+                        {
+                           "typeField": "accordion",
+                           "quest": "Quais são os dias e horários de funcionamento?",
+                           "anwser": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
+                           "accordeonColor": "#FFFFFF"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "É cobrada entrada?",
+                           "anwser": "Não cobramos entrada para acessar o nosso espaço.",
+                           "accordeonColor": "#FFFFFF"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Posso pescar e usar a piscina?",
+                           "anwser": "Sim! A pescaria é gratuita. O uso da piscina também é cortesia para consumação a partir de R$ 100,00.",
+                           "accordeonColor": "#FFFFFF"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Vocês servem almoço?",
+                           "anwser": "Sim. Temos pratos executivos, refeições e uma variedade de porções para aproveitar com a família e os amigos.",
+                           "accordeonColor": "#FFFFFF"
                         }
                      ]
                   }

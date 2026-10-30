@@ -16,6 +16,8 @@ import {
 import Banner from '../complex/banner'
 import Carousel from '../complex/carousel'
 import type { CarouselItem } from '../complex/carousel/types'
+import Accordion from '../complex/Accordion'
+import type { AccordionProps } from '../complex/Accordion/types'
 import CustomGrid from '../complex/CustomGrid'
 import type {
    GridCell,
@@ -132,6 +134,10 @@ interface GridField {
    padding?: React.CSSProperties['padding']
 }
 
+interface AccordionField extends AccordionProps {
+   typeField: 'accordion'
+}
+
 type PageField =
    | TitleField
    | TextField
@@ -141,6 +147,7 @@ type PageField =
    | ImageField
    | CardAboutUsField
    | CarouselField
+   | AccordionField
    | GridField
 
 // Elementos fixos do site (aparecem em todas as páginas).
@@ -297,6 +304,14 @@ const fieldRegistry: FieldRenderers = {
       />
    ),
    grid: (field, index) => renderGrid(field, index),
+   accordion: (field, index) => (
+      <Accordion
+         key={index}
+         quest={field.quest}
+         anwser={field.anwser}
+         accordeonColor={field.accordeonColor}
+      />
+   ),
    carousel: (field, index) => {
       const textComponent = field.TextComponent?.length
          ? field.TextComponent.map(renderField)

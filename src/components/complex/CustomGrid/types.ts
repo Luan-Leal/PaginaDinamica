@@ -24,6 +24,9 @@ export interface GridTextField {
 
 export interface GridCell {
    typeField?: string
+   quest?: string
+   anwser?: string
+   accordeonColor?: string
    title?: string | false
    logo?: string
    alt?: string
