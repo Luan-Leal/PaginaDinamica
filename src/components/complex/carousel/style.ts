@@ -54,6 +54,7 @@ export const Track = styled.div<{ $marquee: boolean }>`
    display: flex;
    gap: 16px;
    overflow-x: auto;
+   touch-action: pan-x;
    scroll-behavior: ${({ $marquee }) => ($marquee ? 'auto' : 'smooth')};
    scroll-snap-type: ${({ $marquee }) => ($marquee ? 'none' : 'x mandatory')};
    scrollbar-width: none;

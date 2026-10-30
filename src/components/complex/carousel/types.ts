@@ -15,6 +15,7 @@ export interface CarouselProps {
    infinite?: boolean
    marquee?: boolean
    removeMarqueeOnMobile?: boolean
+   removeArrowsOnMobile?: boolean
    marqueeSpeed?: number
    textComponent?: ReactNode
    buttons?: ReactNode

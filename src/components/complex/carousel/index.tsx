@@ -11,6 +11,7 @@ const Carousel = ({
    infinite = false,
    marquee = false,
    removeMarqueeOnMobile = false,
+   removeArrowsOnMobile = false,
    marqueeSpeed = 40,
    textComponent,
    buttons,
@@ -29,7 +30,10 @@ const Carousel = ({
       dots || ((dotsOnMobile || removeMarqueeOnMobile) && isMobile)
    const maxIndex = Math.max(0, items.length - visibleItems)
    const renderedItems = isMarqueeActive ? [...items, ...items] : items
-   const showArrows = !isMarqueeActive && maxIndex > 0
+   const showArrows =
+      !isMarqueeActive &&
+      maxIndex > 0 &&
+      !(removeArrowsOnMobile && isMobile)
 
    React.useEffect(() => {
       const mobileQuery = window.matchMedia('(max-width: 767px)')
