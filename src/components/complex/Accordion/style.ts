@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const AccordionItem = styled.div<{ $accordeonColor?: string }>`
+export const AccordionItem = styled.div<{ $accordionColor?: string }>`
    width: 100%;
    overflow: hidden;
    border: 1px solid var(--color-border);
    border-radius: 12px;
-   background-color: ${({ $accordeonColor }) =>
-      $accordeonColor ?? 'var(--color-cream-light)'};
+   background-color: ${({ $accordionColor }) =>
+      $accordionColor ?? 'var(--color-cream-light)'};
 `
 
 export const QuestionButton = styled.button`

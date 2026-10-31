@@ -88,14 +88,12 @@ const FooterText: React.FC<{ field: FooterTextField }> = ({ field }) => (
 const FooterColumnContent: React.FC<{ column: FooterColumn }> = ({
    column,
 }) => {
-   const fontFamily = column.fontFamily ?? column.fontFamly
-
    return (
       <S.Column>
          {column.title && (
             <S.ColumnTitle
                $color={column.fontColor}
-               $fontFamily={fontFamily}
+               $fontFamily={column.fontFamily}
                $fontSize={column.fontSize}
             >
                {column.title}

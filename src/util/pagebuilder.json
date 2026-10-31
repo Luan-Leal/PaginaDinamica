@@ -64,7 +64,7 @@
                {
                   "title": "Links Rápidos",
                   "fontColor": "#F5F0E5",
-                  "fontFamly": "Lora",
+                  "fontFamily": "Lora",
                   "fontSize": "24px",
                   "options": [
                      {
@@ -96,7 +96,7 @@
                {
                   "title": "Informações",
                   "fontColor": "#F5F0E5",
-                  "fontFamly": "Lora",
+                  "fontFamily": "Lora",
                   "fontSize": "24px",
                   "options": [
                      {
@@ -111,7 +111,7 @@
                               "marginBottom": "8px"
                            },
                            {
-                              "typeField": "title",
+                              "typeField": "text",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "Sábado e Domingo",
@@ -140,7 +140,7 @@
                               "fontFamily": "'Caveat', cursive"
                            },
                            {
-                              "typeField": "title",
+                              "typeField": "text",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "Estrada Santa Fé",
@@ -169,7 +169,7 @@
                               "fontFamily": "'Caveat', cursive"
                            },
                            {
-                              "typeField": "title",
+                              "typeField": "text",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "(24) 98180-5377",
@@ -447,7 +447,7 @@
                "backgroundColor": "#FBF8F1",
                "columns": [
                   {
-                     "typeField": "ImageComponente",
+                     "typeField": "ImageComponent",
                      "src": "https://placehold.co/720x720/000000/4B3524",
                      "alt": "Descrição da imagem",
                      "objectFit": "cover",
@@ -479,7 +479,7 @@
                            "typeField": "text",
                            "tag": "p",
                            "color": "#263321",
-                           "text": "Somos uma família que acredita que o melhor da vida está nas coias simples: uma boa comida feita em casa, o contato com a natureza e o tempo de qualidade ao lado de quem amamos",
+                           "text": "Somos uma família que acredita que o melhor da vida está nas coisas simples: uma boa comida feita em casa, o contato com a natureza e o tempo de qualidade ao lado de quem amamos",
                            "fontSize": "1rem",
                            "fontFamily": "'Lora', Georgia, serif",
                            "marginBottom": "16px"
@@ -515,7 +515,7 @@
                                  "typeField": "text",
                                  "tag": "p",
                                  "color": "#28251F",
-                                 "text": "Ingrediantes frescos e receitas tradicionais feitas com carinho.",
+                                 "text": "Ingredientes frescos e receitas tradicionais feitas com carinho.",
                                  "fontSize": "16px",
                                  "fontFamily": "'Lora', Georgia, serif"
                               }
@@ -569,7 +569,7 @@
                         },
                         {
                            "typeField": "CardAboutUs",
-                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-4.svg",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-assets/refs/heads/main/icons/card-4.svg",
                            "TextComponent": [
                               {
                                  "typeField": "title",
@@ -639,26 +639,26 @@
                         {
                            "typeField": "accordion",
                            "quest": "Quais são os dias e horários de funcionamento?",
-                           "anwser": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
+                           "accordionColor": "#FFFFFF"
                         },
                         {
                            "typeField": "accordion",
                            "quest": "É cobrada entrada?",
-                           "anwser": "Não cobramos entrada para acessar o nosso espaço.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Não cobramos entrada para acessar o nosso espaço.",
+                           "accordionColor": "#FFFFFF"
                         },
                         {
                            "typeField": "accordion",
                            "quest": "Posso pescar e usar a piscina?",
-                           "anwser": "Sim! A pescaria é gratuita. O uso da piscina também é cortesia para consumação a partir de R$ 100,00.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Sim! A pescaria é gratuita. O uso da piscina também é cortesia para consumação a partir de R$ 100,00.",
+                           "accordionColor": "#FFFFFF"
                         },
                         {
                            "typeField": "accordion",
                            "quest": "Vocês servem almoço?",
-                           "anwser": "Sim. Temos pratos executivos, refeições e uma variedade de porções para aproveitar com a família e os amigos.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Sim. Temos pratos executivos, refeições e uma variedade de porções para aproveitar com a família e os amigos.",
+                           "accordionColor": "#FFFFFF"
                         }
                      ]
                   }

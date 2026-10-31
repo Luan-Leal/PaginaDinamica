@@ -34,7 +34,6 @@ export interface FooterColumn {
    options?: (FooterOption | FooterTextOption)[]
    fontColor?: string
    fontFamily?: string
-   fontFamly?: string
    fontSize?: string
 }
 
