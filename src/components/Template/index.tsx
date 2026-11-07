@@ -49,7 +49,9 @@ const Template: React.FC = () => {
       let cancelled = false
 
       axios
-         .get<unknown>(PAGE_JSON_URL)
+         .get<unknown>(PAGE_JSON_URL, {
+            params: { _cacheBust: Date.now() },
+         })
          .then(({ data }) => {
             if (isPageData(data)) {
                if (!cancelled) {

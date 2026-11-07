@@ -4,7 +4,7 @@
    "global": [
       {
          "header": {
-            "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "logo": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/luancas-logo-v2.png?raw=true",
             "fixed": false,
             "menu": [
                {
@@ -48,7 +48,7 @@
             "columns": [
                {
                   "title": false,
-                  "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+                  "logo": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/luancas-logo-v2.png?raw=true",
                   "description": "Comida que abraça, natureza que acalma e momentos que ficam para sempre.",
                   "socialMedia": [
                      {
@@ -288,100 +288,52 @@
                ],
                "CarouselItems": [
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-1.webp?raw=true",
-                     "title": "Prato 1",
-                     "description": "Descrição do prato 1",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-1.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-2.webp?raw=true",
-                     "title": "Prato 2",
-                     "description": "Descrição do prato 2",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-2.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-3.webp?raw=true",
-                     "title": "Prato 3",
-                     "description": "Descrição do prato 3",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-3.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-4.webp?raw=true",
-                     "title": "Prato 4",
-                     "description": "Descrição do prato 4",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-4.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-5.webp?raw=true",
-                     "title": "Prato 5",
-                     "description": "Descrição do prato 5",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-5.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-6.webp?raw=true",
-                     "title": "Prato 6",
-                     "description": "Descrição do prato 6",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-6.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-7.webp?raw=true",
-                     "title": "Prato 7",
-                     "description": "Descrição do prato 7",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-7.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-8.webp?raw=true",
-                     "title": "Prato 8",
-                     "description": "Descrição do prato 8",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-8.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-9.webp?raw=true",
-                     "title": "Prato 9",
-                     "description": "Descrição do prato 9",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-9.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-10.webp?raw=true",
-                     "title": "Prato 10",
-                     "description": "Descrição do prato 10",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-10.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-11.webp?raw=true",
-                     "title": "Prato 11",
-                     "description": "Descrição do prato 11",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-11.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-12.webp?raw=true",
-                     "title": "Prato 12",
-                     "description": "Descrição do prato 12",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-12.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-13.webp?raw=true",
-                     "title": "Prato 13",
-                     "description": "Descrição do prato 13",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-13.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-14.webp?raw=true",
-                     "title": "Prato 14",
-                     "description": "Descrição do prato 14",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-14.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-15.webp?raw=true",
-                     "title": "Prato 15",
-                     "description": "Descrição do prato 15",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-15.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-16.webp?raw=true",
-                     "title": "Prato 16",
-                     "description": "Descrição do prato 16",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-16.webp?raw=true"
                   }
                ]
             },
