@@ -66,6 +66,11 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
 {
   "id": "restaurante",
   "context": "home-page",
+  "loading": {
+    "backgroundColor": "#F5F0E5",
+    "text": "Carregando...",
+    "logo": "https://exemplo.com/logo.png"
+  },
   "global": [
     {
       "header": {
@@ -89,6 +94,8 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
   ]
 }
 ```
+
+`loading` é opcional e configura a tela exibida enquanto o JSON é carregado. Aceita `backgroundColor` para a cor de fundo, `text` para a mensagem e `logo` para uma imagem opcional. Durante a primeira requisição, a configuração do mock local é usada, pois a configuração remota só fica disponível depois que a API responde.
 
 `pageTitle` é descritivo; a renderização dos componentes acontece por `pageFields`.
 
@@ -178,11 +185,11 @@ Tags de título disponíveis: `h1` a `h6`. Tags de corpo disponíveis: `p`, `spa
 
 Quando `as` é `button`, propriedades padrão de botão HTML também podem ser usadas, como `disabled`.
 
-### Imagem — `ImageComponente`
+### Imagem — `ImageComponent`
 
 ```json
 {
-  "typeField": "ImageComponente",
+  "typeField": "ImageComponent",
   "src": "https://exemplo.com/imagens/fachada.webp",
   "alt": "Fachada do restaurante",
   "width": "100%",
@@ -260,7 +267,7 @@ O Grid organiza células e pode conter micros, componentes complexos ou outros g
   "id": "sobre",
   "columns": [
     {
-      "typeField": "ImageComponente",
+      "typeField": "ImageComponent",
       "src": "https://exemplo.com/imagens/espaco.webp",
       "alt": "Área externa",
       "objectFit": "cover"
@@ -285,7 +292,7 @@ O Grid organiza células e pode conter micros, componentes complexos ou outros g
 |---|---|
 | `id` | Identificador HTML da seção, útil para links como `#sobre`. |
 | `columns` | Array de células. O nome representa as áreas/células, e não precisa corresponder literalmente a colunas verticais. |
-| `typeField` | Na célula, pode identificar diretamente um componente, como `ImageComponente`, `CardAboutUs`, `cardMenu`, `accordion`, `button` ou outro `grid`. |
+| `typeField` | Na célula, pode identificar diretamente um componente, como `ImageComponent`, `CardAboutUs`, `cardMenu`, `accordion`, `button` ou outro `grid`. |
 | `TextComponent` | Lista de textos renderizados dentro da célula. |
 | `components` | Lista de componentes aninhados na célula. |
 | `columns` (na célula) | Cria um Grid interno. Grids internos não recebem a classe global `template`. |
@@ -383,8 +390,6 @@ O Footer fica em `global[0].footer`.
 | `columns[].options` | Links (`label` e `link`) ou objetos com `TextComponent`. |
 | `columns[].socialMedia` | Lista de redes com `icon` e `link`. Os nomes de ícone reconhecidos são `Instagram` e `Whatsapp` (sem distinção de maiúsculas/minúsculas). |
 
-O código também aceita o nome legado `fontFamly` em uma coluna, mas prefira `fontFamily` em novos JSONs.
-
 ### Accordion
 
 O Accordion (ou acordeão) é expansível, podendo ser colocado como `typeField: "accordion"` em `pageFields`, `columns` ou `components`.
@@ -393,12 +398,12 @@ O Accordion (ou acordeão) é expansível, podendo ser colocado como `typeField:
 {
   "typeField": "accordion",
   "quest": "Quais são os dias de funcionamento?",
-  "anwser": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
-  "accordeonColor": "#FFFFFF"
+  "answer": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
+  "accordionColor": "#FFFFFF"
 }
 ```
 
-`quest` é a pergunta, `anwser` é a resposta e `accordeonColor` é a cor de fundo do item. Os nomes `anwser` e `accordeonColor` são os identificadores usados atualmente pelo código; mantenha essa grafia no JSON. O botão alterna entre `+` e `−` e anima a abertura da resposta.
+`quest` é a pergunta, `answer` é a resposta e `accordionColor` é a cor de fundo do item. O botão alterna entre `+` e `−` e anima a abertura da resposta.
 
 ### Banner
 

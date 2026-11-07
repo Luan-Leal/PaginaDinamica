@@ -1,10 +1,16 @@
 {
    "id": "1",
    "context": "home-page",
+   "loading": {
+      "backgroundColor": "#F5F0E5",
+      "text": "Carregando...",
+      "logo": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/luancas-logo-v2.png?raw=true",
+      "alt": "Logo do Restaurante Luancas"
+   },
    "global": [
       {
          "header": {
-            "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+            "logo": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/luancas-logo-v2.png?raw=true",
             "fixed": false,
             "menu": [
                {
@@ -35,7 +41,7 @@
             "button": {
                "hasButton": true,
                "label": "Faça sua Reserva",
-               "link": "https://www.instagram.com",
+               "link": "https://wa.me/5524981805377",
                "target": true,
                "variant": "primary",
                "icon": "schedule",
@@ -48,7 +54,7 @@
             "columns": [
                {
                   "title": false,
-                  "logo": "https://i.postimg.cc/34P9Y89Y/luancas-logo.png",
+                  "logo": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/luancas-logo-v2.png?raw=true",
                   "description": "Comida que abraça, natureza que acalma e momentos que ficam para sempre.",
                   "socialMedia": [
                      {
@@ -64,7 +70,7 @@
                {
                   "title": "Links Rápidos",
                   "fontColor": "#F5F0E5",
-                  "fontFamly": "Lora",
+                  "fontFamily": "Lora",
                   "fontSize": "24px",
                   "options": [
                      {
@@ -96,7 +102,7 @@
                {
                   "title": "Informações",
                   "fontColor": "#F5F0E5",
-                  "fontFamly": "Lora",
+                  "fontFamily": "Lora",
                   "fontSize": "24px",
                   "options": [
                      {
@@ -111,7 +117,7 @@
                               "marginBottom": "8px"
                            },
                            {
-                              "typeField": "title",
+                              "typeField": "text",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "Sábado e Domingo",
@@ -140,7 +146,7 @@
                               "fontFamily": "'Caveat', cursive"
                            },
                            {
-                              "typeField": "title",
+                              "typeField": "text",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "Estrada Santa Fé",
@@ -169,7 +175,7 @@
                               "fontFamily": "'Caveat', cursive"
                            },
                            {
-                              "typeField": "title",
+                              "typeField": "text",
                               "tag": "p",
                               "color": "#F5F0E5",
                               "text": "(24) 98180-5377",
@@ -191,7 +197,7 @@
             {
                "typeField": "banner",
                "id": "sobre",
-               "bannerImage": "https://placehold.co/1920x1080/000000/4B3524",
+               "bannerImage": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/banner-1.webp?raw=true",
                "TextComponent": [
                   {
                      "typeField": "title",
@@ -281,107 +287,59 @@
                      "variant": "text",
                      "icon": "arrow",
                      "iconPosition": "right",
-                     "label": "Ver cardápio completo",
+                     "label": "Ver mais",
                      "link": "https://www.instagram.com",
                      "target": true
                   }
                ],
                "CarouselItems": [
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-1.webp?raw=true",
-                     "title": "Prato 1",
-                     "description": "Descrição do prato 1",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-1.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-2.webp?raw=true",
-                     "title": "Prato 2",
-                     "description": "Descrição do prato 2",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-2.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-3.webp?raw=true",
-                     "title": "Prato 3",
-                     "description": "Descrição do prato 3",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-3.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-4.webp?raw=true",
-                     "title": "Prato 4",
-                     "description": "Descrição do prato 4",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-4.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-5.webp?raw=true",
-                     "title": "Prato 5",
-                     "description": "Descrição do prato 5",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-5.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-6.webp?raw=true",
-                     "title": "Prato 6",
-                     "description": "Descrição do prato 6",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-6.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-7.webp?raw=true",
-                     "title": "Prato 7",
-                     "description": "Descrição do prato 7",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-7.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-8.webp?raw=true",
-                     "title": "Prato 8",
-                     "description": "Descrição do prato 8",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-8.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-9.webp?raw=true",
-                     "title": "Prato 9",
-                     "description": "Descrição do prato 9",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-9.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-10.webp?raw=true",
-                     "title": "Prato 10",
-                     "description": "Descrição do prato 10",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-10.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-11.webp?raw=true",
-                     "title": "Prato 11",
-                     "description": "Descrição do prato 11",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-11.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-12.webp?raw=true",
-                     "title": "Prato 12",
-                     "description": "Descrição do prato 12",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-12.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-13.webp?raw=true",
-                     "title": "Prato 13",
-                     "description": "Descrição do prato 13",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-13.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-14.webp?raw=true",
-                     "title": "Prato 14",
-                     "description": "Descrição do prato 14",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-14.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-15.webp?raw=true",
-                     "title": "Prato 15",
-                     "description": "Descrição do prato 15",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-15.webp?raw=true"
                   },
                   {
-                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-16.webp?raw=true",
-                     "title": "Prato 16",
-                     "description": "Descrição do prato 16",
-                     "hover": true
+                     "image": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/prato-16.webp?raw=true"
                   }
                ]
             },
@@ -422,7 +380,7 @@
                      "variant": "text",
                      "icon": "arrow",
                      "iconPosition": "right",
-                     "label": "Ver mais do espaço",
+                     "label": "Ver mais",
                      "link": "https://www.instagram.com",
                      "target": true
                   }
@@ -447,8 +405,8 @@
                "backgroundColor": "#FBF8F1",
                "columns": [
                   {
-                     "typeField": "ImageComponente",
-                     "src": "https://placehold.co/720x720/000000/4B3524",
+                     "typeField": "ImageComponent",
+                     "src": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/espaco-img.webp?raw=true",
                      "alt": "Descrição da imagem",
                      "objectFit": "cover",
                      "objectPosition": "center",
@@ -479,7 +437,7 @@
                            "typeField": "text",
                            "tag": "p",
                            "color": "#263321",
-                           "text": "Somos uma família que acredita que o melhor da vida está nas coias simples: uma boa comida feita em casa, o contato com a natureza e o tempo de qualidade ao lado de quem amamos",
+                           "text": "Somos uma família que acredita que o melhor da vida está nas coisas simples: uma boa comida feita em casa, o contato com a natureza e o tempo de qualidade ao lado de quem amamos",
                            "fontSize": "1rem",
                            "fontFamily": "'Lora', Georgia, serif",
                            "marginBottom": "16px"
@@ -515,7 +473,7 @@
                                  "typeField": "text",
                                  "tag": "p",
                                  "color": "#28251F",
-                                 "text": "Ingrediantes frescos e receitas tradicionais feitas com carinho.",
+                                 "text": "Ingredientes frescos e receitas tradicionais feitas com carinho.",
                                  "fontSize": "16px",
                                  "fontFamily": "'Lora', Georgia, serif"
                               }
@@ -569,7 +527,7 @@
                         },
                         {
                            "typeField": "CardAboutUs",
-                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-icons/refs/heads/main/icons/card-4.svg",
+                           "icon": "https://raw.githubusercontent.com/Luan-Leal/dynamic-page-assets/refs/heads/main/icons/card-4.svg",
                            "TextComponent": [
                               {
                                  "typeField": "title",
@@ -639,26 +597,26 @@
                         {
                            "typeField": "accordion",
                            "quest": "Quais são os dias e horários de funcionamento?",
-                           "anwser": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Funcionamos aos sábados, domingos e feriados, das 10h às 18h.",
+                           "accordionColor": "#FFFFFF"
                         },
                         {
                            "typeField": "accordion",
                            "quest": "É cobrada entrada?",
-                           "anwser": "Não cobramos entrada para acessar o nosso espaço.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Não cobramos entrada para acessar o nosso espaço.",
+                           "accordionColor": "#FFFFFF"
                         },
                         {
                            "typeField": "accordion",
                            "quest": "Posso pescar e usar a piscina?",
-                           "anwser": "Sim! A pescaria é gratuita. O uso da piscina também é cortesia para consumação a partir de R$ 100,00.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Sim! A pescaria é gratuita. O uso da piscina também é cortesia para consumação a partir de R$ 100,00.",
+                           "accordionColor": "#FFFFFF"
                         },
                         {
                            "typeField": "accordion",
                            "quest": "Vocês servem almoço?",
-                           "anwser": "Sim. Temos pratos executivos, refeições e uma variedade de porções para aproveitar com a família e os amigos.",
-                           "accordeonColor": "#FFFFFF"
+                           "answer": "Sim. Temos pratos executivos, refeições e uma variedade de porções para aproveitar com a família e os amigos.",
+                           "accordionColor": "#FFFFFF"
                         }
                      ]
                   }
@@ -667,7 +625,7 @@
             {
                "typeField": "grid",
                "id": "eventos",
-               "backgroundImage": "https://placehold.co/1080x80/000000/4B3524",
+               "backgroundImage": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/middle-banner.webp?raw=true",
                "columns": [
                   {
                      "alignItems": "flex-start",
@@ -705,7 +663,7 @@
                      "alignItems": "end|start",
                      "justifyContent": "center",
                      "typeField": "button",
-                     "as": "button",
+                     "as": "a",
                      "variant": "primary",
                      "label": "Fale conosco",
                      "link": "https://wa.me/5524981805377",

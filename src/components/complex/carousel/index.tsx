@@ -21,7 +21,7 @@ const Carousel = ({
    const [paused, setPaused] = React.useState(false)
    const [reducedMotion, setReducedMotion] = React.useState(false)
    const [isMobile, setIsMobile] = React.useState(
-      () => window.matchMedia('(max-width: 767px)').matches,
+      () => window.matchMedia('(max-width: 768px)').matches,
    )
    const [activeIndex, setActiveIndex] = React.useState(0)
    const [visibleItems, setVisibleItems] = React.useState(1)
@@ -36,7 +36,7 @@ const Carousel = ({
       !(removeArrowsOnMobile && isMobile)
 
    React.useEffect(() => {
-      const mobileQuery = window.matchMedia('(max-width: 767px)')
+      const mobileQuery = window.matchMedia('(max-width: 768px)')
       const updateViewport = () => setIsMobile(mobileQuery.matches)
 
       updateViewport()
@@ -58,14 +58,20 @@ const Carousel = ({
 
          const count = Math.max(
             1,
-            Math.floor((track.clientWidth + gap) / (itemWidth + gap)),
+            Math.round((track.clientWidth + gap) / (itemWidth + gap)),
          )
-         setVisibleItems(count)
+         setVisibleItems((currentCount) =>
+            currentCount === count ? currentCount : count,
+         )
       }
 
       updateVisibleItems()
-      window.addEventListener('resize', updateVisibleItems)
-      return () => window.removeEventListener('resize', updateVisibleItems)
+      const observer = new ResizeObserver(updateVisibleItems)
+      observer.observe(track)
+      const firstItem = track.firstElementChild
+      if (firstItem) observer.observe(firstItem)
+
+      return () => observer.disconnect()
    }, [items.length])
 
    React.useEffect(() => {

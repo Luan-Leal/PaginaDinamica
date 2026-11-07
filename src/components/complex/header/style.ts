@@ -12,7 +12,8 @@ export const Header = styled.header<{ $fixed: boolean }>`
 export const Logo = styled.div`
    img {
       height: auto;
-      width: 50px !important;
+      width: 125px !important;
+      margin-top: 24px;
    }
 `
 

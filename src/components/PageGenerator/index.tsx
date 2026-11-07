@@ -84,7 +84,7 @@ interface CardMenuField {
 }
 
 interface ImageField {
-   typeField: 'ImageComponente'
+   typeField: 'ImageComponent' | 'ImageComponente'
    src: string
    alt: string
    width?: React.CSSProperties['width']
@@ -159,6 +159,12 @@ interface GlobalData {
 export interface PageData {
    id: string
    context?: string
+   loading?: {
+      alt: string
+      backgroundColor?: string
+      text?: string
+      logo?: string
+   }
    global?: GlobalData[]
    page: {
       pageTitle: string
@@ -177,6 +183,21 @@ type FieldRenderers = {
       index: number,
    ) => React.ReactNode
 }
+
+const renderImageComponent = (field: ImageField, index: number) => (
+   <ImageComponent
+      key={index}
+      src={field.src}
+      alt={field.alt}
+      width={field.width}
+      height={field.height}
+      objectFit={field.objectFit}
+      objectPosition={field.objectPosition}
+      borderRadius={field.borderRadius}
+      loading={field.loading}
+      decoding={field.decoding}
+   />
+)
 
 function renderGrid(
    field: GridCell & { id?: string },
@@ -281,20 +302,8 @@ const fieldRegistry: FieldRenderers = {
          />
       )
    },
-   ImageComponente: (field, index) => (
-      <ImageComponent
-         key={index}
-         src={field.src}
-         alt={field.alt}
-         width={field.width}
-         height={field.height}
-         objectFit={field.objectFit}
-         objectPosition={field.objectPosition}
-         borderRadius={field.borderRadius}
-         loading={field.loading}
-         decoding={field.decoding}
-      />
-   ),
+   ImageComponent: renderImageComponent,
+   ImageComponente: renderImageComponent,
    CardAboutUs: (field, index) => (
       <CardAboutUs
          key={index}
@@ -307,8 +316,8 @@ const fieldRegistry: FieldRenderers = {
       <Accordion
          key={index}
          quest={field.quest}
-         anwser={field.anwser}
-         accordeonColor={field.accordeonColor}
+         answer={field.answer}
+         accordionColor={field.accordionColor}
       />
    ),
    carousel: (field, index) => {

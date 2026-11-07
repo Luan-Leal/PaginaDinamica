@@ -6,14 +6,14 @@ import minusIcon from './icons/minus.svg'
 
 const Accordion: React.FC<AccordionProps> = ({
    quest,
-   anwser,
-   accordeonColor,
+   answer,
+   accordionColor,
 }) => {
    const [expanded, setExpanded] = React.useState(false)
    const answerId = React.useId()
 
    return (
-      <S.AccordionItem $accordeonColor={accordeonColor}>
+      <S.AccordionItem $accordionColor={accordionColor}>
          <S.QuestionButton
             type="button"
             aria-expanded={expanded}
@@ -32,7 +32,7 @@ const Accordion: React.FC<AccordionProps> = ({
             aria-hidden={!expanded}
          >
             <S.AnswerClip>
-               <S.Answer>{anwser}</S.Answer>
+               <S.Answer>{answer}</S.Answer>
             </S.AnswerClip>
          </S.AnswerPanel>
       </S.AccordionItem>
