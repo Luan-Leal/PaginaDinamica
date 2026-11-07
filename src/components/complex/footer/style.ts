@@ -65,15 +65,17 @@ export const Options = styled.div`
    gap: 8px;
 `
 
-export const OptionLink = styled.a<{ $color?: string }>`
+export const OptionLink = styled.a<{
+   $color?: string
+   $colorHover?: string
+}>`
    width: fit-content;
-   color: ${({ $color }) => $color ?? 'var(--color-cream-light)'};
+   color: ${({ $color }) => $color ?? 'var(--color-sand-light)'};
    text-decoration: none;
    transition: color 0.2s ease;
-   color: var(--color-sand-light);
 
    &:hover {
-      color: var(--color-sand);
+      color: ${({ $colorHover }) => $colorHover ?? 'var(--color-sand)'};
       text-decoration: underline;
       text-underline-offset: 3px;
    }
