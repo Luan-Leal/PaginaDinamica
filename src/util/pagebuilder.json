@@ -191,7 +191,7 @@
             {
                "typeField": "banner",
                "id": "sobre",
-               "bannerImage": "https://placehold.co/1920x1080/000000/4B3524",
+               "bannerImage": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/banner-1.webp?raw=true",
                "TextComponent": [
                   {
                      "typeField": "title",
@@ -281,7 +281,7 @@
                      "variant": "text",
                      "icon": "arrow",
                      "iconPosition": "right",
-                     "label": "Ver cardápio completo",
+                     "label": "Ver mais",
                      "link": "https://www.instagram.com",
                      "target": true
                   }
@@ -422,7 +422,7 @@
                      "variant": "text",
                      "icon": "arrow",
                      "iconPosition": "right",
-                     "label": "Ver mais do espaço",
+                     "label": "Ver mais",
                      "link": "https://www.instagram.com",
                      "target": true
                   }
@@ -448,7 +448,7 @@
                "columns": [
                   {
                      "typeField": "ImageComponent",
-                     "src": "https://placehold.co/720x720/000000/4B3524",
+                     "src": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/espaco-img.webp?raw=true",
                      "alt": "Descrição da imagem",
                      "objectFit": "cover",
                      "objectPosition": "center",
@@ -667,7 +667,7 @@
             {
                "typeField": "grid",
                "id": "eventos",
-               "backgroundImage": "https://placehold.co/1080x80/000000/4B3524",
+               "backgroundImage": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/middle-banner.webp?raw=true",
                "columns": [
                   {
                      "alignItems": "flex-start",

@@ -8,6 +8,30 @@ export const BannerContainer = styled.section<{ $bannerImage?: string }>`
    background-size: cover;
    background-position: center center;
    position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+         90deg,
+         rgb(0 0 0 / 55%) 0%,
+         rgb(0 0 0 / 34%) 35%,
+         rgb(0 0 0 / 14%) 58%,
+         transparent 78%
+      );
+      pointer-events: none;
+
+      @media (max-width: 768px) {
+         background: rgb(0 0 0 / 30%);
+      }
+   }
+
+   > .page-spacing {
+      position: relative;
+      z-index: 1;
+   }
+
    @media (min-width: 767px) {
       min-height: 800px;
    }
