@@ -65,9 +65,9 @@ const Header: React.FC<HeaderProps> = ({
          style={{ paddingBottom: 0, paddingTop: 0 }}
       >
          <S.Content className="page-spacing">
-            <div className="logo">
+            <S.Logo className="logo">
                <img src={logo} alt="Logo" draggable="false" />
-            </div>
+            </S.Logo>
 
             <S.Nav
                id="mobile-navigation"

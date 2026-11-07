@@ -48,6 +48,8 @@ export const ColumnTitle = styled.h2<{
 
 export const Logo = styled.img`
    height: auto;
+   max-width: 150px;
+   margin-bottom: 24px;
 `
 
 export const Description = styled.p`
