@@ -23,7 +23,7 @@ const CardMenu = ({
          aria-hidden={ariaHidden}
          $hoverEnabled={hover}
       >
-         <S.CardMenuImage image={image} $imageOnly={!hasContent} />
+         <S.CardMenuImage $image={image} $imageOnly={!hasContent} />
          {hasContent && (
             <S.CardMenuContent>
                {showTitle && <S.CardMenuTitle>{title}</S.CardMenuTitle>}
