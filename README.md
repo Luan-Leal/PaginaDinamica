@@ -66,6 +66,11 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
 {
   "id": "restaurante",
   "context": "home-page",
+  "loading": {
+    "backgroundColor": "#F5F0E5",
+    "text": "Carregando...",
+    "logo": "https://exemplo.com/logo.png"
+  },
   "global": [
     {
       "header": {
@@ -89,6 +94,8 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
   ]
 }
 ```
+
+`loading` é opcional e configura a tela exibida enquanto o JSON é carregado. Aceita `backgroundColor` para a cor de fundo, `text` para a mensagem e `logo` para uma imagem opcional. Durante a primeira requisição, a configuração do mock local é usada, pois a configuração remota só fica disponível depois que a API responde.
 
 `pageTitle` é descritivo; a renderização dos componentes acontece por `pageFields`.
 
