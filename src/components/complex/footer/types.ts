@@ -15,6 +15,8 @@ export interface FooterTextField {
 export interface FooterOption {
    label: string
    link: string
+   color?: string
+   colorHover?: string
 }
 
 export interface FooterTextOption {

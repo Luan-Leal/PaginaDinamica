@@ -321,7 +321,12 @@ O Header fica em `global[0].header`, fora de `pageFields`.
     "logo": "https://exemplo.com/imagens/logo.webp",
     "fixed": true,
     "menu": [
-      { "label": "Início", "link": "#" },
+      {
+        "label": "Início",
+        "link": "#",
+        "color": "#D8CCB4",
+        "colorHover": "#B9A681"
+      },
       { "label": "Sobre", "link": "#sobre" }
     ],
     "button": {
@@ -338,7 +343,7 @@ O Header fica em `global[0].header`, fora de `pageFields`.
 |---|---|
 | `logo` | URL do logo. |
 | `fixed` | `true` fixa o Header no topo durante a rolagem; `false` ou omitido usa posicionamento absoluto no topo. |
-| `menu` | Lista de links com `label` e `link`. |
+| `menu` | Lista de links com `label` e `link`; cada item pode definir `color` e `colorHover`. Sem esses campos, são usadas as cores padrão atuais do Header. |
 | `button` | CTA opcional: `hasButton` controla sua exibição; `label`, `link` e `target` configuram o link. O ícone de agenda e o estilo desse CTA são definidos pelo Header. |
 
 Até 768px, o menu vira um overlay vertical com botão hambúrguer. O overlay bloqueia a rolagem da página; fecha ao selecionar um link, pressionar `Escape` ou redimensionar para desktop.
@@ -359,7 +364,12 @@ O Footer fica em `global[0].footer`.
         "fontFamily": "'Lora', Georgia, serif",
         "fontSize": "20px",
         "options": [
-          { "label": "Como chegar", "link": "https://maps.google.com/" },
+          {
+            "label": "Como chegar",
+            "link": "https://maps.google.com/",
+            "color": "#D8CCB4",
+            "colorHover": "#B9A681"
+          },
           {
             "TextComponent": [
               { "typeField": "text", "text": "Aberto aos fins de semana." }
@@ -387,7 +397,7 @@ O Footer fica em `global[0].footer`.
 | `columns[].fontColor` | Cor usada nos títulos/links da coluna. |
 | `columns[].fontFamily` | Família de fonte do título da coluna. |
 | `columns[].fontSize` | Tamanho do título da coluna. |
-| `columns[].options` | Links (`label` e `link`) ou objetos com `TextComponent`. |
+| `columns[].options` | Links (`label` e `link`, com `color` e `colorHover` opcionais) ou objetos com `TextComponent`. Sem cores definidas no link, são usadas as cores padrão atuais do Footer. |
 | `columns[].socialMedia` | Lista de redes com `icon` e `link`. Os nomes de ícone reconhecidos são `Instagram` e `Whatsapp` (sem distinção de maiúsculas/minúsculas). |
 
 ### Accordion

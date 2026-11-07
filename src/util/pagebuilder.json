@@ -15,27 +15,39 @@
             "menu": [
                {
                   "label": "Início",
-                  "link": "#"
+                  "link": "#",
+                  "color": "#FBF8F1",
+                  "colorHover": "#B9A681"
                },
                {
                   "label": "Sobre",
-                  "link": "#sobre"
+                  "link": "#sobre",
+                  "color": "#FBF8F1",
+                  "colorHover": "#B9A681"
                },
                {
                   "label": "Pratos",
-                  "link": "#pratos"
+                  "link": "#pratos",
+                  "color": "#FBF8F1",
+                  "colorHover": "#B9A681"
                },
                {
                   "label": "Espaço",
-                  "link": "#espaço"
+                  "link": "#espaço",
+                  "color": "#FBF8F1",
+                  "colorHover": "#B9A681"
                },
                {
                   "label": "FAQ",
-                  "link": "#perguntas-frequentes"
+                  "link": "#perguntas-frequentes",
+                  "color": "#FBF8F1",
+                  "colorHover": "#B9A681"
                },
                {
                   "label": "Eventos",
-                  "link": "#eventos"
+                  "link": "#eventos",
+                  "color": "#FBF8F1",
+                  "colorHover": "#B9A681"
                }
             ],
             "button": {
@@ -75,27 +87,39 @@
                   "options": [
                      {
                         "label": "Início",
-                        "link": "#"
+                        "link": "#",
+                        "color": "#D8CCB4",
+                        "colorHover": "#B9A681"
                      },
                      {
                         "label": "Sobre",
-                        "link": "#sobre"
+                        "link": "#sobre",
+                        "color": "#D8CCB4",
+                        "colorHover": "#B9A681"
                      },
                      {
                         "label": "Pratos",
-                        "link": "#pratos"
+                        "link": "#pratos",
+                        "color": "#D8CCB4",
+                        "colorHover": "#B9A681"
                      },
                      {
                         "label": "Espaço",
-                        "link": "#espaço"
+                        "link": "#espaço",
+                        "color": "#D8CCB4",
+                        "colorHover": "#B9A681"
                      },
                      {
                         "label": "FAQ",
-                        "link": "#perguntas-frequentes"
+                        "link": "#perguntas-frequentes",
+                        "color": "#D8CCB4",
+                        "colorHover": "#B9A681"
                      },
                      {
                         "label": "Eventos",
-                        "link": "#eventos"
+                        "link": "#eventos",
+                        "color": "#D8CCB4",
+                        "colorHover": "#B9A681"
                      }
                   ]
                },
