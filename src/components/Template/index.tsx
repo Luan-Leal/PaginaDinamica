@@ -1,6 +1,8 @@
 import * as React from 'react'
 import axios from 'axios'
 import MockJson from '../../util/pagebuilder.json'
+import BarbershopJson from '../../util/barbearia-pagebuilder.json'
+import '../../global/barbearia.css'
 import PageGenerator from '../PageGenerator'
 import type { PageData } from '../PageGenerator'
 
@@ -57,9 +59,18 @@ const isPageData = (value: unknown): value is PageData => {
 }
 
 const Template: React.FC = () => {
-   const [pageData, setPageData] = React.useState<PageData | null>(null)
+   const isBarbeariaDemo =
+      new URLSearchParams(window.location.search).get('demo') === 'barbearia'
+   const [pageData, setPageData] = React.useState<PageData | null>(() =>
+      isBarbeariaDemo ? (BarbershopJson as PageData) : null,
+   )
 
    React.useEffect(() => {
+      if (isBarbeariaDemo) {
+         console.log('Fonte do JSON da página: demonstração local de barbearia')
+         return
+      }
+
       let cancelled = false
 
       axios
@@ -94,7 +105,7 @@ const Template: React.FC = () => {
       return () => {
          cancelled = true
       }
-   }, [])
+   }, [isBarbeariaDemo])
 
    if (!pageData) {
       const loading = (MockJson as PageData).loading
@@ -134,7 +145,7 @@ const Template: React.FC = () => {
    }
 
    return (
-      <div>
+      <div className={isBarbeariaDemo ? 'barbearia-theme' : undefined}>
          <PageGenerator data={pageData} />
       </div>
    )

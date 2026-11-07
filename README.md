@@ -52,6 +52,8 @@ Se a resposta tiver a estrutura mínima esperada, o `Template` registra no conso
 
 Para mudar a API, altere `PAGE_JSON_URL` no `Template`. A hospedagem pode ser npoint ou qualquer serviço que entregue o JSON por HTTP/HTTPS, sem autenticação exposta no navegador e com CORS permitindo que o domínio do site faça a requisição.
 
+Para testar a demonstração de barbearia sem modificar o JSON do restaurante, inicie o projeto com `npm start` e acesse `http://localhost:3000/?demo=barbearia`. Ela carrega `src/util/barbearia-pagebuilder.json` localmente e aplica a paleta isolada de `src/global/barbearia.css`; sem esse parâmetro, o carregamento normal pela API e o fallback do restaurante permanecem iguais.
+
 ### `PageGenerator`
 
 O [PageGenerator](./src/components/PageGenerator/index.tsx) recebe os dados já carregados e associa cada `typeField` a um componente. Assim, a lógica de requisição e fallback fica no `Template`, enquanto o gerador cuida da renderização.
