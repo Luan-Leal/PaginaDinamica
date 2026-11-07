@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import type { GridDirection } from './types'
 import { parseResponsiveValue } from '../../../util/responsiveValue'
 
@@ -23,6 +23,34 @@ export const Section = styled.section<{
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
+   position: relative;
+
+   ${({ $backgroundImage }) =>
+      $backgroundImage &&
+      css`
+         &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+               90deg,
+               rgb(0 0 0 / 55%) 0%,
+               rgb(0 0 0 / 34%) 35%,
+               rgb(0 0 0 / 14%) 58%,
+               transparent 78%
+            );
+            pointer-events: none;
+
+            @media (max-width: 768px) {
+               background: rgb(0 0 0 / 40%);
+            }
+         }
+      `}
+
+   > div {
+      position: relative;
+      z-index: 1;
+   }
 `
 
 export const Grid = styled.div<GridStyleProps>`
@@ -89,8 +117,8 @@ export const Cell = styled.div<{
          desktopAlignItems === 'center'
             ? 'center'
             : desktopAlignItems === 'flex-end' || desktopAlignItems === 'end'
-              ? 'flex-end'
-              : 'flex-start'
+            ? 'flex-end'
+            : 'flex-start'
 
       return responsiveJustifyContent.desktop ?? defaultDesktop
    }};
@@ -110,8 +138,8 @@ export const Cell = styled.div<{
             mobileAlignItems === 'center'
                ? 'center'
                : mobileAlignItems === 'flex-end' || mobileAlignItems === 'end'
-                 ? 'flex-end'
-                 : 'flex-start'
+               ? 'flex-end'
+               : 'flex-start'
 
          return (
             responsiveJustifyContent.mobile ??
