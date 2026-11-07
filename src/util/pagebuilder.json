@@ -1,6 +1,12 @@
 {
    "id": "1",
    "context": "home-page",
+   "loading": {
+      "backgroundColor": "#F5F0E5",
+      "text": "Carregando...",
+      "logo": "https://github.com/Luan-Leal/dynamic-page-assets/blob/main/images/luancas-logo-v2.png?raw=true",
+      "alt": "Logo do Restaurante Luancas"
+   },
    "global": [
       {
          "header": {

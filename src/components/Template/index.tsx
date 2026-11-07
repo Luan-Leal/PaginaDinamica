@@ -6,18 +6,32 @@ import type { PageData } from '../PageGenerator'
 
 const PAGE_JSON_URL = 'https://api.npoint.io/06f271e1bb5f0a1aa654'
 
+interface LoadingConfig {
+   backgroundColor?: string
+   text?: string
+   logo?: string
+   alt?: string
+}
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
    typeof value === 'object' && value !== null && !Array.isArray(value)
+
+const isLoadingConfig = (value: unknown): value is LoadingConfig =>
+   isRecord(value) &&
+   ['backgroundColor', 'text', 'logo', 'alt'].every(
+      (key) => value[key] === undefined || typeof value[key] === 'string',
+   )
 
 const isPageData = (value: unknown): value is PageData => {
    if (!isRecord(value) || typeof value.id !== 'string') {
       return false
    }
 
-   if (
-      value.context !== undefined &&
-      typeof value.context !== 'string'
-   ) {
+   if (value.loading !== undefined && !isLoadingConfig(value.loading)) {
+      return false
+   }
+
+   if (value.context !== undefined && typeof value.context !== 'string') {
       return false
    }
 
@@ -83,7 +97,40 @@ const Template: React.FC = () => {
    }, [])
 
    if (!pageData) {
-      return <p>Carregando página...</p>
+      const loading = (MockJson as PageData).loading
+
+      return (
+         <main
+            role="status"
+            aria-live="polite"
+            style={{
+               display: 'flex',
+               minHeight: '100vh',
+               flexDirection: 'column',
+               alignItems: 'center',
+               justifyContent: 'center',
+               gap: '24px',
+               padding: '24px',
+               backgroundColor: loading?.backgroundColor ?? '#F5F0E5',
+               color: 'var(--color-forest)',
+               textAlign: 'center',
+            }}
+         >
+            {loading?.logo && (
+               <img
+                  src={loading.logo}
+                  alt={loading.alt || 'Logo do Restaurante Luancas'}
+                  loading="eager"
+                  style={{
+                     maxWidth: '180px',
+                     maxHeight: '180px',
+                     objectFit: 'contain',
+                  }}
+               />
+            )}
+            <p>{loading?.text ?? 'Carregando página...'}</p>
+         </main>
+      )
    }
 
    return (

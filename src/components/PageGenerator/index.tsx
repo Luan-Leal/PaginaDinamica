@@ -159,6 +159,12 @@ interface GlobalData {
 export interface PageData {
    id: string
    context?: string
+   loading?: {
+      alt: string
+      backgroundColor?: string
+      text?: string
+      logo?: string
+   }
    global?: GlobalData[]
    page: {
       pageTitle: string
