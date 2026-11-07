@@ -35,7 +35,7 @@
             "button": {
                "hasButton": true,
                "label": "Faça sua Reserva",
-               "link": "https://www.instagram.com",
+               "link": "https://wa.me/5524981805377",
                "target": true,
                "variant": "primary",
                "icon": "schedule",
@@ -657,7 +657,7 @@
                      "alignItems": "end|start",
                      "justifyContent": "center",
                      "typeField": "button",
-                     "as": "button",
+                     "as": "a",
                      "variant": "primary",
                      "label": "Fale conosco",
                      "link": "https://wa.me/5524981805377",
