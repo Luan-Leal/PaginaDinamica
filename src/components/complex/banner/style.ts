@@ -29,7 +29,7 @@ export const BannerContainer = styled.section<{
       pointer-events: none;
 
       @media (max-width: 768px) {
-         background: rgb(0 0 0 / 30%);
+         background: rgb(0 0 0 / 45%);
       }
    }
 
