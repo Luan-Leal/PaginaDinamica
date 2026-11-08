@@ -1,0 +1,615 @@
+{
+  "id": "northstar-global",
+  "context": "multinational-corporate-demo",
+  "favicon": "https://placehold.co/64x64.png?text=NG",
+  "loading": {
+    "backgroundColor": "#F4F7FA",
+    "text": "Building what comes next...",
+    "logo": "https://placehold.co/180x60",
+    "alt": "Northstar Global"
+  },
+  "global": [
+    {
+      "header": {
+        "logo": "https://placehold.co/180x60",
+        "fixed": true,
+        "menu": [
+          {
+            "label": "Home",
+            "link": "#/home",
+            "color": "#F4F7FA",
+            "colorHover": "#69D5C2"
+          },
+          {
+            "label": "About us",
+            "link": "#/about-us",
+            "color": "#F4F7FA",
+            "colorHover": "#69D5C2"
+          },
+          {
+            "label": "Our work",
+            "link": "#/our-work",
+            "color": "#F4F7FA",
+            "colorHover": "#69D5C2"
+          }
+        ],
+        "button": {
+          "hasButton": true,
+          "label": "Talk to our team",
+          "link": "mailto:hello@northstarglobal.example",
+          "target": false
+        }
+      },
+      "footer": {
+        "backgroundColor": "#09131D",
+        "copyright": "© {{year}} Northstar Global. Progress, built together.",
+        "columns": [
+          {
+            "title": false,
+            "logo": "https://placehold.co/180x60",
+            "description": "We connect people, technology and infrastructure to move industries forward.",
+            "socialMedia": [
+              {
+                "icon": "LinkedIn",
+                "link": "https://www.linkedin.com/"
+              },
+              {
+                "icon": "Instagram",
+                "link": "https://www.instagram.com/"
+              }
+            ]
+          },
+          {
+            "title": "Explore",
+            "fontColor": "#F4F7FA",
+            "fontFamily": "'Inter', Arial, sans-serif",
+            "fontSize": "20px",
+            "options": [
+              {
+                "label": "Home",
+                "link": "#/home",
+                "color": "#9DCAC4",
+                "colorHover": "#69D5C2"
+              },
+              {
+                "label": "About us",
+                "link": "#/about-us",
+                "color": "#9DCAC4",
+                "colorHover": "#69D5C2"
+              },
+              {
+                "label": "Our work",
+                "link": "#/our-work",
+                "color": "#9DCAC4",
+                "colorHover": "#69D5C2"
+              }
+            ]
+          },
+          {
+            "title": "Get in touch",
+            "fontColor": "#F4F7FA",
+            "fontFamily": "'Inter', Arial, sans-serif",
+            "fontSize": "20px",
+            "options": [
+              {
+                "TextComponent": [
+                  {
+                    "typeField": "text",
+                    "text": "hello@northstarglobal.example",
+                    "color": "#F4F7FA",
+                    "fontSize": "16px"
+                  },
+                  {
+                    "typeField": "text",
+                    "text": "Global offices • 18 countries",
+                    "color": "#9DCAC4",
+                    "fontSize": "14px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "page": [
+    {
+      "slug": "home",
+      "pageTitle": "Northstar Global | Home",
+      "pageFields": [
+        {
+          "typeField": "banner",
+          "id": "home-hero",
+          "bannerImage": "https://placehold.co/1920x1080",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "textAlign": "center",
+          "TextComponent": [
+            {
+              "typeField": "text",
+              "tag": "span",
+              "text": "NORTHSTAR GLOBAL • BUILT FOR WHAT'S NEXT",
+              "color": "#69D5C2",
+              "fontWeight": 700,
+              "fontSize": "13px",
+              "marginBottom": "22px"
+            },
+            {
+              "typeField": "title",
+              "tag": "h1",
+              "text": "Complex challenges. Clear direction.",
+              "color": "#FFFFFF",
+              "fontFamily": "'Inter', Arial, sans-serif",
+              "fontWeight": 600,
+              "fontSize": "68px|42px",
+              "lineHeight": "1.05",
+              "marginBottom": "24px"
+            },
+            {
+              "typeField": "text",
+              "text": "We help ambitious organizations transform infrastructure, industry and everyday life.",
+              "color": "#E6EEF3",
+              "fontSize": "19px|16px",
+              "marginBottom": "30px"
+            }
+          ],
+          "Button": [
+            {
+              "typeField": "button",
+              "as": "a",
+              "variant": "primary",
+              "label": "Explore our work",
+              "link": "#/our-work",
+              "icon": "arrow",
+              "iconPosition": "right",
+              "backgroundColor": "#69D5C2",
+              "textColor": "#101E2B",
+              "borderColor": "#69D5C2",
+              "hoverBackgroundColor": "#F4F7FA",
+              "hoverTextColor": "#101E2B"
+            },
+            {
+              "typeField": "button",
+              "as": "a",
+              "variant": "outline",
+              "label": "Meet Northstar",
+              "link": "#/about-us",
+              "borderColor": "#F4F7FA",
+              "textColor": "#F4F7FA",
+              "hoverBackgroundColor": "#F4F7FA",
+              "hoverTextColor": "#101E2B"
+            }
+          ]
+        },
+        {
+          "typeField": "stats",
+          "id": "global-impact",
+          "eyebrow": "A global network, one shared purpose",
+          "heading": "Scale with a human point of view.",
+          "backgroundColor": "#101E2B",
+          "textColor": "#F4F7FA",
+          "accentColor": "#69D5C2",
+          "items": [
+            {
+              "value": "18",
+              "label": "countries",
+              "detail": "Local insight, connected globally"
+            },
+            {
+              "value": "42k+",
+              "label": "people",
+              "detail": "Experts across disciplines"
+            },
+            {
+              "value": "120+",
+              "label": "years of progress",
+              "detail": "Built on experience and reinvention"
+            },
+            {
+              "value": "35%",
+              "label": "lower emissions",
+              "detail": "Across our operations since 2020"
+            }
+          ]
+        },
+        {
+          "typeField": "pillars",
+          "id": "what-we-do",
+          "eyebrow": "Where we make a difference",
+          "heading": "Progress doesn't happen in silos.",
+          "intro": "We bring the right capabilities together to solve the challenges that matter most to business and society.",
+          "backgroundColor": "#F4F7FA",
+          "textColor": "#172534",
+          "accentColor": "#087F83",
+          "items": [
+            {
+              "number": "01 / CONNECT",
+              "title": "Digital foundations",
+              "description": "Secure platforms and intelligent systems that help organizations make better decisions."
+            },
+            {
+              "number": "02 / TRANSFORM",
+              "title": "Resilient operations",
+              "description": "Modern infrastructure and supply networks designed to adapt and perform."
+            },
+            {
+              "number": "03 / GROW",
+              "title": "Sustainable industry",
+              "description": "Practical pathways to create long-term value with a lighter footprint."
+            }
+          ]
+        },
+        {
+          "typeField": "caseStudies",
+          "id": "featured-work",
+          "eyebrow": "Ideas into measurable outcomes",
+          "heading": "Partnerships that move the world forward.",
+          "backgroundColor": "#E8EEF2",
+          "textColor": "#172534",
+          "accentColor": "#087F83",
+          "items": [
+            {
+              "sector": "ENERGY • EUROPE",
+              "title": "A smarter grid for a changing climate",
+              "summary": "Connecting renewable generation, storage and city infrastructure through one resilient energy platform.",
+              "image": "https://placehold.co/960x540",
+              "outcome": "28% faster integration of renewable capacity",
+              "link": "#/our-work",
+              "linkLabel": "View our work"
+            },
+            {
+              "sector": "MOBILITY • NORTH AMERICA",
+              "title": "Making regional movement more seamless",
+              "summary": "A unified mobility experience brings transit operators and travelers onto the same journey.",
+              "image": "https://placehold.co/960x540",
+              "outcome": "2.4M journeys improved every month",
+              "link": "#/our-work",
+              "linkLabel": "View our work"
+            }
+          ]
+        },
+        {
+          "typeField": "grid",
+          "id": "home-contact",
+          "backgroundColor": "#087F83",
+          "padding": "64px",
+          "gap": "32px",
+          "alignItems": "center",
+          "columns": [
+            {
+              "TextComponent": [
+                {
+                  "typeField": "title",
+                  "tag": "h2",
+                  "text": "Let's shape the next chapter.",
+                  "color": "#FFFFFF",
+                  "fontSize": "40px|32px",
+                  "fontWeight": 600,
+                  "marginBottom": "12px"
+                },
+                {
+                  "typeField": "text",
+                  "text": "Bring us your toughest question. We'll bring the right people to the table.",
+                  "color": "#E6F5F2",
+                  "fontSize": "17px"
+                }
+              ]
+            },
+            {
+              "alignItems": "end|start",
+              "justifyContent": "center",
+              "typeField": "button",
+              "as": "a",
+              "variant": "outline",
+              "label": "Start a conversation",
+              "link": "mailto:hello@northstarglobal.example",
+              "target": true,
+              "borderColor": "#FFFFFF",
+              "textColor": "#FFFFFF",
+              "hoverBackgroundColor": "#FFFFFF",
+              "hoverTextColor": "#087F83"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "about-us",
+      "pageTitle": "Northstar Global | About us",
+      "pageFields": [
+        {
+          "typeField": "banner",
+          "id": "about-hero",
+          "bannerImage": "https://placehold.co/1920x900",
+          "justifyContent": "center",
+          "alignItems": "flex-start",
+          "textAlign": "left",
+          "TextComponent": [
+            {
+              "typeField": "text",
+              "tag": "span",
+              "text": "ABOUT NORTHSTAR",
+              "color": "#69D5C2",
+              "fontWeight": 700,
+              "fontSize": "13px",
+              "marginBottom": "20px"
+            },
+            {
+              "typeField": "title",
+              "tag": "h1",
+              "text": "Different perspectives. Shared momentum.",
+              "color": "#FFFFFF",
+              "fontWeight": 600,
+              "fontSize": "60px|40px",
+              "lineHeight": "1.08",
+              "marginBottom": "20px"
+            },
+            {
+              "typeField": "text",
+              "text": "We are a global team united by the belief that progress should work for everyone.",
+              "color": "#E6EEF3",
+              "fontSize": "18px",
+              "marginBottom": "18px"
+            }
+          ],
+          "Button": [
+            {
+              "typeField": "button",
+              "as": "a",
+              "variant": "primary",
+              "label": "See what we do",
+              "link": "#/our-work",
+              "backgroundColor": "#69D5C2",
+              "textColor": "#101E2B",
+              "borderColor": "#69D5C2"
+            }
+          ]
+        },
+        {
+          "typeField": "pillars",
+          "id": "our-principles",
+          "eyebrow": "What guides us",
+          "heading": "Built around outcomes that last.",
+          "intro": "Our work starts with listening, grows through collaboration and succeeds when it creates value beyond the project itself.",
+          "backgroundColor": "#FFFFFF",
+          "textColor": "#172534",
+          "accentColor": "#087F83",
+          "items": [
+            {
+              "title": "Think in systems",
+              "description": "We connect technology, people and operations instead of optimizing one piece at a time."
+            },
+            {
+              "title": "Act with integrity",
+              "description": "We make decisions transparently and take responsibility for the impact we create."
+            },
+            {
+              "title": "Build together",
+              "description": "We bring teams and communities into the process from the first question to the lasting result."
+            }
+          ]
+        },
+        {
+          "typeField": "timeline",
+          "id": "our-journey",
+          "eyebrow": "Our journey",
+          "heading": "A century of moving forward.",
+          "backgroundColor": "#101E2B",
+          "textColor": "#F4F7FA",
+          "accentColor": "#69D5C2",
+          "items": [
+            {
+              "year": "1904",
+              "title": "A practical idea takes root",
+              "description": "A small engineering partnership begins by solving the infrastructure challenges of its region."
+            },
+            {
+              "year": "1968",
+              "title": "New horizons, shared expertise",
+              "description": "Teams across borders join forces, bringing new disciplines and perspectives to complex work."
+            },
+            {
+              "year": "2008",
+              "title": "Digital becomes essential",
+              "description": "We invest in data and connected platforms to help clients navigate a faster-changing world."
+            },
+            {
+              "year": "Today",
+              "title": "Progress, built together",
+              "description": "Our global network works across sectors to create a more resilient and inclusive future."
+            }
+          ]
+        },
+        {
+          "typeField": "stats",
+          "id": "our-reach",
+          "eyebrow": "Local knowledge. Global reach.",
+          "heading": "Close to the communities we serve.",
+          "backgroundColor": "#DCEFED",
+          "textColor": "#172534",
+          "accentColor": "#087F83",
+          "items": [
+            {
+              "value": "18",
+              "label": "countries",
+              "detail": "Across six regions"
+            },
+            {
+              "value": "240+",
+              "label": "offices",
+              "detail": "Working where our clients are"
+            },
+            {
+              "value": "42k+",
+              "label": "colleagues",
+              "detail": "One connected community"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "our-work",
+      "pageTitle": "Northstar Global | Our work",
+      "pageFields": [
+        {
+          "typeField": "banner",
+          "id": "work-hero",
+          "bannerImage": "https://placehold.co/1920x900",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "textAlign": "center",
+          "TextComponent": [
+            {
+              "typeField": "text",
+              "tag": "span",
+              "text": "OUR WORK",
+              "color": "#69D5C2",
+              "fontWeight": 700,
+              "fontSize": "13px",
+              "marginBottom": "20px"
+            },
+            {
+              "typeField": "title",
+              "tag": "h1",
+              "text": "Turning possibility into progress.",
+              "color": "#FFFFFF",
+              "fontWeight": 600,
+              "fontSize": "62px|40px",
+              "lineHeight": "1.08",
+              "marginBottom": "20px"
+            },
+            {
+              "typeField": "text",
+              "text": "Explore how our partnerships are helping organizations deliver change at scale.",
+              "color": "#E6EEF3",
+              "fontSize": "18px",
+              "marginBottom": "18px"
+            }
+          ],
+          "Button": [
+            {
+              "typeField": "button",
+              "as": "a",
+              "variant": "primary",
+              "label": "Our approach",
+              "link": "#/about-us",
+              "backgroundColor": "#69D5C2",
+              "textColor": "#101E2B",
+              "borderColor": "#69D5C2"
+            }
+          ]
+        },
+        {
+          "typeField": "caseStudies",
+          "id": "case-studies",
+          "eyebrow": "Selected partnerships",
+          "heading": "Real challenges. Tangible change.",
+          "backgroundColor": "#F4F7FA",
+          "textColor": "#172534",
+          "accentColor": "#087F83",
+          "items": [
+            {
+              "sector": "ENERGY • EUROPE",
+              "title": "A smarter grid for a changing climate",
+              "summary": "Connecting renewable generation, storage and city infrastructure through one resilient energy platform.",
+              "image": "https://placehold.co/960x540",
+              "outcome": "28% faster integration of renewable capacity"
+            },
+            {
+              "sector": "MOBILITY • NORTH AMERICA",
+              "title": "Making regional movement more seamless",
+              "summary": "A unified mobility experience brings transit operators and travelers onto the same journey.",
+              "image": "https://placehold.co/960x540",
+              "outcome": "2.4M journeys improved every month"
+            },
+            {
+              "sector": "ADVANCED INDUSTRY • ASIA PACIFIC",
+              "title": "A more adaptive supply network",
+              "summary": "Live operational insight helps teams anticipate disruption and coordinate decisions across markets.",
+              "image": "https://placehold.co/960x540",
+              "outcome": "41% reduction in unplanned downtime"
+            },
+            {
+              "sector": "PUBLIC SERVICES • AFRICA",
+              "title": "Essential services, easier to reach",
+              "summary": "A secure digital service platform helps residents access support through channels they already use.",
+              "image": "https://placehold.co/960x540",
+              "outcome": "Service access expanded to 3M people"
+            }
+          ]
+        },
+        {
+          "typeField": "stats",
+          "id": "work-impact",
+          "eyebrow": "Measured in the real world",
+          "heading": "Better outcomes are the measure of our work.",
+          "backgroundColor": "#101E2B",
+          "textColor": "#F4F7FA",
+          "accentColor": "#69D5C2",
+          "items": [
+            {
+              "value": "640+",
+              "label": "active partnerships",
+              "detail": "Across public and private sectors"
+            },
+            {
+              "value": "72",
+              "label": "markets served",
+              "detail": "With teams close to the work"
+            },
+            {
+              "value": "4.8M",
+              "label": "lives improved",
+              "detail": "Through measurable client outcomes"
+            }
+          ]
+        },
+        {
+          "typeField": "grid",
+          "id": "work-contact",
+          "backgroundColor": "#087F83",
+          "padding": "64px",
+          "gap": "32px",
+          "alignItems": "center",
+          "columns": [
+            {
+              "TextComponent": [
+                {
+                  "typeField": "title",
+                  "tag": "h2",
+                  "text": "Have a challenge in mind?",
+                  "color": "#FFFFFF",
+                  "fontSize": "40px|32px",
+                  "fontWeight": 600,
+                  "marginBottom": "12px"
+                },
+                {
+                  "typeField": "text",
+                  "text": "Let's bring the right people together and find a way forward.",
+                  "color": "#E6F5F2",
+                  "fontSize": "17px"
+                }
+              ]
+            },
+            {
+              "alignItems": "end|start",
+              "justifyContent": "center",
+              "typeField": "button",
+              "as": "a",
+              "variant": "outline",
+              "label": "Contact our team",
+              "link": "mailto:hello@northstarglobal.example",
+              "target": true,
+              "borderColor": "#FFFFFF",
+              "textColor": "#FFFFFF",
+              "hoverBackgroundColor": "#FFFFFF",
+              "hoverTextColor": "#087F83"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

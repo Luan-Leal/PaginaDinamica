@@ -57,16 +57,38 @@ const variantStyles = (variant: ButtonVariant) =>
          }
         `
 
-type StyledButtonProps = { $variant: ButtonVariant }
+type StyledButtonProps = {
+   $variant: ButtonVariant
+   $backgroundColor?: string
+   $textColor?: string
+   $borderColor?: string
+   $hoverBackgroundColor?: string
+   $hoverTextColor?: string
+}
+
+type CustomButtonColors = Omit<StyledButtonProps, '$variant'>
+
+const customColors = (props: CustomButtonColors) => `
+   ${props.$backgroundColor ? `background-color: ${props.$backgroundColor};` : ''}
+   ${props.$textColor ? `color: ${props.$textColor};` : ''}
+   ${props.$borderColor ? `border-color: ${props.$borderColor};` : ''}
+
+   &:hover {
+      ${props.$hoverBackgroundColor ? `background-color: ${props.$hoverBackgroundColor};` : ''}
+      ${props.$hoverTextColor ? `color: ${props.$hoverTextColor};` : ''}
+   }
+`
 
 export const Anchor = styled.a<StyledButtonProps>`
    ${buttonStyles}
    ${({ $variant }) => variantStyles($variant)}
+   ${({ $variant, ...props }) => customColors(props)}
 `
 
 export const Button = styled.button<StyledButtonProps>`
    ${buttonStyles}
    ${({ $variant }) => variantStyles($variant)}
+   ${({ $variant, ...props }) => customColors(props)}
 `
 
 const iconMasks: Record<ButtonIcon, string> = {

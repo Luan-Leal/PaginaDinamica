@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 
-export const BannerContainer = styled.section<{ $bannerImage?: string }>`
-   justify-content: flex-end !important;
+export const BannerContainer = styled.section<{
+   $bannerImage?: string
+   $justifyContent?: React.CSSProperties['justifyContent']
+   $alignItems?: React.CSSProperties['alignItems']
+}>`
+   justify-content: ${({ $justifyContent }) =>
+      $justifyContent ?? 'flex-end'} !important;
+   align-items: ${({ $alignItems }) => $alignItems ?? 'center'} !important;
    min-height: 600px;
    background-image: ${({ $bannerImage }) =>
       $bannerImage ? `url("${$bannerImage}")` : 'none'};
@@ -37,22 +43,40 @@ export const BannerContainer = styled.section<{ $bannerImage?: string }>`
    }
 `
 
-export const BannerContent = styled.div`
+export const BannerContent = styled.div<{
+   $contentAlignItems?: React.CSSProperties['alignItems']
+}>`
    display: flex;
+   width: 100%;
+   max-width: 1696px;
    flex-direction: column;
    justify-content: space-between;
+   align-items: ${({ $contentAlignItems }) =>
+      $contentAlignItems ?? 'stretch'};
    gap: 24px;
 `
 
-export const TextContent = styled.div`
+export const TextContent = styled.div<{
+   $textAlign?: React.CSSProperties['textAlign']
+}>`
    display: flex;
    flex-direction: column;
    max-width: 450px;
+   text-align: ${({ $textAlign }) => $textAlign ?? 'left'};
 `
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div<{
+   $contentAlignItems?: React.CSSProperties['alignItems']
+}>`
    display: flex;
+   width: 100%;
    gap: 16px;
+   justify-content: ${({ $contentAlignItems }) =>
+      $contentAlignItems === 'center'
+         ? 'center'
+         : $contentAlignItems === 'flex-end'
+           ? 'flex-end'
+           : 'flex-start'};
 `
 
 export const Buttons = styled.div`
