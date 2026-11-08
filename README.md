@@ -8,6 +8,7 @@ Este projeto monta uma página React a partir de um JSON. A estrutura da página
 - [Como os dados percorrem o projeto](#como-os-dados-percorrem-o-projeto)
 - [Formato geral do JSON](#formato-geral-do-json)
 - [JSON mock e JSON externo](#json-mock-e-json-externo)
+- [Demonstrações locais](#demonstrações-locais)
 - [Imagens e outros arquivos de mídia](#imagens-e-outros-arquivos-de-mídia)
 - [Componentes micros](#componentes-micros)
 - [Componentes complexos](#componentes-complexos)
@@ -17,6 +18,10 @@ Este projeto monta uma página React a partir de um JSON. A estrutura da página
   - [Accordion](#accordion)
   - [Banner](#banner)
   - [Carousel](#carousel)
+  - [Stats](#stats)
+  - [Pillars](#pillars)
+  - [Timeline](#timeline)
+  - [CaseStudies](#casestudies)
 - [Responsividade](#responsividade)
 - [Adicionar um novo tipo de componente](#adicionar-um-novo-tipo-de-componente)
 
@@ -52,13 +57,15 @@ Se a resposta tiver a estrutura mínima esperada, o `Template` registra no conso
 
 Para mudar a API, altere `PAGE_JSON_URL` no `Template`. A hospedagem pode ser npoint ou qualquer serviço que entregue o JSON por HTTP/HTTPS, sem autenticação exposta no navegador e com CORS permitindo que o domínio do site faça a requisição.
 
-Para testar a demonstração de barbearia sem modificar o JSON do restaurante, inicie o projeto com `npm start` e acesse `http://localhost:3000/?demo=barbearia`. Ela carrega `src/util/barbearia-pagebuilder.json` localmente e aplica a paleta isolada de `src/global/barbearia.css`; sem esse parâmetro, o carregamento normal pela API e o fallback do restaurante permanecem iguais.
+O `Template` também disponibiliza duas demonstrações locais independentes da API: a barbearia e a multinacional. Os endereços e arquivos são descritos em [Demonstrações locais](#demonstrações-locais).
 
 ### `PageGenerator`
 
 O [PageGenerator](./src/components/PageGenerator/index.tsx) recebe os dados já carregados e associa cada `typeField` a um componente. Assim, a lógica de requisição e fallback fica no `Template`, enquanto o gerador cuida da renderização.
 
-O `PageGenerator` usa o primeiro objeto de `global` para Header/Footer e renderiza o `pageFields` da primeira página em `page`. O campo `typeField` identifica o componente. A grafia é sensível a maiúsculas/minúsculas.
+O `PageGenerator` usa `global[0]` para renderizar o Header e o Footer compartilhados e seleciona a página atual de `page` pela rota hash. Cada componente de `pageFields` é associado a um renderer pelo campo `typeField`; a grafia é sensível a maiúsculas/minúsculas. Componentes registrados também podem ser aninhados em células do Grid quando o renderer do Grid encaminha esse `typeField`.
+
+Quando muda a rota, o gerador atualiza o conteúdo e o título da aba (`document.title`). Ele não depende de um roteador externo: a navegação entre páginas usa hashes no formato `#/slug`.
 
 ## Formato geral do JSON
 
@@ -68,10 +75,12 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
 {
   "id": "restaurante",
   "context": "home-page",
+  "favicon": "https://exemplo.com/favicon.png",
   "loading": {
     "backgroundColor": "#F5F0E5",
     "text": "Carregando...",
-    "logo": "https://exemplo.com/logo.png"
+    "logo": "https://exemplo.com/logo.png",
+    "alt": "Logo da empresa"
   },
   "global": [
     {
@@ -85,6 +94,7 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
   ],
   "page": [
     {
+      "slug": "home",
       "pageTitle": "Página inicial",
       "pageFields": [
         {
@@ -97,14 +107,34 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
 }
 ```
 
-`loading` é opcional e configura a tela exibida enquanto o JSON é carregado. Aceita `backgroundColor` para a cor de fundo, `text` para a mensagem e `logo` para uma imagem opcional. Durante a primeira requisição, a configuração do mock local é usada, pois a configuração remota só fica disponível depois que a API responde.
+`loading` é opcional e configura a tela exibida enquanto o JSON é carregado. Aceita `backgroundColor` para a cor de fundo, `text` para a mensagem, `logo` para uma imagem opcional e `alt` para o texto alternativo dessa imagem. Durante a primeira requisição, a configuração do mock local é usada, pois a configuração remota só fica disponível depois que a API responde.
 
 `pageTitle` é descritivo; a renderização dos componentes acontece por `pageFields`.
+Para um JSON com várias páginas, cada item de `page` pode ter `slug`. O `PageGenerator` seleciona a página pela rota hash `#/slug`; dados legados sem `slug` continuam renderizando a primeira página.
+
+O campo opcional `favicon` define o ícone da aba para aquele JSON. A prioridade é: `favicon` do JSON, `src/assets/favicon.ico` configurado no código e, por último, `public/favicon.ico`. O endereço do JSON pode ser uma URL ou um caminho de imagem acessível pelo navegador. Se o campo estiver ausente ou vazio, será usado o fallback local.
+
+Exemplo de navegação para uma página com `slug: "sobre-nos"`: `https://seu-site.example/#/sobre-nos`. O primeiro segmento após `#/` é comparado com o `slug`. Se não houver correspondência, o gerador exibe a primeira página. Em JSONs de uma única página sem slug, links de seção com âncoras tradicionais, como `#sobre`, continuam funcionando.
 
 ### Onde editar os dados
 
 - **Mock local:** `src/util/pagebuilder.json`. É a cópia local de contingência, útil para desenvolvimento e quando a API estiver indisponível.
 - **JSON externo:** o documento publicado na URL configurada em `PAGE_JSON_URL`. É a fonte usada normalmente pelo site. Mudanças feitas somente no mock não atualizam automaticamente o documento remoto, e vice-versa; mantenha-os sincronizados se quiser que ambos representem a mesma página.
+
+### Demonstrações locais
+
+As demonstrações abaixo carregam arquivos JSON locais e não fazem a requisição ao npoint:
+
+| Demonstração | URL de desenvolvimento | JSON | Paleta isolada |
+|---|---|---|---|
+| Barbearia | `http://localhost:3000/?demo=barbearia` | `src/util/barbearia-pagebuilder.json` | `src/global/barbearia.css` |
+| Northstar Global | `http://localhost:3000/?demo=multinacional#/home` | `src/util/multinacional-pagebuilder.json` | `src/global/multinacional.css` |
+
+O restaurante continua usando a API configurada em `PAGE_JSON_URL`, com `src/util/pagebuilder.json` como fallback. As classes `barbearia-theme` e `multinacional-theme` escopam as respectivas variáveis de cor e tipografia ao wrapper da demonstração; elas não substituem a paleta do restaurante.
+
+Cada JSON de demonstração pode definir seu próprio `favicon`; se não definir, usa os favicons locais na ordem documentada acima.
+
+A demonstração Northstar Global possui três páginas: `home`, `about-us` e `our-work`. O Header e o Footer navegam entre elas com URLs como `#/about-us`. A demonstração da barbearia e a página atual do restaurante continuam funcionando como páginas únicas.
 
 O validador do `Template` verifica a estrutura principal antes de renderizar (por exemplo, `id`, `page` e `pageFields`). Ele não valida todos os atributos de cada componente. Use os nomes e tipos descritos neste documento e teste as alterações.
 
@@ -184,6 +214,8 @@ Tags de título disponíveis: `h1` a `h6`. Tags de corpo disponíveis: `p`, `spa
 | `variant` | `primary`, `outline` ou `text`. |
 | `icon` | Opcional: `schedule` ou `arrow`. Sem esse campo, não mostra ícone. |
 | `iconPosition` | `left` ou `right`; padrão à direita. A seta aponta para a esquerda quando `icon` é `arrow` e a posição é `left`. |
+| `backgroundColor`, `textColor`, `borderColor` | Cores opcionais do botão; quando omitidas, a variante usa as cores do tema. |
+| `hoverBackgroundColor`, `hoverTextColor` | Cores opcionais aplicadas ao passar o mouse. |
 
 Quando `as` é `button`, propriedades padrão de botão HTML também podem ser usadas, como `disabled`.
 
@@ -455,6 +487,97 @@ O Accordion (ou acordeão) é expansível, podendo ser colocado como `typeField:
 | `TextComponent` | Conteúdo de texto renderizado com micros `title`/`text`. |
 | `Button` | Lista de micros `button`. |
 | `title` e `text` | Alternativa simples quando `TextComponent` não é informado. |
+| `justifyContent` | Posicionamento vertical do conteúdo; o padrão continua `flex-end`. |
+| `alignItems` | Alinhamento horizontal do conteúdo e dos botões; o padrão continua `center`. |
+| `textAlign` | Alinhamento do texto, como `left` ou `center`; o padrão continua `left`. |
+
+`justifyContent` controla o posicionamento vertical do bloco de conteúdo dentro do espaço do Banner; `alignItems` controla o alinhamento horizontal e também o alinhamento dos botões. Esses campos aceitam valores CSS de alinhamento, como `flex-start`, `center` e `flex-end`. Os padrões preservam o layout existente: `justifyContent: "flex-end"` e `alignItems: "center"`. `textAlign` controla separadamente o alinhamento dos textos.
+
+### Stats
+
+Apresenta um conjunto de métricas em uma faixa. Disponível como `typeField: "stats"` em `pageFields` e em células de Grid.
+
+```json
+{
+  "typeField": "stats",
+  "id": "impacto",
+  "eyebrow": "Nosso alcance",
+  "heading": "Resultados em escala",
+  "backgroundColor": "#101E2B",
+  "textColor": "#F4F7FA",
+  "accentColor": "#69D5C2",
+  "items": [
+    {
+      "value": "18",
+      "label": "países",
+      "detail": "Presença internacional"
+    }
+  ]
+}
+```
+
+| Atributo | Descrição |
+|---|---|
+| `id` | Identificador opcional da seção. |
+| `eyebrow`, `heading` | Texto auxiliar e título opcionais. |
+| `items` | Métricas com `value` e `label`; `detail` é opcional. |
+| `backgroundColor`, `textColor`, `accentColor` | Cores de fundo, texto e destaque. |
+
+### Pillars
+
+Organiza princípios, capacidades ou áreas de atuação em cartões editoriais. Use `typeField: "pillars"`.
+
+| Atributo | Descrição |
+|---|---|
+| `id`, `eyebrow`, `heading` | Identificador, texto auxiliar e título opcionais. |
+| `intro` | Texto introdutório exibido junto ao cabeçalho. |
+| `items` | Lista de pilares; cada item exige `title` e `description`, e aceita `number` opcional. Sem `number`, é gerado um índice sequencial. |
+| `backgroundColor`, `textColor`, `accentColor` | Cores de fundo, texto e destaque. |
+
+### Timeline
+
+Exibe marcos em ordem como uma linha do tempo. Use `typeField: "timeline"`.
+
+| Atributo | Descrição |
+|---|---|
+| `id`, `eyebrow`, `heading` | Identificador, texto auxiliar e título opcionais. |
+| `items` | Lista de marcos; cada item exige `year`, `title` e `description`. |
+| `backgroundColor`, `textColor`, `accentColor` | Cores de fundo, texto e destaque. |
+
+### CaseStudies
+
+Exibe cases em cartões com imagem, contexto e resultado. Use `typeField: "caseStudies"`.
+
+| Atributo | Descrição |
+|---|---|
+| `id`, `eyebrow`, `heading` | Identificador, texto auxiliar e título opcionais. |
+| `items` | Cada case exige `sector`, `title`, `summary`, `image` e `outcome`; aceita `link` e `linkLabel` opcionais. |
+| `backgroundColor`, `textColor`, `accentColor` | Cores de fundo, texto e destaque. |
+
+Os quatro componentes são genéricos e reutilizáveis em qualquer página ou site carregado pelo PageGenerator; seus nomes não são exclusivos da demonstração Northstar.
+
+### Página multipágina e rotas (`slug`)
+
+Para criar páginas adicionais, adicione objetos ao array `page` do mesmo JSON. Defina um `slug` único para cada página e use `#/slug` nos links do Header, Footer ou botões. Exemplo resumido:
+
+```json
+{
+  "page": [
+    {
+      "slug": "home",
+      "pageTitle": "Empresa | Home",
+      "pageFields": []
+    },
+    {
+      "slug": "sobre-nos",
+      "pageTitle": "Empresa | Sobre nós",
+      "pageFields": []
+    }
+  ]
+}
+```
+
+O `PageGenerator` mantém Header/Footer globais e troca somente os campos da página selecionada. Se um JSON antigo não tiver `slug`, ele continua renderizando a primeira entrada de `page`, preservando o comportamento das páginas existentes.
 
 ### Carousel
 

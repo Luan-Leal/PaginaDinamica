@@ -2,7 +2,9 @@ import * as React from 'react'
 import axios from 'axios'
 import MockJson from '../../util/pagebuilder.json'
 import BarbershopJson from '../../util/barbearia-pagebuilder.json'
+import MultinationalJson from '../../util/multinacional-pagebuilder.json'
 import '../../global/barbearia.css'
+import '../../global/multinacional.css'
 import PageGenerator from '../PageGenerator'
 import type { PageData } from '../PageGenerator'
 
@@ -29,6 +31,10 @@ const isPageData = (value: unknown): value is PageData => {
       return false
    }
 
+   if (value.favicon !== undefined && typeof value.favicon !== 'string') {
+      return false
+   }
+
    if (value.loading !== undefined && !isLoadingConfig(value.loading)) {
       return false
    }
@@ -51,6 +57,7 @@ const isPageData = (value: unknown): value is PageData => {
    return value.page.every(
       (page) =>
          isRecord(page) &&
+         (page.slug === undefined || typeof page.slug === 'string') &&
          Array.isArray(page.pageFields) &&
          page.pageFields.every(
             (field) => isRecord(field) && typeof field.typeField === 'string',
@@ -61,13 +68,24 @@ const isPageData = (value: unknown): value is PageData => {
 const Template: React.FC = () => {
    const isBarbeariaDemo =
       new URLSearchParams(window.location.search).get('demo') === 'barbearia'
+   const isMultinationalDemo =
+      new URLSearchParams(window.location.search).get('demo') === 'multinacional'
+   const isLocalDemo = isBarbeariaDemo || isMultinationalDemo
    const [pageData, setPageData] = React.useState<PageData | null>(() =>
-      isBarbeariaDemo ? (BarbershopJson as PageData) : null,
+      isBarbeariaDemo
+         ? (BarbershopJson as PageData)
+         : isMultinationalDemo
+           ? (MultinationalJson as PageData)
+           : null,
    )
 
    React.useEffect(() => {
-      if (isBarbeariaDemo) {
-         console.log('Fonte do JSON da página: demonstração local de barbearia')
+      if (isLocalDemo) {
+         console.log(
+            isBarbeariaDemo
+               ? 'Fonte do JSON da página: demonstração local de barbearia'
+               : 'Fonte do JSON da página: demonstração local multinacional',
+         )
          return
       }
 
@@ -105,7 +123,7 @@ const Template: React.FC = () => {
       return () => {
          cancelled = true
       }
-   }, [isBarbeariaDemo])
+   }, [isBarbeariaDemo, isLocalDemo])
 
    if (!pageData) {
       const loading = (MockJson as PageData).loading
@@ -145,7 +163,15 @@ const Template: React.FC = () => {
    }
 
    return (
-      <div className={isBarbeariaDemo ? 'barbearia-theme' : undefined}>
+      <div
+         className={
+            isBarbeariaDemo
+               ? 'barbearia-theme'
+               : isMultinationalDemo
+                 ? 'multinacional-theme'
+                 : undefined
+         }
+      >
          <PageGenerator data={pageData} />
       </div>
    )

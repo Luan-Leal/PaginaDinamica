@@ -1,4 +1,5 @@
 import * as React from 'react'
+import assetFavicon from '../../assets/favicon.ico'
 import Button from '../micros/Button'
 import CustomText from '../micros/Text'
 import ImageComponent from '../micros/ImageComponent'
@@ -24,6 +25,12 @@ import type {
 import Footer from '../complex/footer'
 import type { FooterProps } from '../complex/footer/types'
 import Header, { HeaderProps } from '../complex/header'
+import Stats, { type StatsProps } from '../complex/Stats'
+import Pillars, { type PillarsProps } from '../complex/Pillars'
+import Timeline, { type TimelineProps } from '../complex/Timeline'
+import CaseStudies, {
+   type CaseStudiesProps,
+} from '../complex/CaseStudies'
 
 /* ------------------------------------------------------------------ */
 /* Tipos                                                               */
@@ -60,6 +67,9 @@ interface BannerField {
    bannerImage?: string
    title?: string
    text?: string
+   justifyContent?: React.CSSProperties['justifyContent']
+   alignItems?: React.CSSProperties['alignItems']
+   textAlign?: React.CSSProperties['textAlign']
    TextComponent?: (TitleField | TextField)[]
    Button?: ButtonField[]
 }
@@ -73,6 +83,11 @@ interface ButtonField {
    variant?: 'primary' | 'outline' | 'text'
    icon?: 'schedule' | 'arrow'
    iconPosition?: 'left' | 'right'
+   backgroundColor?: string
+   textColor?: string
+   borderColor?: string
+   hoverBackgroundColor?: string
+   hoverTextColor?: string
 }
 
 interface CardMenuField {
@@ -137,6 +152,22 @@ interface AccordionField extends AccordionProps {
    typeField: 'accordion'
 }
 
+interface StatsField extends StatsProps {
+   typeField: 'stats'
+}
+
+interface PillarsField extends PillarsProps {
+   typeField: 'pillars'
+}
+
+interface TimelineField extends TimelineProps {
+   typeField: 'timeline'
+}
+
+interface CaseStudiesField extends CaseStudiesProps {
+   typeField: 'caseStudies'
+}
+
 type PageField =
    | TitleField
    | TextField
@@ -148,6 +179,10 @@ type PageField =
    | CarouselField
    | AccordionField
    | GridField
+   | StatsField
+   | PillarsField
+   | TimelineField
+   | CaseStudiesField
 
 // Elementos fixos do site (aparecem em todas as páginas).
 // Para criar um footer: adicionar `footer?: FooterProps` aqui.
@@ -159,6 +194,7 @@ interface GlobalData {
 export interface PageData {
    id: string
    context?: string
+   favicon?: string
    loading?: {
       alt: string
       backgroundColor?: string
@@ -167,6 +203,7 @@ export interface PageData {
    }
    global?: GlobalData[]
    page: {
+      slug?: string
       pageTitle: string
       pageFields: PageField[]
    }[]
@@ -258,6 +295,11 @@ const fieldRegistry: FieldRenderers = {
          variant: field.variant,
          icon: field.icon,
          iconPosition: field.iconPosition,
+         backgroundColor: field.backgroundColor,
+         textColor: field.textColor,
+         borderColor: field.borderColor,
+         hoverBackgroundColor: field.hoverBackgroundColor,
+         hoverTextColor: field.hoverTextColor,
       }
 
       return field.as === 'button' ? (
@@ -286,6 +328,9 @@ const fieldRegistry: FieldRenderers = {
             bannerImage={field.bannerImage}
             title={field.title}
             text={field.text}
+            justifyContent={field.justifyContent}
+            alignItems={field.alignItems}
+            textAlign={field.textAlign}
             textComponent={textComponent}
             buttons={buttons}
          />
@@ -346,6 +391,16 @@ const fieldRegistry: FieldRenderers = {
          />
       )
    },
+   stats: (field, index) => <Stats key={index} {...field} />,
+   pillars: (field, index) => (
+      <Pillars key={index} {...field} />
+   ),
+   timeline: (field, index) => (
+      <Timeline key={index} {...field} />
+   ),
+   caseStudies: (field, index) => (
+      <CaseStudies key={index} {...field} />
+   ),
 }
 
 function renderField(field: PageField, index: number): React.ReactNode {
@@ -404,7 +459,45 @@ interface PageGeneratorProps {
 const PageGenerator: React.FC<PageGeneratorProps> = ({ data: pageData }) => {
    const header = pageData.global?.[0]?.header
    const footer = pageData.global?.[0]?.footer
-   const fields = pageData.page[0].pageFields
+   const [currentHash, setCurrentHash] = React.useState(
+      () => window.location.hash,
+   )
+
+   React.useEffect(() => {
+      const updateHash = () => setCurrentHash(window.location.hash)
+      window.addEventListener('hashchange', updateHash)
+      return () => window.removeEventListener('hashchange', updateHash)
+   }, [])
+
+   const route = decodeURIComponent(
+      currentHash.replace(/^#\/?/, '').split(/[/?]/)[0],
+   )
+   const currentPage =
+      pageData.page.find((page) => page.slug === route) ?? pageData.page[0]
+   const fields = currentPage.pageFields
+
+   React.useEffect(() => {
+      document.title = currentPage.pageTitle
+   }, [currentPage.pageTitle])
+
+   const faviconHref =
+      pageData.favicon?.trim() ||
+      assetFavicon ||
+      `${process.env.PUBLIC_URL}/favicon.ico`
+
+   React.useEffect(() => {
+      let faviconLink = document.querySelector<HTMLLinkElement>(
+         'link[rel~="icon"]',
+      )
+
+      if (!faviconLink) {
+         faviconLink = document.createElement('link')
+         faviconLink.rel = 'icon'
+         document.head.appendChild(faviconLink)
+      }
+
+      faviconLink.href = faviconHref
+   }, [faviconHref])
 
    return (
       <>
