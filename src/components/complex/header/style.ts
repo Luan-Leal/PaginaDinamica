@@ -23,6 +23,25 @@ export const Content = styled.div`
    align-items: center;
 `
 
+export const MenuLink = styled.a<{
+   $color?: string
+   $colorHover?: string
+}>`
+   color: ${({ $color }) => $color ?? 'var(--color-cream-light)'};
+   text-decoration: none;
+   font-weight: 500;
+   transition: color 0.3s;
+   font-size: 16px;
+
+   &:hover {
+      color: ${({ $colorHover, $color }) =>
+         $colorHover ?? $color ?? 'var(--color-cream-light)'};
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+   }
+`
+
 export const Nav = styled.nav<{ $open: boolean }>`
    display: flex;
    align-items: center;
@@ -35,17 +54,8 @@ export const Nav = styled.nav<{ $open: boolean }>`
       gap: 16px;
    }
    li {
-      a {
-         text-decoration: none;
-         color: var(--color-cream-light);
-         font-weight: 500;
-         transition: color 0.3s;
-         font-size: 16px;
-         &:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 6px;
-         }
+      ${MenuLink} {
+         display: inline-block;
       }
    }
    .button {
@@ -93,7 +103,7 @@ export const Nav = styled.nav<{ $open: boolean }>`
          gap: 24px;
       }
 
-      li a {
+      li ${MenuLink} {
          font-size: 20px;
       }
 

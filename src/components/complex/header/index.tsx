@@ -6,6 +6,8 @@ import closeIcon from './icons/close.svg'
 interface MenuItem {
    label: string
    link: string
+   color?: string
+   colorHover?: string
 }
 
 interface HeaderButton {
@@ -77,9 +79,14 @@ const Header: React.FC<HeaderProps> = ({
                <ul>
                   {menu.map((item) => (
                      <li key={item.link}>
-                        <a href={item.link} onClick={closeMenu}>
+                        <S.MenuLink
+                           href={item.link}
+                           onClick={closeMenu}
+                           $color={item.color}
+                           $colorHover={item.colorHover}
+                        >
                            {item.label}
-                        </a>
+                        </S.MenuLink>
                      </li>
                   ))}
                </ul>

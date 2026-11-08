@@ -1,0 +1,558 @@
+{
+   "id": "barbearia-navalha",
+   "context": "barbearia",
+   "favicon": "https://placehold.co/64x64.png?text=BN",
+   "loading": {
+      "backgroundColor": "#F4EEE7",
+      "text": "Preparando a cadeira...",
+      "logo": "https://placehold.co/180x90",
+      "alt": "Logo da Barbearia Navalha"
+   },
+   "global": [
+      {
+         "header": {
+            "logo": "https://placehold.co/180x90",
+            "fixed": false,
+            "menu": [
+               {
+                  "label": "Início",
+                  "link": "#inicio",
+                  "color": "#FFF9F2",
+                  "colorHover": "#D99A65"
+               },
+               {
+                  "label": "A barbearia",
+                  "link": "#barbearia",
+                  "color": "#FFF9F2",
+                  "colorHover": "#D99A65"
+               },
+               {
+                  "label": "Serviços",
+                  "link": "#servicos",
+                  "color": "#FFF9F2",
+                  "colorHover": "#D99A65"
+               },
+               {
+                  "label": "Galeria",
+                  "link": "#galeria",
+                  "color": "#FFF9F2",
+                  "colorHover": "#D99A65"
+               },
+               {
+                  "label": "FAQ",
+                  "link": "#duvidas",
+                  "color": "#FFF9F2",
+                  "colorHover": "#D99A65"
+               }
+            ],
+            "button": {
+               "hasButton": true,
+               "label": "Agendar horário",
+               "link": "#agendamento",
+               "target": false
+            }
+         },
+         "footer": {
+            "backgroundColor": "#1F1C1A",
+            "copyright": "© {{year}} Barbearia Navalha. Estilo clássico, atitude atual.",
+            "columns": [
+               {
+                  "title": false,
+                  "logo": "https://placehold.co/180x90",
+                  "description": "Um espaço feito para cuidar do visual, desacelerar e sair renovado.",
+                  "socialMedia": [
+                     {
+                        "icon": "Instagram",
+                        "link": "https://instagram.com/"
+                     },
+                     {
+                        "icon": "Whatsapp",
+                        "link": "https://wa.me/5500000000000"
+                     }
+                  ]
+               },
+               {
+                  "title": "Explore",
+                  "fontColor": "#FFF9F2",
+                  "fontFamily": "'Lora', Georgia, serif",
+                  "fontSize": "24px",
+                  "options": [
+                     {
+                        "label": "A barbearia",
+                        "link": "#barbearia",
+                        "color": "#D8BFA5",
+                        "colorHover": "#D99A65"
+                     },
+                     {
+                        "label": "Serviços",
+                        "link": "#servicos",
+                        "color": "#D8BFA5",
+                        "colorHover": "#D99A65"
+                     },
+                     {
+                        "label": "Galeria",
+                        "link": "#galeria",
+                        "color": "#D8BFA5",
+                        "colorHover": "#D99A65"
+                     },
+                     {
+                        "label": "Dúvidas frequentes",
+                        "link": "#duvidas",
+                        "color": "#D8BFA5",
+                        "colorHover": "#D99A65"
+                     }
+                  ]
+               },
+               {
+                  "title": "Funcionamento",
+                  "fontColor": "#FFF9F2",
+                  "fontFamily": "'Lora', Georgia, serif",
+                  "fontSize": "24px",
+                  "options": [
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h3",
+                              "text": "Terça a sábado",
+                              "color": "#D99A65",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "fontSize": "18px",
+                              "marginBottom": "8px"
+                           },
+                           {
+                              "typeField": "text",
+                              "text": "Das 9h às 20h, com horário marcado.",
+                              "color": "#FFF9F2",
+                              "fontSize": "16px"
+                           }
+                        ]
+                     },
+                     {
+                        "TextComponent": [
+                           {
+                              "typeField": "title",
+                              "tag": "h3",
+                              "text": "Endereço",
+                              "color": "#D99A65",
+                              "fontFamily": "'Lora', Georgia, serif",
+                              "fontSize": "18px",
+                              "marginBottom": "8px"
+                           },
+                           {
+                              "typeField": "text",
+                              "text": "Rua Principal, 123 — Centro",
+                              "color": "#FFF9F2",
+                              "fontSize": "16px"
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   ],
+   "page": [
+      {
+         "pageTitle": "Barbearia Navalha",
+         "pageFields": [
+            {
+               "typeField": "banner",
+               "id": "inicio",
+               "bannerImage": "https://placehold.co/1920x1080",
+               "TextComponent": [
+                  {
+                     "typeField": "text",
+                     "tag": "span",
+                     "text": "TRADIÇÃO • PRECISÃO • PERSONALIDADE",
+                     "color": "#D99A65",
+                     "fontSize": "14px",
+                     "fontWeight": 700,
+                     "marginBottom": "16px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h1",
+                     "text": "Seu estilo, em boas mãos.",
+                     "color": "#FFF9F2",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "fontSize": "64px|42px",
+                     "lineHeight": "1.1",
+                     "marginBottom": "20px"
+                  },
+                  {
+                     "typeField": "text",
+                     "text": "Cortes precisos, barba alinhada e aquele cuidado que faz você sair se sentindo renovado.",
+                     "color": "#FFF9F2",
+                     "fontSize": "18px|16px",
+                     "marginBottom": "28px"
+                  }
+               ],
+               "Button": [
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "primary",
+                     "label": "Agende seu horário",
+                     "link": "#agendamento",
+                     "icon": "arrow",
+                     "iconPosition": "right"
+                  },
+                  {
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "outline",
+                     "label": "Conheça a barbearia",
+                     "link": "#barbearia"
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "barbearia",
+               "backgroundColor": "#F4EEE7",
+               "gap": "56px",
+               "alignItems": "center",
+               "columns": [
+                  {
+                     "typeField": "ImageComponent",
+                     "src": "https://placehold.co/800x960",
+                     "alt": "Interior acolhedor de uma barbearia",
+                     "height": "520px",
+                     "objectFit": "cover",
+                     "borderRadius": "12px"
+                  },
+                  {
+                     "TextComponent": [
+                        {
+                           "typeField": "text",
+                           "tag": "span",
+                           "text": "MAIS QUE UM CORTE",
+                           "color": "#A85E31",
+                           "fontWeight": 700,
+                           "fontSize": "14px",
+                           "marginBottom": "12px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "text": "Um ritual de cuidado, do seu jeito.",
+                           "color": "#1F1C1A",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "44px|34px",
+                           "lineHeight": "1.15",
+                           "marginBottom": "20px"
+                        },
+                        {
+                           "typeField": "text",
+                           "text": "Na Navalha, a tradição da barbearia encontra um atendimento próximo e contemporâneo. Cada detalhe é pensado para que você aproveite o momento e encontre o estilo que combina com você.",
+                           "color": "#5A4638",
+                           "fontSize": "17px",
+                           "marginBottom": "24px"
+                        }
+                     ],
+                     "components": [
+                        {
+                           "typeField": "button",
+                           "as": "a",
+                           "variant": "text",
+                           "label": "Veja nossos serviços",
+                           "link": "#servicos",
+                           "icon": "arrow",
+                           "iconPosition": "right"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "diferenciais",
+               "backgroundColor": "#2B2521",
+               "gap": "32px",
+               "columns": [
+                  {
+                     "typeField": "CardAboutUs",
+                     "icon": "https://placehold.co/96x96",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "text": "Mão de mestre",
+                           "color": "#FFF9F2",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "22px",
+                           "marginBottom": "12px"
+                        },
+                        {
+                           "typeField": "text",
+                           "text": "Profissionais atentos ao seu estilo e aos detalhes.",
+                           "color": "#D8BFA5"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "CardAboutUs",
+                     "icon": "https://placehold.co/96x96",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "text": "Produtos selecionados",
+                           "color": "#FFF9F2",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "22px",
+                           "marginBottom": "12px"
+                        },
+                        {
+                           "typeField": "text",
+                           "text": "Cuidado de qualidade para cabelo, barba e pele.",
+                           "color": "#D8BFA5"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "CardAboutUs",
+                     "icon": "https://placehold.co/96x96",
+                     "TextComponent": [
+                        {
+                           "typeField": "title",
+                           "tag": "h3",
+                           "text": "Seu tempo importa",
+                           "color": "#FFF9F2",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "22px",
+                           "marginBottom": "12px"
+                        },
+                        {
+                           "typeField": "text",
+                           "text": "Agende com praticidade e seja atendido no horário.",
+                           "color": "#D8BFA5"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "carousel",
+               "id": "servicos",
+               "backgroundColor": "#E8D3C0",
+               "dotsOnMobile": true,
+               "removeArrowsOnMobile": true,
+               "TextComponent": [
+                  {
+                     "typeField": "text",
+                     "tag": "span",
+                     "text": "CUIDADO EM CADA DETALHE",
+                     "color": "#A85E31",
+                     "fontWeight": 700,
+                     "fontSize": "14px",
+                     "marginBottom": "10px"
+                  },
+                  {
+                     "typeField": "title",
+                     "tag": "h2",
+                     "text": "Serviços",
+                     "color": "#1F1C1A",
+                     "fontFamily": "'Lora', Georgia, serif",
+                     "fontSize": "44px|36px"
+                  }
+               ],
+               "CarouselItems": [
+                  {
+                     "image": "https://placehold.co/600x800",
+                     "title": "Corte clássico",
+                     "description": "Precisão na tesoura ou na máquina, com acabamento feito para você.",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://placehold.co/600x800",
+                     "title": "Barba & toalha quente",
+                     "description": "Um ritual completo para alinhar, cuidar e renovar.",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://placehold.co/600x800",
+                     "title": "Corte + barba",
+                     "description": "O combo ideal para sair com o visual em dia.",
+                     "hover": true
+                  },
+                  {
+                     "image": "https://placehold.co/600x800",
+                     "title": "Acabamento",
+                     "description": "Contornos e detalhes para manter seu corte impecável.",
+                     "hover": true
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "galeria",
+               "backgroundColor": "#F4EEE7",
+               "gap": "24px",
+               "columns": [
+                  {
+                     "TextComponent": [
+                        {
+                           "typeField": "text",
+                           "tag": "span",
+                           "text": "NOSSO ESPAÇO",
+                           "color": "#A85E31",
+                           "fontWeight": 700,
+                           "fontSize": "14px",
+                           "marginBottom": "10px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "text": "Clássica por essência. Sua por natureza.",
+                           "color": "#1F1C1A",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "42px|34px"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "ImageComponent",
+                     "src": "https://placehold.co/800x520",
+                     "alt": "Detalhes da barbearia",
+                     "height": "300px",
+                     "objectFit": "cover",
+                     "borderRadius": "12px"
+                  },
+                  {
+                     "typeField": "ImageComponent",
+                     "src": "https://placehold.co/800x520",
+                     "alt": "Cadeira tradicional de barbearia",
+                     "height": "300px",
+                     "objectFit": "cover",
+                     "borderRadius": "12px"
+                  },
+                  {
+                     "typeField": "ImageComponent",
+                     "src": "https://placehold.co/800x520",
+                     "alt": "Ferramentas de barbeiro",
+                     "height": "300px",
+                     "objectFit": "cover",
+                     "borderRadius": "12px"
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "duvidas",
+               "backgroundColor": "#E8D3C0",
+               "gap": "40px",
+               "columns": [
+                  {
+                     "TextComponent": [
+                        {
+                           "typeField": "text",
+                           "tag": "span",
+                           "text": "ANTES DE SENTAR NA CADEIRA",
+                           "color": "#A85E31",
+                           "fontWeight": 700,
+                           "fontSize": "14px",
+                           "marginBottom": "10px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "text": "Dúvidas frequentes",
+                           "color": "#1F1C1A",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "42px|34px",
+                           "marginBottom": "16px"
+                        },
+                        {
+                           "typeField": "text",
+                           "text": "Tudo pronto para sua próxima visita? Aqui vão algumas informações úteis.",
+                           "color": "#5A4638"
+                        }
+                     ]
+                  },
+                  {
+                     "typeField": "grid",
+                     "direction": "column",
+                     "gap": "14px",
+                     "columns": [
+                        {
+                           "typeField": "accordion",
+                           "quest": "Preciso agendar antes?",
+                           "answer": "Recomendamos agendar para garantir o horário que funciona melhor para você. Se preferir, consulte a disponibilidade ao chegar.",
+                           "accordionColor": "#FFF9F2"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Quais formas de pagamento são aceitas?",
+                           "answer": "Aceitamos dinheiro, cartões e Pix.",
+                           "accordionColor": "#FFF9F2"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Posso escolher meu barbeiro?",
+                           "answer": "Claro! Informe sua preferência no momento do agendamento.",
+                           "accordionColor": "#FFF9F2"
+                        },
+                        {
+                           "typeField": "accordion",
+                           "quest": "Onde fica a barbearia?",
+                           "answer": "Estamos na Rua Principal, 123, no Centro. Esperamos você!",
+                           "accordionColor": "#FFF9F2"
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "typeField": "grid",
+               "id": "agendamento",
+               "backgroundImage": "https://placehold.co/1920x720",
+               "gap": "32px",
+               "alignItems": "center",
+               "columns": [
+                  {
+                     "TextComponent": [
+                        {
+                           "typeField": "text",
+                           "tag": "span",
+                           "text": "A PRÓXIMA CADEIRA É SUA",
+                           "color": "#E6AD78",
+                           "fontWeight": 700,
+                           "fontSize": "14px",
+                           "marginBottom": "10px"
+                        },
+                        {
+                           "typeField": "title",
+                           "tag": "h2",
+                           "text": "Bora renovar o visual?",
+                           "color": "#FFF9F2",
+                           "fontFamily": "'Lora', Georgia, serif",
+                           "fontSize": "46px|36px",
+                           "marginBottom": "12px"
+                        },
+                        {
+                           "typeField": "text",
+                           "text": "Escolha seu horário e deixe o resto com a gente.",
+                           "color": "#FFF9F2",
+                           "fontSize": "18px"
+                        }
+                     ]
+                  },
+                  {
+                     "alignItems": "end|start",
+                     "justifyContent": "center",
+                     "typeField": "button",
+                     "as": "a",
+                     "variant": "primary",
+                     "label": "Agendar pelo WhatsApp",
+                     "link": "https://wa.me/5500000000000",
+                     "target": true
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

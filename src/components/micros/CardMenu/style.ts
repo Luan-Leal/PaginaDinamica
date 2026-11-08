@@ -29,14 +29,14 @@ export const CardMenuContainer = styled.div<{ $hoverEnabled: boolean }>`
 `
 
 export const CardMenuImage = styled.div<{
-   image: string
+   $image: string
    $imageOnly: boolean
 }>`
    width: 100%;
    height: 250px;
    flex: 0 0 ${({ $imageOnly }) => ($imageOnly ? '100%' : '250px')};
    border-radius: 16px 16px 0 0;
-   background-image: url(${(props) => props.image});
+   background-image: url(${({ $image }) => $image});
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;

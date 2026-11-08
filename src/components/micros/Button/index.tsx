@@ -37,12 +37,22 @@ const Button: React.FC<ButtonProps> = (props) => {
          variant,
          icon,
          iconPosition = 'right',
+         backgroundColor,
+         textColor,
+         borderColor,
+         hoverBackgroundColor,
+         hoverTextColor,
          ...buttonProps
       } = props
 
       return (
          <S.Button
             $variant={variant ?? 'primary'}
+            $backgroundColor={backgroundColor}
+            $textColor={textColor}
+            $borderColor={borderColor}
+            $hoverBackgroundColor={hoverBackgroundColor}
+            $hoverTextColor={hoverTextColor}
             type={type}
             {...buttonProps}
          >
@@ -64,12 +74,22 @@ const Button: React.FC<ButtonProps> = (props) => {
       variant,
       icon,
       iconPosition = 'right',
+      backgroundColor,
+      textColor,
+      borderColor,
+      hoverBackgroundColor,
+      hoverTextColor,
       ...anchorProps
    } = props
 
    return (
       <S.Anchor
          $variant={variant ?? 'primary'}
+         $backgroundColor={backgroundColor}
+         $textColor={textColor}
+         $borderColor={borderColor}
+         $hoverBackgroundColor={hoverBackgroundColor}
+         $hoverTextColor={hoverTextColor}
          href={link}
          target={target ? '_blank' : '_self'}
          rel={target ? 'noopener noreferrer' : rel}

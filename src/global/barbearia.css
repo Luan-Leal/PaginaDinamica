@@ -1,0 +1,64 @@
+.barbearia-theme {
+   --color-forest: #1f1c1a;
+   --color-olive: #a85e31;
+   --color-cream: #f4eee7;
+   --color-sand: #c58a58;
+   --color-wood: #2b2521;
+
+   --color-forest-dark: #151312;
+   --color-olive-light: #c77b49;
+   --color-olive-lighter: #e8d3c0;
+   --color-cream-light: #fff9f2;
+   --color-sand-light: #d8bfa5;
+   --color-wood-light: #5a4638;
+
+   --color-background: var(--color-cream);
+   --color-surface: var(--color-cream-light);
+   --color-text: #1f1c1a;
+   --color-text-muted: #5a4638;
+   --color-primary: var(--color-forest);
+   --color-primary-hover: var(--color-forest-dark);
+   --color-secondary: var(--color-olive);
+   --color-border: var(--color-sand-light);
+   --color-accent: var(--color-sand);
+
+   --font-heading: 'Lora', Georgia, serif;
+   --font-body: 'Inter', Arial, sans-serif;
+
+   --spacing-xs: 32px 24px;
+   --spacing-sm: 32px 32px;
+   --spacing-md: 64px 48px;
+   --spacing-lg: 64px 64px;
+
+   min-height: 100vh;
+   color: var(--color-text);
+   background-color: var(--color-background);
+   font-family: var(--font-body);
+}
+
+.template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    padding: var(--spacing-lg);
+    @media (max-width: 1024px) {
+        padding: var(--spacing-md);
+    }
+    @media (max-width: 768px) {
+        padding: var(--spacing-sm);
+    }
+    @media (max-width: 480px) {
+        padding: var(--spacing-xs);
+}
+}
+
+.page-spacing {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   max-width: 1696px;
+   margin: auto;
+}

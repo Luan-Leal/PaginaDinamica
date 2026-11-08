@@ -121,7 +121,8 @@ const FooterColumnContent: React.FC<{ column: FooterColumn }> = ({
                      <S.OptionLink
                         key={`${option.label}-${index}`}
                         href={option.link}
-                        $color={column.fontColor}
+                        $color={option.color}
+                        $colorHover={option.colorHover}
                      >
                         {option.label}
                      </S.OptionLink>
