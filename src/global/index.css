@@ -85,7 +85,7 @@
     flex-direction: row;
     width: 100%;
     max-width: 1696px;
-
+    margin: 0 auto;
 }
 
 
@@ -121,6 +121,8 @@ h6 {
     font-weight: 500;
     line-height: 1.2;
     color: var(--color-text);
+    margin: 0px;
+    padding: 0px;
 }
 
 p,
