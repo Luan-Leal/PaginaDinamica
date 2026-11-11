@@ -7,6 +7,7 @@ import '../../global/barbearia.css'
 import '../../global/multinacional.css'
 import PageGenerator from '../PageGenerator'
 import type { PageData } from '../PageGenerator'
+import { BrowserRouter } from 'react-router-dom'
 
 const PAGE_JSON_URL = 'https://api.npoint.io/06f271e1bb5f0a1aa654'
 
@@ -54,15 +55,44 @@ const isPageData = (value: unknown): value is PageData => {
       return false
    }
 
-   return value.page.every(
-      (page) =>
-         isRecord(page) &&
-         (page.slug === undefined || typeof page.slug === 'string') &&
-         Array.isArray(page.pageFields) &&
-         page.pageFields.every(
+   const routePaths = new Set<string>()
+
+   return value.page.every((page, index) => {
+      if (
+         !isRecord(page) ||
+         (page.path !== undefined &&
+            (typeof page.path !== 'string' ||
+               !page.path.startsWith('/') ||
+               page.path.startsWith('//'))) ||
+         (page.slug !== undefined && typeof page.slug !== 'string') ||
+         !Array.isArray(page.pageFields) ||
+         !page.pageFields.every(
             (field) => isRecord(field) && typeof field.typeField === 'string',
-         ),
-   )
+         ) ||
+         (index > 0 && page.path === undefined && page.slug === undefined)
+      ) {
+         return false
+      }
+
+      const path =
+         typeof page.path === 'string'
+            ? page.path
+            : typeof page.slug === 'string' && page.slug
+              ? `/${page.slug}`
+              : index === 0
+                ? '/'
+                : undefined
+
+      const normalizedPath =
+         path && path.length > 1 ? path.replace(/\/+$/, '') : path
+
+      if (normalizedPath && routePaths.has(normalizedPath)) {
+         return false
+      }
+      if (normalizedPath) routePaths.add(normalizedPath)
+
+      return true
+   })
 }
 
 const Template: React.FC = () => {
@@ -163,17 +193,24 @@ const Template: React.FC = () => {
    }
 
    return (
-      <div
-         className={
-            isBarbeariaDemo
-               ? 'barbearia-theme'
-               : isMultinationalDemo
-                 ? 'multinacional-theme'
-                 : undefined
-         }
+      <BrowserRouter
+         future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+         }}
       >
-         <PageGenerator data={pageData} />
-      </div>
+         <div
+            className={
+               isBarbeariaDemo
+                  ? 'barbearia-theme'
+                  : isMultinationalDemo
+                    ? 'multinacional-theme'
+                    : undefined
+            }
+         >
+            <PageGenerator data={pageData} />
+         </div>
+      </BrowserRouter>
    )
 }
 

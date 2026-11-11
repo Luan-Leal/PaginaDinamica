@@ -31,6 +31,12 @@ import Timeline, { type TimelineProps } from '../complex/Timeline'
 import CaseStudies, {
    type CaseStudiesProps,
 } from '../complex/CaseStudies'
+import {
+   Navigate,
+   Route,
+   Routes,
+   useLocation,
+} from 'react-router-dom'
 
 /* ------------------------------------------------------------------ */
 /* Tipos                                                               */
@@ -203,11 +209,18 @@ export interface PageData {
    }
    global?: GlobalData[]
    page: {
+      path?: string
       slug?: string
       pageTitle: string
       pageFields: PageField[]
    }[]
 }
+
+const getPagePath = (
+   page: PageData['page'][number],
+   index: number,
+): string | undefined =>
+   page.path ?? (page.slug ? `/${page.slug}` : index === 0 ? '/' : undefined)
 
 /* ------------------------------------------------------------------ */
 /* Registro de componentes do conteúdo da página (pageFields)          */
@@ -456,29 +469,39 @@ interface PageGeneratorProps {
    data: PageData
 }
 
+const PageContent: React.FC<{ page: PageData['page'][number] }> = ({
+   page,
+}) => {
+   React.useEffect(() => {
+      document.title = page.pageTitle
+   }, [page.pageTitle])
+
+   return <main>{page.pageFields.map(renderField)}</main>
+}
+
+const ScrollToHash: React.FC = () => {
+   const { pathname, hash } = useLocation()
+
+   React.useEffect(() => {
+      if (!hash) {
+         window.scrollTo(0, 0)
+         return
+      }
+
+      const elementId = decodeURIComponent(hash.slice(1))
+      window.requestAnimationFrame(() => {
+         document.getElementById(elementId)?.scrollIntoView()
+      })
+   }, [pathname, hash])
+
+   return null
+}
+
 const PageGenerator: React.FC<PageGeneratorProps> = ({ data: pageData }) => {
    const header = pageData.global?.[0]?.header
    const footer = pageData.global?.[0]?.footer
-   const [currentHash, setCurrentHash] = React.useState(
-      () => window.location.hash,
-   )
-
-   React.useEffect(() => {
-      const updateHash = () => setCurrentHash(window.location.hash)
-      window.addEventListener('hashchange', updateHash)
-      return () => window.removeEventListener('hashchange', updateHash)
-   }, [])
-
-   const route = decodeURIComponent(
-      currentHash.replace(/^#\/?/, '').split(/[/?]/)[0],
-   )
-   const currentPage =
-      pageData.page.find((page) => page.slug === route) ?? pageData.page[0]
-   const fields = currentPage.pageFields
-
-   React.useEffect(() => {
-      document.title = currentPage.pageTitle
-   }, [currentPage.pageTitle])
+   const location = useLocation()
+   const fallbackPath = getPagePath(pageData.page[0], 0) ?? '/'
 
    const faviconHref =
       pageData.favicon?.trim() ||
@@ -501,8 +524,29 @@ const PageGenerator: React.FC<PageGeneratorProps> = ({ data: pageData }) => {
 
    return (
       <>
+         <ScrollToHash />
          {header && <Header {...header} />}
-         <main>{fields.map(renderField)}</main>
+         <Routes>
+            {pageData.page.map((page, index) => {
+               const path = getPagePath(page, index)
+               return path ? (
+                  <Route
+                     key={path}
+                     path={path}
+                     element={<PageContent page={page} />}
+                  />
+               ) : null
+            })}
+            <Route
+               path="*"
+               element={
+                  <Navigate
+                     to={`${fallbackPath}${location.search}`}
+                     replace
+                  />
+               }
+            />
+         </Routes>
          {footer && <Footer {...footer} />}
       </>
    )

@@ -16,19 +16,19 @@
         "menu": [
           {
             "label": "Home",
-            "link": "#/home",
+            "link": "/",
             "color": "#F4F7FA",
             "colorHover": "#69D5C2"
           },
           {
             "label": "About us",
-            "link": "#/about-us",
+            "link": "/about-us",
             "color": "#F4F7FA",
             "colorHover": "#69D5C2"
           },
           {
             "label": "Our work",
-            "link": "#/our-work",
+            "link": "/our-work",
             "color": "#F4F7FA",
             "colorHover": "#69D5C2"
           }
@@ -67,19 +67,19 @@
             "options": [
               {
                 "label": "Home",
-                "link": "#/home",
+                "link": "/",
                 "color": "#9DCAC4",
                 "colorHover": "#69D5C2"
               },
               {
                 "label": "About us",
-                "link": "#/about-us",
+                "link": "/about-us",
                 "color": "#9DCAC4",
                 "colorHover": "#69D5C2"
               },
               {
                 "label": "Our work",
-                "link": "#/our-work",
+                "link": "/our-work",
                 "color": "#9DCAC4",
                 "colorHover": "#69D5C2"
               }
@@ -115,7 +115,7 @@
   ],
   "page": [
     {
-      "slug": "home",
+      "path": "/",
       "pageTitle": "Northstar Global | Home",
       "pageFields": [
         {
@@ -160,7 +160,7 @@
               "as": "a",
               "variant": "primary",
               "label": "Explore our work",
-              "link": "#/our-work",
+              "link": "/our-work",
               "icon": "arrow",
               "iconPosition": "right",
               "backgroundColor": "#69D5C2",
@@ -174,7 +174,7 @@
               "as": "a",
               "variant": "outline",
               "label": "Meet Northstar",
-              "link": "#/about-us",
+              "link": "/about-us",
               "borderColor": "#F4F7FA",
               "textColor": "#F4F7FA",
               "hoverBackgroundColor": "#F4F7FA",
@@ -255,7 +255,7 @@
               "summary": "Connecting renewable generation, storage and city infrastructure through one resilient energy platform.",
               "image": "https://placehold.co/960x540",
               "outcome": "28% faster integration of renewable capacity",
-              "link": "#/our-work",
+              "link": "/our-work",
               "linkLabel": "View our work"
             },
             {
@@ -264,7 +264,7 @@
               "summary": "A unified mobility experience brings transit operators and travelers onto the same journey.",
               "image": "https://placehold.co/960x540",
               "outcome": "2.4M journeys improved every month",
-              "link": "#/our-work",
+              "link": "/our-work",
               "linkLabel": "View our work"
             }
           ]
@@ -315,7 +315,7 @@
       ]
     },
     {
-      "slug": "about-us",
+      "path": "/about-us",
       "pageTitle": "Northstar Global | About us",
       "pageFields": [
         {
@@ -359,7 +359,7 @@
               "as": "a",
               "variant": "primary",
               "label": "See what we do",
-              "link": "#/our-work",
+              "link": "/our-work",
               "backgroundColor": "#69D5C2",
               "textColor": "#101E2B",
               "borderColor": "#69D5C2"
@@ -450,7 +450,7 @@
       ]
     },
     {
-      "slug": "our-work",
+      "path": "/our-work",
       "pageTitle": "Northstar Global | Our work",
       "pageFields": [
         {
@@ -494,7 +494,7 @@
               "as": "a",
               "variant": "primary",
               "label": "Our approach",
-              "link": "#/about-us",
+              "link": "/about-us",
               "backgroundColor": "#69D5C2",
               "textColor": "#101E2B",
               "borderColor": "#69D5C2"
