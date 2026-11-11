@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from './style'
 import menuIcon from './icons/menu.svg'
 import closeIcon from './icons/close.svg'
+import SmartLink from '../../SmartLink'
 
 interface MenuItem {
    label: string
@@ -80,6 +81,7 @@ const Header: React.FC<HeaderProps> = ({
                   {menu.map((item) => (
                      <li key={item.link}>
                         <S.MenuLink
+                           as={SmartLink}
                            href={item.link}
                            onClick={closeMenu}
                            $color={item.color}
@@ -92,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({
                </ul>
 
                {button?.hasButton && (
-                  <a
+                  <SmartLink
                      className="button"
                      href={button.link}
                      target={button.target ? '_blank' : '_self'}
@@ -100,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({
                      rel="noopener noreferrer"
                   >
                      {button.label}
-                  </a>
+                  </SmartLink>
                )}
             </S.Nav>
 

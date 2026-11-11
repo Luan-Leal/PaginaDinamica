@@ -63,9 +63,9 @@ O `Template` também disponibiliza duas demonstrações locais independentes da 
 
 O [PageGenerator](./src/components/PageGenerator/index.tsx) recebe os dados já carregados e associa cada `typeField` a um componente. Assim, a lógica de requisição e fallback fica no `Template`, enquanto o gerador cuida da renderização.
 
-O `PageGenerator` usa `global[0]` para renderizar o Header e o Footer compartilhados e seleciona a página atual de `page` pela rota hash. Cada componente de `pageFields` é associado a um renderer pelo campo `typeField`; a grafia é sensível a maiúsculas/minúsculas. Componentes registrados também podem ser aninhados em células do Grid quando o renderer do Grid encaminha esse `typeField`.
+O `PageGenerator` usa `global[0]` para renderizar o Header e o Footer compartilhados e cria rotas do React Router a partir do campo `path` em cada página. Cada componente de `pageFields` é associado a um renderer pelo campo `typeField`; a grafia é sensível a maiúsculas/minúsculas. Componentes registrados também podem ser aninhados em células do Grid quando o renderer do Grid encaminha esse `typeField`.
 
-Quando muda a rota, o gerador atualiza o conteúdo e o título da aba (`document.title`). Ele não depende de um roteador externo: a navegação entre páginas usa hashes no formato `#/slug`.
+Quando muda a rota, o gerador atualiza o conteúdo e o título da aba (`document.title`). A navegação entre páginas usa caminhos do navegador, como `/about-us`; âncoras de seções continuam usando fragmentos, como `#sobre`.
 
 ## Formato geral do JSON
 
@@ -94,7 +94,7 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
   ],
   "page": [
     {
-      "slug": "home",
+      "path": "/",
       "pageTitle": "Página inicial",
       "pageFields": [
         {
@@ -110,11 +110,13 @@ O JSON precisa ter um identificador e uma lista `page`, contendo pelo menos uma 
 `loading` é opcional e configura a tela exibida enquanto o JSON é carregado. Aceita `backgroundColor` para a cor de fundo, `text` para a mensagem, `logo` para uma imagem opcional e `alt` para o texto alternativo dessa imagem. Durante a primeira requisição, a configuração do mock local é usada, pois a configuração remota só fica disponível depois que a API responde.
 
 `pageTitle` é descritivo; a renderização dos componentes acontece por `pageFields`.
-Para um JSON com várias páginas, cada item de `page` pode ter `slug`. O `PageGenerator` seleciona a página pela rota hash `#/slug`; dados legados sem `slug` continuam renderizando a primeira página.
+Para um JSON com várias páginas, cada item de `page` pode ter `path`, que deve começar com `/` e ser único. O `PageGenerator` cria as rotas a partir desses caminhos. `slug` continua aceito por compatibilidade e, quando não há `path`, é convertido em `/<slug>`. Páginas antigas sem nenhum dos campos continuam usando `/` para a primeira página.
 
 O campo opcional `favicon` define o ícone da aba para aquele JSON. A prioridade é: `favicon` do JSON, `src/assets/favicon.ico` configurado no código e, por último, `public/favicon.ico`. O endereço do JSON pode ser uma URL ou um caminho de imagem acessível pelo navegador. Se o campo estiver ausente ou vazio, será usado o fallback local.
 
-Exemplo de navegação para uma página com `slug: "sobre-nos"`: `https://seu-site.example/#/sobre-nos`. O primeiro segmento após `#/` é comparado com o `slug`. Se não houver correspondência, o gerador exibe a primeira página. Em JSONs de uma única página sem slug, links de seção com âncoras tradicionais, como `#sobre`, continuam funcionando.
+No deploy da Vercel, o arquivo `vercel.json` reescreve caminhos de páginas para o app React. Assim, URLs como `/about-us` também funcionam ao serem abertas diretamente ou atualizadas.
+
+Exemplo de navegação para uma página com `"path": "/sobre-nos"`: `https://seu-site.example/sobre-nos`. Links de seção usam IDs de componentes, por exemplo `#sobre`; uma âncora em outra página pode ser escrita como `/sobre-nos#historia`.
 
 ### Onde editar os dados
 
@@ -128,13 +130,13 @@ As demonstrações abaixo carregam arquivos JSON locais e não fazem a requisiç
 | Demonstração | URL de desenvolvimento | JSON | Paleta isolada |
 |---|---|---|---|
 | Barbearia | `http://localhost:3000/?demo=barbearia` | `src/util/barbearia-pagebuilder.json` | `src/global/barbearia.css` |
-| Northstar Global | `http://localhost:3000/?demo=multinacional#/home` | `src/util/multinacional-pagebuilder.json` | `src/global/multinacional.css` |
+| Northstar Global | `http://localhost:3000/?demo=multinacional` | `src/util/multinacional-pagebuilder.json` | `src/global/multinacional.css` |
 
 O restaurante continua usando a API configurada em `PAGE_JSON_URL`, com `src/util/pagebuilder.json` como fallback. As classes `barbearia-theme` e `multinacional-theme` escopam as respectivas variáveis de cor e tipografia ao wrapper da demonstração; elas não substituem a paleta do restaurante.
 
 Cada JSON de demonstração pode definir seu próprio `favicon`; se não definir, usa os favicons locais na ordem documentada acima.
 
-A demonstração Northstar Global possui três páginas: `home`, `about-us` e `our-work`. O Header e o Footer navegam entre elas com URLs como `#/about-us`. A demonstração da barbearia e a página atual do restaurante continuam funcionando como páginas únicas.
+A demonstração Northstar Global possui três páginas: `/`, `/about-us` e `/our-work`. O Header e o Footer navegam entre elas; o parâmetro `?demo=multinacional` é mantido para que o acesso direto e a atualização das rotas continuem carregando a demonstração. A demonstração da barbearia e a página atual do restaurante continuam funcionando como páginas únicas em `/`.
 
 O validador do `Template` verifica a estrutura principal antes de renderizar (por exemplo, `id`, `page` e `pageFields`). Ele não valida todos os atributos de cada componente. Use os nomes e tipos descritos neste documento e teste as alterações.
 
@@ -432,7 +434,7 @@ O Footer fica em `global[0].footer`.
 | `columns[].fontFamily` | Família de fonte do título da coluna. |
 | `columns[].fontSize` | Tamanho do título da coluna. |
 | `columns[].options` | Links (`label` e `link`, com `color` e `colorHover` opcionais) ou objetos com `TextComponent`. Sem cores definidas no link, são usadas as cores padrão atuais do Footer. |
-| `columns[].socialMedia` | Lista de redes com `icon` e `link`. Os nomes de ícone reconhecidos são `Instagram` e `Whatsapp` (sem distinção de maiúsculas/minúsculas). |
+| `columns[].socialMedia` | Lista de redes com `icon` e `link`. Os ícones reconhecidos são `LinkedIn`, `Instagram` e `Whatsapp` (sem distinção de maiúsculas/minúsculas). |
 
 ### Accordion
 
@@ -556,20 +558,20 @@ Exibe cases em cartões com imagem, contexto e resultado. Use `typeField: "caseS
 
 Os quatro componentes são genéricos e reutilizáveis em qualquer página ou site carregado pelo PageGenerator; seus nomes não são exclusivos da demonstração Northstar.
 
-### Página multipágina e rotas (`slug`)
+### Página multipágina e rotas (`path`)
 
-Para criar páginas adicionais, adicione objetos ao array `page` do mesmo JSON. Defina um `slug` único para cada página e use `#/slug` nos links do Header, Footer ou botões. Exemplo resumido:
+Para criar páginas adicionais, adicione objetos ao array `page` do mesmo JSON. Defina um `path` único para cada página e use esse mesmo caminho nos links do Header, Footer ou botões. Os caminhos devem começar com `/`. Exemplo resumido:
 
 ```json
 {
   "page": [
     {
-      "slug": "home",
+      "path": "/",
       "pageTitle": "Empresa | Home",
       "pageFields": []
     },
     {
-      "slug": "sobre-nos",
+      "path": "/sobre-nos",
       "pageTitle": "Empresa | Sobre nós",
       "pageFields": []
     }
@@ -577,7 +579,7 @@ Para criar páginas adicionais, adicione objetos ao array `page` do mesmo JSON. 
 }
 ```
 
-O `PageGenerator` mantém Header/Footer globais e troca somente os campos da página selecionada. Se um JSON antigo não tiver `slug`, ele continua renderizando a primeira entrada de `page`, preservando o comportamento das páginas existentes.
+O `PageGenerator` mantém Header/Footer globais e troca somente os campos da página selecionada. JSONs antigos sem `path` continuam funcionando: se houver `slug`, ele é usado para formar `/<slug>`; caso contrário, a primeira página fica em `/`.
 
 ### Carousel
 

@@ -5,6 +5,7 @@ import type {
    ButtonProps,
 } from './types'
 import * as S from './style'
+import SmartLink from '../../SmartLink'
 
 const ButtonContent: React.FC<{
    label: string
@@ -84,6 +85,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
    return (
       <S.Anchor
+         as={SmartLink}
          $variant={variant ?? 'primary'}
          $backgroundColor={backgroundColor}
          $textColor={textColor}
