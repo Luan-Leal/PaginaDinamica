@@ -1,4 +1,5 @@
 import * as S from './style'
+import SmartLink from '../../SmartLink'
 
 export interface CaseStudy {
    sector: string
@@ -59,7 +60,11 @@ const CaseStudies = ({
                         {item.outcome}
                      </S.Outcome>
                      {item.link && (
-                        <S.Link href={item.link} $accentColor={accentColor}>
+                        <S.Link
+                           as={SmartLink}
+                           href={item.link}
+                           $accentColor={accentColor}
+                        >
                            {item.linkLabel ?? 'Saiba mais'}
                            <span aria-hidden="true">↗</span>
                         </S.Link>

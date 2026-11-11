@@ -6,6 +6,7 @@ import {
    resolveTag,
 } from '../../micros/Text/tags'
 import * as S from './style'
+import SmartLink from '../../SmartLink'
 import type {
    FooterColumn,
    FooterOption,
@@ -23,6 +24,14 @@ const isTextOption = (
 
 const SocialIcon: React.FC<{ name: string }> = ({ name }) => {
    const normalizedName = name.toLowerCase()
+
+   if (normalizedName === 'linkedin') {
+      return (
+         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M5.2 7.8a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2ZM2.8 9.5h4.8V22H2.8zM10 9.5h4.6v1.7h.1c.6-1.1 2.1-2.2 4.3-2.2 4.6 0 5.4 3 5.4 6.8V22h-4.8v-5.5c0-1.3 0-3.1-1.9-3.1s-2.2 1.4-2.2 3V22H10z" />
+         </svg>
+      )
+   }
 
    if (normalizedName === 'instagram') {
       return (
@@ -119,6 +128,7 @@ const FooterColumnContent: React.FC<{ column: FooterColumn }> = ({
                      </div>
                   ) : (
                      <S.OptionLink
+                        as={SmartLink}
                         key={`${option.label}-${index}`}
                         href={option.link}
                         $color={option.color}
